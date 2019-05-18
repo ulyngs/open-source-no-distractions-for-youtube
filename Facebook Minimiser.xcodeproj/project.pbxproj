@@ -1,0 +1,514 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D7F4C2CD228FE6B1007F8601 /* Facebook_Minimiser.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = D7F4C2CC228FE6B1007F8601 /* Facebook_Minimiser.entitlements */; };
+		D7F4C2CF228FE6B1007F8601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4C2CE228FE6B1007F8601 /* AppDelegate.swift */; };
+		D7F4C2D2228FE6B1007F8601 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F4C2D0228FE6B1007F8601 /* Main.storyboard */; };
+		D7F4C2D4228FE6B1007F8601 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4C2D3228FE6B1007F8601 /* ViewController.swift */; };
+		D7F4C2D6228FE6B1007F8601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7F4C2D5228FE6B1007F8601 /* Assets.xcassets */; };
+		D7F4C2DD228FE6B1007F8601 /* Facebook Minimiser Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D7F4C2DC228FE6B1007F8601 /* Facebook Minimiser Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D7F4C2E2228FE6B1007F8601 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F4C2E1228FE6B1007F8601 /* Cocoa.framework */; };
+		D7F4C2E5228FE6B1007F8601 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4C2E4228FE6B1007F8601 /* SafariExtensionHandler.swift */; };
+		D7F4C2E7228FE6B1007F8601 /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4C2E6228FE6B1007F8601 /* SafariExtensionViewController.swift */; };
+		D7F4C2EA228FE6B1007F8601 /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7F4C2E8228FE6B1007F8601 /* SafariExtensionViewController.xib */; };
+		D7F4C2ED228FE6B1007F8601 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = D7F4C2EC228FE6B1007F8601 /* script.js */; };
+		D7F4C2EF228FE6B1007F8601 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D7F4C2EE228FE6B1007F8601 /* ToolbarItemIcon.pdf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D7F4C2DE228FE6B1007F8601 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7F4C2C1228FE6B1007F8601 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7F4C2DB228FE6B1007F8601;
+			remoteInfo = "Facebook Minimiser Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D7F4C2F6228FE6B1007F8601 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D7F4C2DD228FE6B1007F8601 /* Facebook Minimiser Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D7F4C2C9228FE6B1007F8601 /* Facebook Minimiser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Facebook Minimiser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7F4C2CC228FE6B1007F8601 /* Facebook_Minimiser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Facebook_Minimiser.entitlements; sourceTree = "<group>"; };
+		D7F4C2CE228FE6B1007F8601 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D7F4C2D1228FE6B1007F8601 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D7F4C2D3228FE6B1007F8601 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D7F4C2D5228FE6B1007F8601 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D7F4C2D7228FE6B1007F8601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7F4C2DC228FE6B1007F8601 /* Facebook Minimiser Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Facebook Minimiser Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7F4C2E1228FE6B1007F8601 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D7F4C2E4228FE6B1007F8601 /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
+		D7F4C2E6228FE6B1007F8601 /* SafariExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionViewController.swift; sourceTree = "<group>"; };
+		D7F4C2E9228FE6B1007F8601 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
+		D7F4C2EB228FE6B1007F8601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7F4C2EC228FE6B1007F8601 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
+		D7F4C2EE228FE6B1007F8601 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
+		D7F4C2F0228FE6B1007F8601 /* Facebook_Minimiser_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Facebook_Minimiser_Extension.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D7F4C2C6228FE6B1007F8601 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7F4C2D9228FE6B1007F8601 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7F4C2E2228FE6B1007F8601 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D7F4C2C0228FE6B1007F8601 = {
+			isa = PBXGroup;
+			children = (
+				D7F4C2CB228FE6B1007F8601 /* Facebook Minimiser */,
+				D7F4C2E3228FE6B1007F8601 /* Facebook Minimiser Extension */,
+				D7F4C2E0228FE6B1007F8601 /* Frameworks */,
+				D7F4C2CA228FE6B1007F8601 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D7F4C2CA228FE6B1007F8601 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D7F4C2C9228FE6B1007F8601 /* Facebook Minimiser.app */,
+				D7F4C2DC228FE6B1007F8601 /* Facebook Minimiser Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D7F4C2CB228FE6B1007F8601 /* Facebook Minimiser */ = {
+			isa = PBXGroup;
+			children = (
+				D7F4C2CC228FE6B1007F8601 /* Facebook_Minimiser.entitlements */,
+				D7F4C2CE228FE6B1007F8601 /* AppDelegate.swift */,
+				D7F4C2D0228FE6B1007F8601 /* Main.storyboard */,
+				D7F4C2D3228FE6B1007F8601 /* ViewController.swift */,
+				D7F4C2D5228FE6B1007F8601 /* Assets.xcassets */,
+				D7F4C2D7228FE6B1007F8601 /* Info.plist */,
+			);
+			path = "Facebook Minimiser";
+			sourceTree = "<group>";
+		};
+		D7F4C2E0228FE6B1007F8601 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D7F4C2E1228FE6B1007F8601 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7F4C2E3228FE6B1007F8601 /* Facebook Minimiser Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D7F4C2E4228FE6B1007F8601 /* SafariExtensionHandler.swift */,
+				D7F4C2E6228FE6B1007F8601 /* SafariExtensionViewController.swift */,
+				D7F4C2E8228FE6B1007F8601 /* SafariExtensionViewController.xib */,
+				D7F4C2EB228FE6B1007F8601 /* Info.plist */,
+				D7F4C2EC228FE6B1007F8601 /* script.js */,
+				D7F4C2EE228FE6B1007F8601 /* ToolbarItemIcon.pdf */,
+				D7F4C2F0228FE6B1007F8601 /* Facebook_Minimiser_Extension.entitlements */,
+			);
+			path = "Facebook Minimiser Extension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D7F4C2C8228FE6B1007F8601 /* Facebook Minimiser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7F4C2F7228FE6B1007F8601 /* Build configuration list for PBXNativeTarget "Facebook Minimiser" */;
+			buildPhases = (
+				D7F4C2C5228FE6B1007F8601 /* Sources */,
+				D7F4C2C6228FE6B1007F8601 /* Frameworks */,
+				D7F4C2C7228FE6B1007F8601 /* Resources */,
+				D7F4C2F6228FE6B1007F8601 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D7F4C2DF228FE6B1007F8601 /* PBXTargetDependency */,
+			);
+			name = "Facebook Minimiser";
+			productName = "Facebook Minimiser";
+			productReference = D7F4C2C9228FE6B1007F8601 /* Facebook Minimiser.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D7F4C2DB228FE6B1007F8601 /* Facebook Minimiser Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7F4C2F3228FE6B1007F8601 /* Build configuration list for PBXNativeTarget "Facebook Minimiser Extension" */;
+			buildPhases = (
+				D7F4C2D8228FE6B1007F8601 /* Sources */,
+				D7F4C2D9228FE6B1007F8601 /* Frameworks */,
+				D7F4C2DA228FE6B1007F8601 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Facebook Minimiser Extension";
+			productName = "Facebook Minimiser Extension";
+			productReference = D7F4C2DC228FE6B1007F8601 /* Facebook Minimiser Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D7F4C2C1228FE6B1007F8601 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Ulrik Lyngs";
+				TargetAttributes = {
+					D7F4C2C8228FE6B1007F8601 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					D7F4C2DB228FE6B1007F8601 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = D7F4C2C4228FE6B1007F8601 /* Build configuration list for PBXProject "Facebook Minimiser" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D7F4C2C0228FE6B1007F8601;
+			productRefGroup = D7F4C2CA228FE6B1007F8601 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D7F4C2C8228FE6B1007F8601 /* Facebook Minimiser */,
+				D7F4C2DB228FE6B1007F8601 /* Facebook Minimiser Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D7F4C2C7228FE6B1007F8601 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7F4C2CD228FE6B1007F8601 /* Facebook_Minimiser.entitlements in Resources */,
+				D7F4C2D6228FE6B1007F8601 /* Assets.xcassets in Resources */,
+				D7F4C2D2228FE6B1007F8601 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7F4C2DA228FE6B1007F8601 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7F4C2EF228FE6B1007F8601 /* ToolbarItemIcon.pdf in Resources */,
+				D7F4C2EA228FE6B1007F8601 /* SafariExtensionViewController.xib in Resources */,
+				D7F4C2ED228FE6B1007F8601 /* script.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D7F4C2C5228FE6B1007F8601 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7F4C2D4228FE6B1007F8601 /* ViewController.swift in Sources */,
+				D7F4C2CF228FE6B1007F8601 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7F4C2D8228FE6B1007F8601 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7F4C2E7228FE6B1007F8601 /* SafariExtensionViewController.swift in Sources */,
+				D7F4C2E5228FE6B1007F8601 /* SafariExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D7F4C2DF228FE6B1007F8601 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D7F4C2DB228FE6B1007F8601 /* Facebook Minimiser Extension */;
+			targetProxy = D7F4C2DE228FE6B1007F8601 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D7F4C2D0228FE6B1007F8601 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7F4C2D1228FE6B1007F8601 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D7F4C2E8228FE6B1007F8601 /* SafariExtensionViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7F4C2E9228FE6B1007F8601 /* Base */,
+			);
+			name = SafariExtensionViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D7F4C2F1228FE6B1007F8601 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D7F4C2F2228FE6B1007F8601 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		D7F4C2F4228FE6B1007F8601 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Facebook Minimiser Extension/Facebook_Minimiser_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7YEYWQKK25;
+				INFOPLIST_FILE = "Facebook Minimiser Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "UL.Facebook-Minimiser-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		D7F4C2F5228FE6B1007F8601 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Facebook Minimiser Extension/Facebook_Minimiser_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7YEYWQKK25;
+				INFOPLIST_FILE = "Facebook Minimiser Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "UL.Facebook-Minimiser-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		D7F4C2F8228FE6B1007F8601 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Facebook Minimiser/Facebook_Minimiser.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 7YEYWQKK25;
+				INFOPLIST_FILE = "Facebook Minimiser/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "UL.Facebook-Minimiser";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		D7F4C2F9228FE6B1007F8601 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Facebook Minimiser/Facebook_Minimiser.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 7YEYWQKK25;
+				INFOPLIST_FILE = "Facebook Minimiser/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "UL.Facebook-Minimiser";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D7F4C2C4228FE6B1007F8601 /* Build configuration list for PBXProject "Facebook Minimiser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7F4C2F1228FE6B1007F8601 /* Debug */,
+				D7F4C2F2228FE6B1007F8601 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7F4C2F3228FE6B1007F8601 /* Build configuration list for PBXNativeTarget "Facebook Minimiser Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7F4C2F4228FE6B1007F8601 /* Debug */,
+				D7F4C2F5228FE6B1007F8601 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7F4C2F7228FE6B1007F8601 /* Build configuration list for PBXNativeTarget "Facebook Minimiser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7F4C2F8228FE6B1007F8601 /* Debug */,
+				D7F4C2F9228FE6B1007F8601 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D7F4C2C1228FE6B1007F8601 /* Project object */;
+}
