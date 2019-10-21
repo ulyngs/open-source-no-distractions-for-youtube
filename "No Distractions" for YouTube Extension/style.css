@@ -1,0 +1,8 @@
+ytd-browse[page-subtype="home"] {
+    display: none !important;
+}
+
+#secondary-inner {
+    display: none !important;
+}
+
