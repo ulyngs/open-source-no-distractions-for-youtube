@@ -6,3 +6,7 @@ ytd-browse[page-subtype="home"] {
     display: none !important;
 }
 
+/* on narrow viewport */
+#related {
+    display: none !important;
+}
