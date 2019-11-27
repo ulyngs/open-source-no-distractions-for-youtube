@@ -19,7 +19,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func openSafariExtensionPreferences(_ sender: AnyObject?) {
-        SFSafariApplication.showPreferencesForExtension(withIdentifier: "UL.Hide-recommended-videos-on-YouTube.extension") { error in
+        SFSafariApplication.showPreferencesForExtension(withIdentifier: "com.ulriklyngs.yt-minimiser.yt-minimiser") { error in
             if let _ = error {
                 // Insert code to inform the user that something went wrong.
 
