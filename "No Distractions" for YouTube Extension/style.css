@@ -2,11 +2,15 @@ ytd-browse[page-subtype="home"] {
     display: none !important;
 }
 
-#secondary-inner {
+/*#secondary-inner {
     display: none !important;
-}
+}*/
 
 /* on narrow viewport */
 #related {
+    display: none !important;
+}
+
+ytd-guide-entry-renderer a[title="Trending"]{
     display: none !important;
 }
