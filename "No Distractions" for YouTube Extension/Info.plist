@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>"No Distractions" for YouTube</string>
+	<string>&quot;No Distractions&quot; for YouTube</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -30,7 +30,10 @@
 		<string>$(PRODUCT_MODULE_NAME).SafariExtensionHandler</string>
 		<key>SFSafariContentScript</key>
 		<array>
-			<dict/>
+			<dict>
+				<key>Script</key>
+				<string>toggle-comments.js</string>
+			</dict>
 		</array>
 		<key>SFSafariStyleSheet</key>
 		<array>
