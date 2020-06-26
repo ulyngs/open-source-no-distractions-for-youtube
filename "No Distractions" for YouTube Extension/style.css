@@ -14,3 +14,8 @@ ytd-browse[page-subtype="home"] {
 ytd-guide-entry-renderer a[title="Trending"]{
     display: none !important;
 }
+
+
+.ytp-endscreen-content {
+    display: none !important;
+}

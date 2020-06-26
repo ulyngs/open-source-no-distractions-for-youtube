@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D76337D52486836100275D97 /* toggle-comments.js in Resources */ = {isa = PBXBuildFile; fileRef = D76337D42486836100275D97 /* toggle-comments.js */; };
+		D7C88D9C248695F1002C3D03 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = D7C88D9B248695F1002C3D03 /* readme.md */; };
 		D7F4C2CD228FE6B1007F8601 /* No_Distractions_ for_YouTube.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = D7F4C2CC228FE6B1007F8601 /* No_Distractions_ for_YouTube.entitlements */; };
 		D7F4C2CF228FE6B1007F8601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4C2CE228FE6B1007F8601 /* AppDelegate.swift */; };
 		D7F4C2D2228FE6B1007F8601 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F4C2D0228FE6B1007F8601 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		D76337D42486836100275D97 /* toggle-comments.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "toggle-comments.js"; sourceTree = "<group>"; };
+		D7C88D9B248695F1002C3D03 /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		D7F4C2C9228FE6B1007F8601 /* "No Distractions" for YouTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "\"No Distractions\" for YouTube.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F4C2CC228FE6B1007F8601 /* No_Distractions_ for_YouTube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "No_Distractions_ for_YouTube.entitlements"; sourceTree = "<group>"; };
 		D7F4C2CE228FE6B1007F8601 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		D7F4C2C0228FE6B1007F8601 = {
 			isa = PBXGroup;
 			children = (
+				D7C88D9B248695F1002C3D03 /* readme.md */,
 				D7F4C2CB228FE6B1007F8601 /* "No Distractions" for YouTube */,
 				D7F4C2E3228FE6B1007F8601 /* "No Distractions" for YouTube Extension */,
 				D7F4C2E0228FE6B1007F8601 /* Frameworks */,
@@ -233,6 +236,7 @@
 			files = (
 				D7F4C2CD228FE6B1007F8601 /* No_Distractions_ for_YouTube.entitlements in Resources */,
 				D7F4C2D6228FE6B1007F8601 /* Assets.xcassets in Resources */,
+				D7C88D9C248695F1002C3D03 /* readme.md in Resources */,
 				D7F4C2D2228FE6B1007F8601 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
