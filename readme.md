@@ -4,7 +4,7 @@
 
 ## Ready for Sale
 ### What's New in This Version
-Hi folks, the app is updated with a tweak suggested on GitHub: the app no longer hides videos that are part of a playlist.
+Hi folks, the app is updated with a tweak suggested by a reviewer: the app now also hides video recommendations that YouTube pops up on the screen after a video ends.
 
 Remember the extension is open source - find the source code and submit feature suggestions on https://github.com/ulyngs/open-source-no-distractions-for-youtube!
 
