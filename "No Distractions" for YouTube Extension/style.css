@@ -1,21 +1,43 @@
+/* hide videos on home page */
 ytd-browse[page-subtype="home"] {
     display: none !important;
 }
 
-/*#secondary-inner {
+/* on narrow viewport */
+/*#related {
     display: none !important;
 }*/
 
-/* on narrow viewport */
-#related {
-    display: none !important;
-}
 
 ytd-guide-entry-renderer a[title="Trending"]{
     display: none !important;
 }
 
+#related {
+    visibility: hidden;
+}
 
+#related #upnext {
+    display: none;
+}
+
+#related #autoplay {
+    visibility: visible;
+}
+#related #toggle {
+    visibility: visible;
+}
+
+/* hide suggested videos popping up on end screen */
 .ytp-endscreen-content {
     display: none !important;
+}
+
+/* style the toggle comments button */
+#toggleComments {
+    background-color: #606060;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    text-align: center;
 }
