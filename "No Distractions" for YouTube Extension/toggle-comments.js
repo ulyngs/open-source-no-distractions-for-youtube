@@ -20,7 +20,4 @@ document.addEventListener("yt-page-data-updated", function(event) {
             }
         });
     }
-    
-    document.getElementById("toggle").setAttribute("aria-pressed", "false");
-
 });
