@@ -29,7 +29,9 @@ document.addEventListener("yt-page-data-updated", function(event) {
     if (!comments) {
         comments = document.querySelector("#comments");
         originalStyle = comments.style.display;
-        comments.insertAdjacentHTML('beforebegin', ' <button id="toggleComments" type="button">Toggle comments</button>');
+        
+        buttonToInsert = ' <button id="toggleComments" type="button">Toggle comments</button>'
+        comments.insertAdjacentHTML('beforebegin', buttonToInsert);
 
         if (getCookie("comments-hidden") == 1) {
             comments.style.display = "none";
@@ -39,9 +41,13 @@ document.addEventListener("yt-page-data-updated", function(event) {
             if (comments.style.display === "none") {
                 comments.style.display = originalStyle;
                 setCookie('comments-hidden', 0, 365);
+                document.getElementById('toggleComments').innerHTML= "Hide comments";
+                console.log("clicking")
             } else {
                 comments.style.display = "none";
                 setCookie('comments-hidden', 1, 365);
+                document.getElementById('toggleComments').innerHTML= "Show comments";
+                console.log("clicking")
             }
         });
     }
