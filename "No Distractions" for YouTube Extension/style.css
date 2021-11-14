@@ -3,11 +3,14 @@ ytd-browse[page-subtype="home"] {
     display: none !important;
 }
 
-/* on narrow viewport */
-/*#related {
-    display: none !important;
-}*/
-
+/* on narrow viewport, hide this element
+because the comments will otherwise jump down
+the page */
+@media screen and (max-width: 1000px) {
+    #related {
+        display: none !important;
+    }
+}
 
 ytd-guide-entry-renderer a[title="Trending"]{
     display: none !important;
