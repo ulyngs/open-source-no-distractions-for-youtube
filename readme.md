@@ -1,3 +1,8 @@
+**UPDATE**: I have rebuilt the Safari Extension to be compatible with iPad and iPhone as well. The app is now called 'Hide distractions on YouTube' and you can find it on the app store.
+
+The GitHub repository for the new app is here: https://github.com/ulyngs/hide-distractions-on-youtube-universal
+
+
 # App Store Connect information
 ## App Information
 
