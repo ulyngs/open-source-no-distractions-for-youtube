@@ -2,7 +2,7 @@
 
 The GitHub repository for the new app is here: https://github.com/ulyngs/hide-distractions-on-youtube-universal
 
-(The reason for the new app name is that Apple changed something about how bundle identifiers are assigned, which made it needlessly complicated to convert the old app into a universal app compatible with iPad and iPhone...! \*sigh\*)
+(The reason for transitioning to a new app name is that Apple has changed something about how bundle identifiers are assigned, which made it needlessly complicated to convert the old app into a universal app compatible with iPad and iPhone...! \*sigh\*)
 
 
 # App Store Connect information
