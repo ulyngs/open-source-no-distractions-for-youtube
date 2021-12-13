@@ -1,9 +1,21 @@
-/* hide videos on home page */
+/***** hide videos on home page *****/
+/* desktop version */
 ytd-browse[page-subtype="home"] {
     visibility: hidden;
 }
+/* mobile version */
+div[tab-identifier="FEwhat_to_watch"]{
+    visibility: hidden;
+}
 
+/***** hide related videos when you watch a video *****/
+/* desktop version */
 #related {
+    visibility: hidden;
+}
+
+/* mobile version */
+ytm-item-section-renderer[section-identifier="related-items"] {
     visibility: hidden;
 }
 
@@ -51,14 +63,6 @@ ytd-guide-entry-renderer a[title="Trending"]{
     font-weight: 400;
 }
 
-/* iPhone stuff */
-div[tab-identifier="FEwhat_to_watch"]{
-    display: none !important;
-}
-
-ytm-item-section-renderer[section-identifier="related-items"] {
-    display: none;
-}
 
 /* hide ads on the search page */
 ytm-promoted-sparkles-text-search-renderer,

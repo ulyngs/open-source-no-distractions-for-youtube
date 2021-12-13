@@ -17,3 +17,28 @@ p {
 @media (prefers-color-scheme: dark) {
     /* Dark Mode styles go here. */
 }
+
+/******* HIDE IRRELEVANT TOGGLES *******/
+/* iPhone */
+@media only screen and (max-device-width: 480px) {
+    .platform-ipad-mac {
+        display: none;
+    }
+}
+
+
+@media only screen and (min-device-width: 768px) {
+    .platform-iphone {
+        display: none;
+    }
+}
+
+.content-toggles {
+    text-align: left;
+    font-size: 1em;
+    margin-bottom: 2em;
+}
+
+a:visited {
+    color: blue;
+}

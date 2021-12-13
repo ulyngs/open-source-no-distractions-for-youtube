@@ -26,6 +26,8 @@ document.addEventListener("yt-page-data-updated", function(event) {
 // content.js
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
+        // recommended videos, home page //
+        // on desktop
         recVids = document.querySelector('ytd-browse[page-subtype="home"]');
         
         // check for visibility
@@ -53,6 +55,37 @@ chrome.runtime.onMessage.addListener(
             }
         }
         
+        // on mobile
+        recVidsMobile = document.querySelector('div[tab-identifier="FEwhat_to_watch"]');
+        
+        // check for visibility
+        if(request.method == "checkRecHomeMobile"){
+            if (recVidsMobile.style.visibility === "hidden") {
+                sendResponse({text: "hidden", method: "checkRecHomeMobile"});
+            } else if (recVidsMobile.style.visibility === "visible") {
+                sendResponse({text: "visible", method: "checkRecHomeMobile"});
+            } else {
+                sendResponse({text: "hidden", method: "checkRecHomeMobile"});
+            }
+        }
+        
+        // change visibility
+        if(request.method == "changeRecVidsMobile"){
+            if (recVidsMobile.style.visibility === "hidden") {
+                recVidsMobile.style.visibility = "visible";
+                sendResponse({text: "rec vids visible", method: "changeRecVidsMobile"});
+            } else if (recVidsMobile.style.visibility === "visible") {
+                recVidsMobile.style.visibility = "hidden";
+                sendResponse({text: "rec vids hidden", method: "changeRecVidsMobile"});
+            } else {
+                recVidsMobile.style.visibility = "visible";
+                sendResponse({text: "rec vids visible", method: "changeRecVidsMobile"});
+            }
+        }
+        
+        
+        // related videos (when you watch a video) //
+        // on desktop
         relVids = document.querySelector('#related');
         
         // check for visibility
@@ -77,6 +110,34 @@ chrome.runtime.onMessage.addListener(
             } else {
                 relVids.style.visibility = "visible";
                 sendResponse({text: "related vids visible", method: "changeRelVids"});
+            }
+        }
+        
+        // on mobile
+        relVidsMobile = document.querySelector('ytm-item-section-renderer[section-identifier="related-items"]');
+        
+        // check for visibility
+        if(request.method == "checkRelVidsMobile"){
+            if (relVidsMobile.style.visibility === "hidden") {
+                sendResponse({text: "hidden", method: "checkRelVidsMobile"});
+            } else if (relVidsMobile.style.visibility === "visible") {
+                sendResponse({text: "visible", method: "checkRelVidsMobile"});
+            } else {
+                sendResponse({text: "hidden", method: "checkRelVidsMobile"});
+            }
+        }
+        
+        // change visibility
+        if(request.method == "changeRelVidsMobile"){
+            if (relVidsMobile.style.visibility === "hidden") {
+                relVidsMobile.style.visibility = "visible";
+                sendResponse({text: "related vids visible", method: "changeRelVidsMobile"});
+            } else if (relVidsMobile.style.visibility === "visible") {
+                relVidsMobile.style.visibility = "hidden";
+                sendResponse({text: "related vids hidden", method: "changeRelVidsMobile"});
+            } else {
+                relVidsMobile.style.visibility = "visible";
+                sendResponse({text: "related vids visible", method: "changeRelVidsMobile"});
             }
         }
         
