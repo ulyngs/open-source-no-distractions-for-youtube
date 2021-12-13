@@ -4,28 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>"No Distractions" for YouTube Extension.xcscheme_^#shared#^_</key>
+		<key>"No Distractions" for YouTube (iOS).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>"No Distractions" for YouTube.xcscheme_^#shared#^_</key>
+		<key>"No Distractions" for YouTube (macOS).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>D7F4C2C8228FE6B1007F8601</key>
+		<key>Hide distractions on YouTube (iOS).xcscheme_^#shared#^_</key>
 		<dict>
-			<key>primary</key>
-			<true/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
-		<key>D7F4C2DB228FE6B1007F8601</key>
+		<key>Hide distractions on YouTube (macOS).xcscheme_^#shared#^_</key>
 		<dict>
-			<key>primary</key>
-			<true/>
+			<key>orderHint</key>
+			<integer>0</integer>
 		</dict>
 	</dict>
 </dict>

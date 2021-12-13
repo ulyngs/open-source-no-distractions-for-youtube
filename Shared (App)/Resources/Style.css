@@ -1,0 +1,95 @@
+* {
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    cursor: default;
+}
+
+:root {
+    color-scheme: light dark;
+
+    --spacing: 20px;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    gap: var(--spacing);
+    margin: 0 calc(var(--spacing) * 2);
+    height: 100%;
+
+    font: -apple-system-short-body;
+    text-align: center;
+}
+
+body:not(.platform-mac, .platform-ios) :is(.platform-mac, .platform-ios) {
+    display: none;
+}
+
+body.platform-ios .platform-mac {
+    display: none;
+}
+
+body.platform-mac .platform-ios {
+    display: none;
+}
+
+body.platform-ios .platform-mac {
+    display: none;
+}
+
+body:not(.state-on, .state-off) :is(.state-on, .state-off) {
+    display: none;
+}
+
+body.state-on :is(.state-off, .state-unknown) {
+    display: none;
+}
+
+body.state-off :is(.state-on, .state-unknown) {
+    display: none;
+}
+
+button {
+    font-size: 1em;
+}
+
+.ios-illustration-image {
+    margin-top: 10px;
+    max-width: 80vw;
+}
+
+.app-icon {
+    height: 150px;
+}
+
+/* iPhone */
+@media only screen and (max-device-width: 480px) {
+    .platform-ipad {
+        display: none;
+    }
+    
+    p {
+        font-size: 2em;
+    }
+    
+    .iphone-illustration-image {
+        margin-top: 50px;
+        height: 50vh;
+    }
+
+}
+
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .platform-iphone {
+        display: none;
+    }
+}
+
+.illustration-image-ipad {
+    width: 60vw;
+    margin-top: 20px;
+}
