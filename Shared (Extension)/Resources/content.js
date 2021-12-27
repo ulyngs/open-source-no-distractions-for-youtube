@@ -1,28 +1,3 @@
-let comments = undefined;
-
-// Wait for page to fully load
-document.addEventListener("yt-page-data-updated", function(event) {
-    if (!comments) {
-        comments = document.querySelector("#comments");
-        
-        buttonToInsert = ' <button id="toggleComments" type="button">Load comments</button>'
-        comments.insertAdjacentHTML('beforebegin', buttonToInsert);
-
-        comments.style.display = "none";
-
-        document.getElementById("toggleComments").addEventListener("click", function(){
-            if (comments.style.display === "none") {
-                comments.style.display = "block";
-                document.getElementById('toggleComments').innerHTML= "Hide comments";
-            } else {
-                comments.style.display = "none";
-                document.getElementById('toggleComments').innerHTML= "Show comments";
-            }
-        });
-    }
-});
-
-
 // content.js
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
@@ -138,6 +113,34 @@ chrome.runtime.onMessage.addListener(
             } else {
                 relVidsMobile.style.visibility = "visible";
                 sendResponse({text: "related vids visible", method: "changeRelVidsMobile"});
+            }
+        }
+        
+        // comments
+        comments = document.querySelector('ytd-comments');
+        
+        // check for visibility
+        if(request.method == "checkComments"){
+            if (comments.style.visibility === "hidden") {
+                sendResponse({text: "hidden", method: "checkComments"});
+            } else if (comments.style.visibility === "visible") {
+                sendResponse({text: "visible", method: "checkComments"});
+            } else {
+                sendResponse({text: "hidden", method: "checkComments"});
+            }
+        }
+        
+        // change visibility
+        if(request.method == "changeComments"){
+            if (comments.style.visibility === "hidden") {
+                comments.style.visibility = "visible";
+                sendResponse({text: "comments visible", method: "changeComments"});
+            } else if (comments.style.visibility === "visible") {
+                comments.style.visibility = "hidden";
+                sendResponse({text: "comments hidden", method: "changeComments"});
+            } else {
+                comments.style.visibility = "visible";
+                sendResponse({text: "comments visible", method: "changeComments"});
             }
         }
         

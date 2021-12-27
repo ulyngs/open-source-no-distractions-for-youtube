@@ -19,6 +19,12 @@ ytm-item-section-renderer[section-identifier="related-items"] {
     visibility: hidden;
 }
 
+/***** hide comment ********/
+ytd-comments {
+    visibility: hidden;
+}
+
+
 /* on narrow viewport, hide this element
 because the comments will otherwise jump down
 the page */
@@ -67,7 +73,8 @@ ytd-guide-entry-renderer a[title="Trending"]{
 /* hide ads on the search page */
 ytm-promoted-sparkles-text-search-renderer,
 ytd-promoted-sparkles-text-search-renderer,
-ytd-promoted-sparkles-web-renderer {
+ytd-promoted-sparkles-web-renderer,
+ytd-carousel-ad-renderer {
     display: none !important;
 }
 

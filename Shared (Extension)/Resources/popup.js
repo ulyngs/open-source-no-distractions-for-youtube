@@ -59,6 +59,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             });
+            
+            chrome.tabs.sendMessage(tabs[0].id, {method: "checkComments"}, function(response) {
+                
+                var commentsCheckbox = document.getElementById('commentsToggle');
+                
+                if(response.method == "checkComments"){
+                    if(response.text === "visible"){
+                        commentsCheckbox.checked = true;
+                    } else {
+                        commentsCheckbox.checked = false;
+                    }
+                }
+            });
         }
     });
     
@@ -121,6 +134,22 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log("Related videos are visible")
                 } else {
                     console.log("Related videos are hidden")
+                }
+            }
+        });
+      });
+    }, false);
+    
+    var commentsCheckbox = document.getElementById('commentsToggle');
+    commentsCheckbox.addEventListener('click', function() {
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {method: "changeComments"}, function(response) {
+            
+            if(response.method == "changeComments"){
+                if(response.text === "comments visible"){
+                    console.log("Comments are visible")
+                } else {
+                    console.log("Comments are hidden")
                 }
             }
         });
