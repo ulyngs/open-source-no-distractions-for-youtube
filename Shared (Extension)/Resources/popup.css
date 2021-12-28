@@ -10,8 +10,12 @@ body {
     text-align: center;
 }
 
-p {
-    font-size: 0.9em;
+.smaller-font {
+    font-size: 0.85em;
+}
+
+.colored-font {
+    color: gray;
 }
 
 @media (prefers-color-scheme: dark) {
