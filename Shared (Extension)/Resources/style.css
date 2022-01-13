@@ -81,6 +81,6 @@ ytd-carousel-ad-renderer {
 
 
 /* hide the ads on a video page */
-ytm-promoted-sparkles-web-renderer, ytm-companion-ad-renderer {
+ytm-promoted-sparkles-web-renderer, ytm-companion-ad-renderer, #player-ads {
     display: none !important;
 }
