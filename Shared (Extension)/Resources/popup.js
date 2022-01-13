@@ -12,24 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 var recCheckbox = document.getElementById('recVidsToggle');
                 
-                if(response.method == "checkRecHome"){
+                if(response.method === "checkRecHome"){
                     if(response.text === "visible"){
                         recCheckbox.checked = true;
                     } else {
                         recCheckbox.checked = false;
-                    }
-                }
-            });
-            
-            chrome.tabs.sendMessage(tabs[0].id, {method: "checkRecHomeMobile"}, function(response) {
-                
-                var recCheckboxMobile = document.getElementById('recVidsToggleMobile');
-                
-                if(response.method == "checkRecHomeMobile"){
-                    if(response.text === "visible"){
-                        recCheckboxMobile.checked = true;
-                    } else {
-                        recCheckboxMobile.checked = false;
                     }
                 }
             });
@@ -77,68 +64,69 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // assign functions to the checkboxes
     var recCheckbox = document.getElementById('recVidsToggle');
-    recCheckbox.addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {method: "changeRecVids"}, function(response) {
-            
-            if(response.method == "changeRecVids"){
-                if(response.text === "rec vids visible"){
-                    console.log("Recommended videos are visible")
-                } else {
-                    console.log("Recommended videos are hidden")
-                }
-            }
-        });
-      });
-    }, false);
     
-    var recCheckboxMobile = document.getElementById('recVidsToggleMobile');
-    recCheckboxMobile.addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {method: "changeRecVidsMobile"}, function(response) {
-            
-            if(response.method == "changeRecVidsMobile"){
-                if(response.text === "rec vids visible"){
-                    console.log("Recommended videos are visible")
-                } else {
-                    console.log("Recommended videos are hidden")
+    // make it hide/show on mac
+    recCheckbox.addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {method: "changeRecVids"}, function(response) {
+                
+                if(response.method == "changeRecVids"){
+                    if(response.text === "rec vids visible"){
+                        console.log("Recommended videos are visible")
+                    } else {
+                        console.log("Recommended videos are hidden")
+                    }
                 }
-            }
-        });
-      });
-    }, false);
+            });
+          });
+        }, false);
+    
+    // make it hide/show on mobile
+    recCheckbox.addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {method: "changeRecVidsMobile"}, function(response) {
+                
+                if(response.method == "changeRecVidsMobile"){
+                    if(response.text === "rec vids visible"){
+                        console.log("Recommended videos are visible")
+                    } else {
+                        console.log("Recommended videos are hidden")
+                    }
+                }
+            });
+          });
+        }, false);
     
     var relCheckbox = document.getElementById('relVidsToggle');
     relCheckbox.addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {method: "changeRelVids"}, function(response) {
-            
-            if(response.method == "changeRelVids"){
-                if(response.text === "related vids visible"){
-                    console.log("Related videos are visible")
-                } else {
-                    console.log("Related videos are hidden")
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {method: "changeRelVids"}, function(response) {
+                
+                if(response.method == "changeRelVids"){
+                    if(response.text === "related vids visible"){
+                        console.log("Related videos are visible")
+                    } else {
+                        console.log("Related videos are hidden")
+                    }
                 }
-            }
-        });
-      });
-    }, false);
+            });
+          });
+        }, false);
     
-    var relCheckboxMobile = document.getElementById('relVidsToggleMobile');
-    relCheckboxMobile.addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {method: "changeRelVidsMobile"}, function(response) {
-            
-            if(response.method == "changeRelVidsMobile"){
-                if(response.text === "related vids visible"){
-                    console.log("Related videos are visible")
-                } else {
-                    console.log("Related videos are hidden")
+    relCheckbox.addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {method: "changeRelVidsMobile"}, function(response) {
+                
+                if(response.method == "changeRelVidsMobile"){
+                    if(response.text === "related vids visible"){
+                        console.log("Related videos are visible")
+                    } else {
+                        console.log("Related videos are hidden")
+                    }
                 }
-            }
-        });
-      });
-    }, false);
+            });
+          });
+        }, false);
     
     var commentsCheckbox = document.getElementById('commentsToggle');
     commentsCheckbox.addEventListener('click', function() {

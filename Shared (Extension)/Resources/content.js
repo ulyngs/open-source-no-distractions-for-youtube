@@ -4,57 +4,53 @@ chrome.runtime.onMessage.addListener(
         // recommended videos, home page //
         // on desktop
         recVids = document.querySelector('ytd-browse[page-subtype="home"]');
+        recVidsMobile = document.querySelector('div[tab-identifier="FEwhat_to_watch"]');
         
         // check for visibility
         if(request.method == "checkRecHome"){
-            if (recVids.style.visibility === "hidden") {
-                sendResponse({text: "hidden", method: "checkRecHome"});
-            } else if (recVids.style.visibility === "visible") {
-                sendResponse({text: "visible", method: "checkRecHome"});
+            if (recVidsMobile == null){
+                if (recVids.style.visibility === "hidden") {
+                    sendResponse({text: "hidden", method: "checkRecHome"});
+                } else if (recVids.style.visibility === "visible") {
+                    sendResponse({text: "visible", method: "checkRecHome"});
+                } else {
+                    sendResponse({text: "hidden", method: "checkRecHome"});
+                }
             } else {
-                sendResponse({text: "hidden", method: "checkRecHome"});
+                if (recVidsMobile.style.visibility === "hidden") {
+                    sendResponse({text: "hidden", method: "checkRecHome"});
+                } else if (recVidsMobile.style.visibility === "visible") {
+                    sendResponse({text: "visible", method: "checkRecHome"});
+                } else {
+                    sendResponse({text: "hidden", method: "checkRecHome"});
+                }
             }
         }
         
         // change visibility
         if(request.method == "changeRecVids"){
-            if (recVids.style.visibility === "hidden") {
-                recVids.style.visibility = "visible";
-                sendResponse({text: "rec vids visible", method: "changeRecVids"});
-            } else if (recVids.style.visibility === "visible") {
-                recVids.style.visibility = "hidden";
-                sendResponse({text: "rec vids hidden", method: "changeRecVids"});
+            if (recVidsMobile == null){
+                if (recVids.style.visibility === "hidden") {
+                    recVids.style.visibility = "visible";
+                    sendResponse({text: "rec vids visible", method: "changeRecVids"});
+                } else if (recVids.style.visibility === "visible") {
+                    recVids.style.visibility = "hidden";
+                    sendResponse({text: "rec vids hidden", method: "changeRecVids"});
+                } else {
+                    recVids.style.visibility = "visible";
+                    sendResponse({text: "rec vids visible", method: "changeRecVids"});
+                }
             } else {
-                recVids.style.visibility = "visible";
-                sendResponse({text: "rec vids visible", method: "changeRecVids"});
-            }
-        }
-        
-        // on mobile
-        recVidsMobile = document.querySelector('div[tab-identifier="FEwhat_to_watch"]');
-        
-        // check for visibility
-        if(request.method == "checkRecHomeMobile"){
-            if (recVidsMobile.style.visibility === "hidden") {
-                sendResponse({text: "hidden", method: "checkRecHomeMobile"});
-            } else if (recVidsMobile.style.visibility === "visible") {
-                sendResponse({text: "visible", method: "checkRecHomeMobile"});
-            } else {
-                sendResponse({text: "hidden", method: "checkRecHomeMobile"});
-            }
-        }
-        
-        // change visibility
-        if(request.method == "changeRecVidsMobile"){
-            if (recVidsMobile.style.visibility === "hidden") {
-                recVidsMobile.style.visibility = "visible";
-                sendResponse({text: "rec vids visible", method: "changeRecVidsMobile"});
-            } else if (recVidsMobile.style.visibility === "visible") {
-                recVidsMobile.style.visibility = "hidden";
-                sendResponse({text: "rec vids hidden", method: "changeRecVidsMobile"});
-            } else {
-                recVidsMobile.style.visibility = "visible";
-                sendResponse({text: "rec vids visible", method: "changeRecVidsMobile"});
+                if (recVidsMobile.style.visibility === "hidden") {
+                    recVidsMobile.style.visibility = "visible";
+                    sendResponse({text: "rec vids visible", method: "changeRecVidsMobile"});
+                } else if (recVidsMobile.style.visibility === "visible") {
+                    recVidsMobile.style.visibility = "hidden";
+                    sendResponse({text: "rec vids hidden", method: "changeRecVidsMobile"});
+                } else {
+                    recVidsMobile.style.visibility = "visible";
+                    sendResponse({text: "rec vids visible", method: "changeRecVidsMobile"});
+                }
             }
         }
         

@@ -24,7 +24,7 @@ body {
 
 /******* HIDE IRRELEVANT TOGGLES *******/
 /* iPhone */
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-device-width: 768px) {
     .platform-ipad-mac {
         display: none;
     }
