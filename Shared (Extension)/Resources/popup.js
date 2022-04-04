@@ -21,6 +21,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
+            chrome.tabs.sendMessage(tabs[0].id, {method: "checkShorts"}, function(response) {
+                
+                var shortsCheckbox = document.getElementById('shortsToggle');
+                
+                if(response.method === "checkShorts"){
+                    if(response.text === "visible"){
+                        shortsCheckbox.checked = true;
+                    } else {
+                        shortsCheckbox.checked = false;
+                    }
+                }
+            });
+            
             chrome.tabs.sendMessage(tabs[0].id, {method: "checkRelVids"}, function(response) {
                 
                 var relCheckbox = document.getElementById('relVidsToggle');
@@ -96,6 +109,24 @@ document.addEventListener('DOMContentLoaded', function() {
             });
           });
         }, false);
+    
+    // assign functions to the checkboxes
+    var shortsCheckbox = document.getElementById('shortsToggle');
+    shortsCheckbox.addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {method: "changeShorts"}, function(response) {
+                
+                if(response.method == "changeShorts"){
+                    if(response.text === "shorts visible"){
+                        console.log("Shorts are visible")
+                    } else {
+                        console.log("Shorts are hidden")
+                    }
+                }
+            });
+          });
+        }, false);
+    
     
     var relCheckbox = document.getElementById('relVidsToggle');
     relCheckbox.addEventListener('click', function() {

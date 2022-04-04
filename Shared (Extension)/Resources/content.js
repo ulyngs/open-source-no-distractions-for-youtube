@@ -54,6 +54,66 @@ chrome.runtime.onMessage.addListener(
             }
         }
         
+        // Short, home page //
+        // on desktop, large
+        shortsLarge = document.querySelector('#items ytd-guide-entry-renderer:nth-child(3)');
+        // on desktop, small
+        shortsSmall = document.querySelector('ytd-mini-guide-entry-renderer[aria-label="Shorts"]');
+        
+        // check for visibility
+        if(request.method == "checkShorts"){
+            if (shortsSmall == null){
+                if (shortsLarge.style.display === "none") {
+                    sendResponse({text: "hidden", method: "checkShorts"});
+                } else if (shortsLarge.style.display === "block") {
+                    sendResponse({text: "visible", method: "checkShorts"});
+                } else {
+                    sendResponse({text: "hidden", method: "checkShorts"});
+                }
+            } else {
+                if (shortsSmall.style.display === "none") {
+                    sendResponse({text: "hidden", method: "checkShorts"});
+                } else if (shortsSmall.style.display === "block") {
+                    sendResponse({text: "visible", method: "checkShorts"});
+                } else {
+                    sendResponse({text: "hidden", method: "checkShorts"});
+                }
+            }
+        }
+        
+        // change visibility
+        if(request.method == "changeShorts"){
+            if (shortsSmall == null){
+                if (shortsLarge.style.display === "none") {
+                    shortsLarge.style.display = "block";
+                    shortsSmall.style.display = "block";
+                    sendResponse({text: "shorts visible", method: "changeShorts"});
+                } else if (shortsLarge.style.display === "block") {
+                    shortsLarge.style.display = "none";
+                    shortsSmall.style.display = "none";
+                    sendResponse({text: "shorts hidden", method: "changeShorts"});
+                } else {
+                    shortsLarge.style.display = "block";
+                    shortsSmall.style.display = "block";
+                    sendResponse({text: "shorts visible", method: "changeShorts"});
+                }
+            } else {
+                if (shortsSmall.style.display === "none") {
+                    shortsSmall.style.display = "block";
+                    shortsLarge.style.display = "block";
+                    sendResponse({text: "shorts visible", method: "changeShorts"});
+                } else if (shortsSmall.style.display === "block") {
+                    shortsSmall.style.display = "none";
+                    shortsLarge.style.display = "none";
+                    sendResponse({text: "shorts hidden", method: "changeShorts"});
+                } else {
+                    shortsSmall.style.display = "block";
+                    shortsLarge.style.display = "block";
+                    sendResponse({text: "shorts visible", method: "changeShorts"});
+                }
+            }
+        }
+        
         
         // related videos (when you watch a video) //
         // on desktop
