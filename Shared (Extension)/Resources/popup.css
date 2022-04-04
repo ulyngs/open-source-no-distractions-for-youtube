@@ -18,6 +18,18 @@ body {
     color: gray;
 }
 
+.a-toggle {
+    margin-bottom: 5px;
+}
+
+.tooltip-content {
+  display: none;
+}
+.comments-toggle-wrapper:hover + .tooltip-content {
+  display: block;
+}
+
+
 @media (prefers-color-scheme: dark) {
     /* Dark Mode styles go here. */
 }

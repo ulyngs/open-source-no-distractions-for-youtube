@@ -7,16 +7,25 @@
 </head>
 <body>
     <div class="content-toggles">
-        <input type="checkbox" id="recVidsToggle" name="recVidsToggle">
-        <label for="recVidsToggle">Recommended videos <span class="colored-font">(home page)</span></label><br class="platform-ipad-mac"><br>
-        <input type="checkbox" id="shortsToggle" name="shortsToggle">
-        <label for="shortsToggle">Shorts <span class="colored-font">(home page)</span></label><br class="platform-ipad-mac"><br>
-        <input type="checkbox" id="relVidsToggle" name="relVidsToggle">
-        <label for="relVidsToggle">Related/Up next videos <span class="colored-font">(when watching)</span></label><br class="platform-ipad-mac">
-        <input class="platform-ipad-mac" type="checkbox" id="commentsToggle" name="commentsToggle">
-        <label class="platform-ipad-mac" for="commentsToggle">Comments</label>
+        <div class="a-toggle">
+            <input type="checkbox" id="recVidsToggle" name="recVidsToggle">
+            <label for="recVidsToggle">Recommended videos <span class="colored-font">(home page)</span></label>
+        </div>
+        <div class="a-toggle platform-ipad-mac">
+            <input type="checkbox" id="shortsToggle" name="shortsToggle">
+            <label for="shortsToggle">Shorts <span class="colored-font">(home page)</span></label>
+        </div>
+        <div class="a-toggle platform-ipad-mac">
+            <input type="checkbox" id="relVidsToggle" name="relVidsToggle">
+            <label for="relVidsToggle">Related/Up next videos <span class="colored-font">(when watching)</span></label>
+        </div>
+        <div class="a-toggle platform-ipad-mac comments-toggle-wrapper">
+            <input class="platform-ipad-mac" type="checkbox" id="commentsToggle" name="commentsToggle">
+            <label class="platform-ipad-mac" for="commentsToggle">Comments</label>
+        </div>
+        <div class="smaller-font platform-ipad-mac tooltip-content"><p class="colored-font">If comments or video thumbnails don't appear immediately when you toggle them on, do a scroll and they will load.</p></div>
+        
     </div>
-    <p class="smaller-font platform-ipad-mac">If comments or video thumbnails don't appear immediately when you toggle them on, do a scroll and they will load.</p>
     <p class="smaller-font">To flag bugs or suggest improvements, visit the extension's <a href="https://github.com/ulyngs/open-source-no-distractions-for-youtube" target="_blank">GitHub repository</a>.
 </body>
 </html>
