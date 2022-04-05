@@ -55,14 +55,22 @@ chrome.runtime.onMessage.addListener(
         }
         
         // Short, home page //
-        // on desktop, large
-        shortsLarge = document.querySelector('#items ytd-guide-entry-renderer:nth-child(3)');
-        // on desktop, small
-        shortsSmall = document.querySelector('ytd-mini-guide-entry-renderer[aria-label="Shorts"]');
+        shortsLarge = document.querySelector('#items ytd-guide-entry-renderer:nth-child(3)'); // on desktop, large
+        shortsSmall = document.querySelector('ytd-mini-guide-entry-renderer[aria-label="Shorts"]'); // on desktop, small
+        shortsMobile = document.querySelector('ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(2)'); // on mobile
         
         // check for visibility
         if(request.method == "checkShorts"){
-            if (shortsSmall == null){
+            // mobile case
+            if (shortsSmall == null && shortsLarge == null){
+                if (shortsMobile.style.display === "none") {
+                    sendResponse({text: "hidden", method: "checkShorts"});
+                } else if (shortsMobile.style.display === "flex") {
+                    sendResponse({text: "visible", method: "checkShorts"});
+                } else {
+                    sendResponse({text: "hidden", method: "checkShorts"});
+                }
+            } else if (shortsSmall == null){ // large desktop case
                 if (shortsLarge.style.display === "none") {
                     sendResponse({text: "hidden", method: "checkShorts"});
                 } else if (shortsLarge.style.display === "block") {
@@ -70,7 +78,7 @@ chrome.runtime.onMessage.addListener(
                 } else {
                     sendResponse({text: "hidden", method: "checkShorts"});
                 }
-            } else {
+            } else {  // small desktop case
                 if (shortsSmall.style.display === "none") {
                     sendResponse({text: "hidden", method: "checkShorts"});
                 } else if (shortsSmall.style.display === "block") {
@@ -83,7 +91,19 @@ chrome.runtime.onMessage.addListener(
         
         // change visibility
         if(request.method == "changeShorts"){
-            if (shortsSmall == null){
+            // mobile case
+            if (shortsSmall == null && shortsLarge == null){
+                if (shortsMobile.style.display === "none") {
+                    shortsMobile.style.display = "flex";
+                    sendResponse({text: "shorts visible", method: "changeShorts"});
+                } else if (shortsMobile.style.display === "flex") {
+                    shortsMobile.style.display = "none";
+                    sendResponse({text: "shorts hidden", method: "changeShorts"});
+                } else {
+                    shortsMobile.style.display = "block";
+                    sendResponse({text: "shorts visible", method: "changeShorts"});
+                }
+            } else if (shortsSmall == null){  // large desktop case
                 if (shortsLarge.style.display === "none") {
                     shortsLarge.style.display = "block";
                     shortsSmall.style.display = "block";
@@ -97,7 +117,7 @@ chrome.runtime.onMessage.addListener(
                     shortsSmall.style.display = "block";
                     sendResponse({text: "shorts visible", method: "changeShorts"});
                 }
-            } else {
+            } else {  // small desktop case
                 if (shortsSmall.style.display === "none") {
                     shortsSmall.style.display = "block";
                     shortsLarge.style.display = "block";
