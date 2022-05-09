@@ -47,19 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
-            chrome.tabs.sendMessage(tabs[0].id, {method: "checkRelVidsMobile"}, function(response) {
-                
-                var relCheckboxMobile = document.getElementById('relVidsToggleMobile');
-                
-                if(response.method == "checkRelVidsMobile"){
-                    if(response.text === "visible"){
-                        relCheckboxMobile.checked = true;
-                    } else {
-                        relCheckboxMobile.checked = false;
-                    }
-                }
-            });
-            
             chrome.tabs.sendMessage(tabs[0].id, {method: "checkComments"}, function(response) {
                 
                 var commentsCheckbox = document.getElementById('commentsToggle');

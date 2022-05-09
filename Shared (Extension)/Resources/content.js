@@ -138,57 +138,53 @@ chrome.runtime.onMessage.addListener(
         // related videos (when you watch a video) //
         // on desktop
         relVids = document.querySelector('#related');
+        relVidsMobile = document.querySelector('ytm-item-section-renderer[section-identifier="related-items"]');
         
         // check for visibility
         if(request.method == "checkRelVids"){
-            if (relVids.style.visibility === "hidden") {
-                sendResponse({text: "hidden", method: "checkRelVids"});
-            } else if (relVids.style.visibility === "visible") {
-                sendResponse({text: "visible", method: "checkRelVids"});
+            if (relVidsMobile == null){
+                if (relVids.style.visibility === "hidden") {
+                    sendResponse({text: "hidden", method: "checkRelVids"});
+                } else if (relVids.style.visibility === "visible") {
+                    sendResponse({text: "visible", method: "checkRelVids"});
+                } else {
+                    sendResponse({text: "hidden", method: "checkRelVids"});
+                }
             } else {
-                sendResponse({text: "hidden", method: "checkRelVids"});
+                if (relVidsMobile.style.visibility === "hidden") {
+                    sendResponse({text: "hidden", method: "checkRelVids"});
+                } else if (relVidsMobile.style.visibility === "visible") {
+                    sendResponse({text: "visible", method: "checkRelVids"});
+                } else {
+                    sendResponse({text: "hidden", method: "checkRelVids"});
+                }
             }
         }
         
         // change visibility
         if(request.method == "changeRelVids"){
-            if (relVids.style.visibility === "hidden") {
-                relVids.style.visibility = "visible";
-                sendResponse({text: "related vids visible", method: "changeRelVids"});
-            } else if (relVids.style.visibility === "visible") {
-                relVids.style.visibility = "hidden";
-                sendResponse({text: "related vids hidden", method: "changeRelVids"});
+            if (relVidsMobile == null){
+                if (relVids.style.visibility === "hidden") {
+                    relVids.style.visibility = "visible";
+                    sendResponse({text: "rel vids visible", method: "changeRelVids"});
+                } else if (relVids.style.visibility === "visible") {
+                    relVids.style.visibility = "hidden";
+                    sendResponse({text: "rel vids hidden", method: "changeRelVids"});
+                } else {
+                    relVids.style.visibility = "visible";
+                    sendResponse({text: "rel vids visible", method: "changeRelVids"});
+                }
             } else {
-                relVids.style.visibility = "visible";
-                sendResponse({text: "related vids visible", method: "changeRelVids"});
-            }
-        }
-        
-        // on mobile
-        relVidsMobile = document.querySelector('ytm-item-section-renderer[section-identifier="related-items"]');
-        
-        // check for visibility
-        if(request.method == "checkRelVidsMobile"){
-            if (relVidsMobile.style.visibility === "hidden") {
-                sendResponse({text: "hidden", method: "checkRelVidsMobile"});
-            } else if (relVidsMobile.style.visibility === "visible") {
-                sendResponse({text: "visible", method: "checkRelVidsMobile"});
-            } else {
-                sendResponse({text: "hidden", method: "checkRelVidsMobile"});
-            }
-        }
-        
-        // change visibility
-        if(request.method == "changeRelVidsMobile"){
-            if (relVidsMobile.style.visibility === "hidden") {
-                relVidsMobile.style.visibility = "visible";
-                sendResponse({text: "related vids visible", method: "changeRelVidsMobile"});
-            } else if (relVidsMobile.style.visibility === "visible") {
-                relVidsMobile.style.visibility = "hidden";
-                sendResponse({text: "related vids hidden", method: "changeRelVidsMobile"});
-            } else {
-                relVidsMobile.style.visibility = "visible";
-                sendResponse({text: "related vids visible", method: "changeRelVidsMobile"});
+                if (relVidsMobile.style.visibility === "hidden") {
+                    relVidsMobile.style.visibility = "visible";
+                    sendResponse({text: "rel vids visible", method: "changeRelVidsMobile"});
+                } else if (relVidsMobile.style.visibility === "visible") {
+                    relVidsMobile.style.visibility = "hidden";
+                    sendResponse({text: "rel vids hidden", method: "changeRelVidsMobile"});
+                } else {
+                    relVidsMobile.style.visibility = "visible";
+                    sendResponse({text: "rel vids visible", method: "changeRelVidsMobile"});
+                }
             }
         }
         
