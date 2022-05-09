@@ -33,7 +33,7 @@ ytm-item-section-renderer[section-identifier="related-items"] {
 }
 
 /***** hide comment ********/
-ytd-comments {
+#comments {
     visibility: hidden;
 }
 
