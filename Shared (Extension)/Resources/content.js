@@ -63,9 +63,9 @@ chrome.runtime.onMessage.addListener(
         if(request.method == "checkShorts"){
             // mobile case
             if (shortsSmall == null && shortsLarge == null){
-                if (shortsMobile.style.display === "none") {
+                if (shortsMobile.style.visibility === "hidden") {
                     sendResponse({text: "hidden", method: "checkShorts"});
-                } else if (shortsMobile.style.display === "flex") {
+                } else if (shortsMobile.style.visibility === "visible") {
                     sendResponse({text: "visible", method: "checkShorts"});
                 } else {
                     sendResponse({text: "hidden", method: "checkShorts"});
@@ -93,14 +93,14 @@ chrome.runtime.onMessage.addListener(
         if(request.method == "changeShorts"){
             // mobile case
             if (shortsSmall == null && shortsLarge == null){
-                if (shortsMobile.style.display === "none") {
-                    shortsMobile.style.display = "flex";
+                if (shortsMobile.style.visibility === "hidden") {
+                    shortsMobile.style.visibility = "visible";
                     sendResponse({text: "shorts visible", method: "changeShorts"});
-                } else if (shortsMobile.style.display === "flex") {
-                    shortsMobile.style.display = "none";
+                } else if (shortsMobile.style.visibility === "visible") {
+                    shortsMobile.style.visibility = "hidden";
                     sendResponse({text: "shorts hidden", method: "changeShorts"});
                 } else {
-                    shortsMobile.style.display = "block";
+                    shortsMobile.style.visibility = "visible";
                     sendResponse({text: "shorts visible", method: "changeShorts"});
                 }
             } else if (shortsSmall == null){  // large desktop case
