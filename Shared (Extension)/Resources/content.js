@@ -189,7 +189,7 @@ chrome.runtime.onMessage.addListener(
         }
         
         // comments
-        comments = document.querySelector('ytd-comments');
+        comments = document.querySelector('#comments');
         
         // check for visibility
         if(request.method == "checkComments"){
