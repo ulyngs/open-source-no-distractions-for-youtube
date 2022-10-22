@@ -166,12 +166,15 @@ chrome.runtime.onMessage.addListener(
             if (relVidsMobile == null){
                 if (relVids.style.visibility === "hidden") {
                     relVids.style.visibility = "visible";
+                    relVids.style.display = "block";
                     sendResponse({text: "rel vids visible", method: "changeRelVids"});
                 } else if (relVids.style.visibility === "visible") {
                     relVids.style.visibility = "hidden";
+                    relVids.style.display = "none";
                     sendResponse({text: "rel vids hidden", method: "changeRelVids"});
                 } else {
                     relVids.style.visibility = "visible";
+                    relVids.style.display = "block";
                     sendResponse({text: "rel vids visible", method: "changeRelVids"});
                 }
             } else {

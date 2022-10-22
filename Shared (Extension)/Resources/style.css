@@ -25,6 +25,7 @@ ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(2){
 /* desktop version */
 #related {
     visibility: hidden;
+    display: none;
 }
 
 /* mobile version */
@@ -43,7 +44,7 @@ because the comments will otherwise jump down
 the page */
 @media screen and (max-width: 1000px) {
     #related {
-        display: none !important;
+        display: none;
     }
 }
 
@@ -51,37 +52,10 @@ ytd-guide-entry-renderer a[title="Trending"]{
     display: none !important;
 }
 
-#related #upnext {
-    display: none;
-}
-
-#related #autoplay {
-    visibility: visible;
-}
-#related #toggle {
-    visibility: visible;
-}
-
 /* hide suggested videos popping up on end screen */
 .ytp-endscreen-content {
     display: none !important;
 }
-
-/* style the toggle comments button */
-#toggleComments {
-    margin-top: 15px;
-    background-color: #606060;
-    border: none;
-    padding: 10px 16px;
-    text-align: center;
-    border-radius: 2px;
-    color: white;
-    font-family: nyt-franklin, arial, sans-serif;
-    font-size: 12px;
-    letter-spacing: 1px;
-    font-weight: 400;
-}
-
 
 /* hide ads on the search page */
 ytm-promoted-sparkles-text-search-renderer,
