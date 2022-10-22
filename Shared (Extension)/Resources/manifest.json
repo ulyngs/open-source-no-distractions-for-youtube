@@ -4,7 +4,7 @@
 
     "name": "'No Distractions' for YouTube",
     "description": "Hides recommendations on home page and when watching. On Mac + iPad hides comments until a button is pressed.",
-    "version": "2.0",
+    "version": "2.5",
 
     "icons": {
         "48": "images/new-icon48.png",
