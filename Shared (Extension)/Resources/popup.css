@@ -32,6 +32,9 @@ body {
 
 @media (prefers-color-scheme: dark) {
     /* Dark Mode styles go here. */
+    .colored-font {
+        color: lightgray;
+    }
 }
 
 /******* HIDE IRRELEVANT TOGGLES *******/
