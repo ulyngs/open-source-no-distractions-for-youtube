@@ -11,7 +11,7 @@ div[tab-identifier="FEwhat_to_watch"]{
 
 /** hide shorts **/
 /* desktop version */
-#items ytd-guide-entry-renderer:nth-child(3),
+#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Shorts"],
 ytd-mini-guide-entry-renderer[aria-label="Shorts"] {
     display: none;
 }

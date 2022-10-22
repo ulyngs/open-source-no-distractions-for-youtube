@@ -55,7 +55,7 @@ chrome.runtime.onMessage.addListener(
         }
         
         // Short, home page //
-        shortsLarge = document.querySelector('#items ytd-guide-entry-renderer:nth-child(3)'); // on desktop, large
+        shortsLarge = document.querySelector('#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Shorts"]'); // on desktop, large
         shortsSmall = document.querySelector('ytd-mini-guide-entry-renderer[aria-label="Shorts"]'); // on desktop, small
         shortsMobile = document.querySelector('ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(2)'); // on mobile
         
