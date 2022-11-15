@@ -2,29 +2,81 @@
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         // recommended videos, home page //
-        // on desktop
         recVids = document.querySelector('ytd-browse[page-subtype="home"]');
         recVidsMobile = document.querySelector('div[tab-identifier="FEwhat_to_watch"]');
         
-        // check for visibility
-        if(request.method == "checkRecHome"){
-            if (recVidsMobile == null){
-                if (recVids.style.visibility === "hidden") {
-                    sendResponse({text: "hidden", method: "checkRecHome"});
-                } else if (recVids.style.visibility === "visible") {
-                    sendResponse({text: "visible", method: "checkRecHome"});
-                } else {
-                    sendResponse({text: "hidden", method: "checkRecHome"});
-                }
+        // Short, home page //
+        shortsLarge = document.querySelector('#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Shorts"]'); // on desktop, large
+        shortsSmall = document.querySelector('ytd-mini-guide-entry-renderer[aria-label="Shorts"]'); // on desktop, small
+        shortsMobile = document.querySelector('ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(2)'); // on mobile
+        
+        // related videos (when you watch a video) //
+        // on desktop
+        relVids = document.querySelector('#related');
+        relVidsMobile = document.querySelector('ytm-item-section-renderer[section-identifier="related-items"]');
+        
+        // comments
+        comments = document.querySelector('#comments');
+        
+        
+        // create function to check if element is hidden
+        function checkElement(method_to_send, element, css_to_change, is_multi_element){
+            if (is_multi_element){
+                element_to_check = element[0];
             } else {
-                if (recVidsMobile.style.visibility === "hidden") {
-                    sendResponse({text: "hidden", method: "checkRecHome"});
-                } else if (recVidsMobile.style.visibility === "visible") {
-                    sendResponse({text: "visible", method: "checkRecHome"});
+                element_to_check = element;
+            }
+            
+            if (css_to_change === "visibility"){
+                if (element_to_check.style.visibility === "hidden") {
+                    sendResponse({text: "hidden", method: method_to_send});
+                } else if (element_to_check.style.visibility === "visible") {
+                    sendResponse({text: "visible", method: method_to_send});
                 } else {
-                    sendResponse({text: "hidden", method: "checkRecHome"});
+                    sendResponse({text: "hidden", method: method_to_send});
+                }
+            } else if (css_to_change === "display"){
+                if (element_to_check.style.display === "none") {
+                    sendResponse({text: "hidden", method: method_to_send});
+                } else if (element_to_check.style.display === "block") {
+                    sendResponse({text: "visible", method: method_to_send});
+                } else {
+                    sendResponse({text: "hidden", method: method_to_send});
                 }
             }
+        };
+        
+        // check the hidden-ness --- we use this to set the checkboxes correctly when opening the pop-up
+        if(request.method == "checkRecHome"){
+            if (recVidsMobile == null){
+                checkElement("checkRecHome", recVids, "visibility", is_multi_element = false);
+            } else {
+                checkElement("checkRecHome", recVidsMobile, "visibility", is_multi_element = false);
+            }
+        }
+        
+        if(request.method == "checkShorts"){
+            // mobile case
+            if (shortsSmall == null && shortsLarge == null){
+                checkElement("checkShorts", shortsMobile, "visibility", is_multi_element = false);
+            } else if (shortsSmall == null){ // large desktop case
+                checkElement("checkShorts", shortsLarge, "display", is_multi_element = false);
+            } else {  // small desktop case
+                checkElement("checkShorts", shortsSmall, "display", is_multi_element = false);
+            }
+        }
+        
+        if(request.method == "checkRelVids"){
+            if (relVidsMobile == null){
+                checkElement("checkRelVids", relVids, "visibility", is_multi_element = false);
+            } else {
+                checkElement("checkRelVids", relVidsMobile, "visibility", is_multi_element = false);
+            }
+        }
+        
+        // check for visibility
+        if(request.method == "checkComments"){
+            checkElement("checkComments", comments, "visibility", is_multi_element = false);
         }
         
         // change visibility
@@ -50,41 +102,6 @@ chrome.runtime.onMessage.addListener(
                 } else {
                     recVidsMobile.style.visibility = "visible";
                     sendResponse({text: "rec vids visible", method: "changeRecVidsMobile"});
-                }
-            }
-        }
-        
-        // Short, home page //
-        shortsLarge = document.querySelector('#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Shorts"]'); // on desktop, large
-        shortsSmall = document.querySelector('ytd-mini-guide-entry-renderer[aria-label="Shorts"]'); // on desktop, small
-        shortsMobile = document.querySelector('ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(2)'); // on mobile
-        
-        // check for visibility
-        if(request.method == "checkShorts"){
-            // mobile case
-            if (shortsSmall == null && shortsLarge == null){
-                if (shortsMobile.style.visibility === "hidden") {
-                    sendResponse({text: "hidden", method: "checkShorts"});
-                } else if (shortsMobile.style.visibility === "visible") {
-                    sendResponse({text: "visible", method: "checkShorts"});
-                } else {
-                    sendResponse({text: "hidden", method: "checkShorts"});
-                }
-            } else if (shortsSmall == null){ // large desktop case
-                if (shortsLarge.style.display === "none") {
-                    sendResponse({text: "hidden", method: "checkShorts"});
-                } else if (shortsLarge.style.display === "block") {
-                    sendResponse({text: "visible", method: "checkShorts"});
-                } else {
-                    sendResponse({text: "hidden", method: "checkShorts"});
-                }
-            } else {  // small desktop case
-                if (shortsSmall.style.display === "none") {
-                    sendResponse({text: "hidden", method: "checkShorts"});
-                } else if (shortsSmall.style.display === "block") {
-                    sendResponse({text: "visible", method: "checkShorts"});
-                } else {
-                    sendResponse({text: "hidden", method: "checkShorts"});
                 }
             }
         }
@@ -134,33 +151,6 @@ chrome.runtime.onMessage.addListener(
             }
         }
         
-        
-        // related videos (when you watch a video) //
-        // on desktop
-        relVids = document.querySelector('#related');
-        relVidsMobile = document.querySelector('ytm-item-section-renderer[section-identifier="related-items"]');
-        
-        // check for visibility
-        if(request.method == "checkRelVids"){
-            if (relVidsMobile == null){
-                if (relVids.style.visibility === "hidden") {
-                    sendResponse({text: "hidden", method: "checkRelVids"});
-                } else if (relVids.style.visibility === "visible") {
-                    sendResponse({text: "visible", method: "checkRelVids"});
-                } else {
-                    sendResponse({text: "hidden", method: "checkRelVids"});
-                }
-            } else {
-                if (relVidsMobile.style.visibility === "hidden") {
-                    sendResponse({text: "hidden", method: "checkRelVids"});
-                } else if (relVidsMobile.style.visibility === "visible") {
-                    sendResponse({text: "visible", method: "checkRelVids"});
-                } else {
-                    sendResponse({text: "hidden", method: "checkRelVids"});
-                }
-            }
-        }
-        
         // change visibility
         if(request.method == "changeRelVids"){
             if (relVidsMobile == null){
@@ -188,20 +178,6 @@ chrome.runtime.onMessage.addListener(
                     relVidsMobile.style.visibility = "visible";
                     sendResponse({text: "rel vids visible", method: "changeRelVidsMobile"});
                 }
-            }
-        }
-        
-        // comments
-        comments = document.querySelector('#comments');
-        
-        // check for visibility
-        if(request.method == "checkComments"){
-            if (comments.style.visibility === "hidden") {
-                sendResponse({text: "hidden", method: "checkComments"});
-            } else if (comments.style.visibility === "visible") {
-                sendResponse({text: "visible", method: "checkComments"});
-            } else {
-                sendResponse({text: "hidden", method: "checkComments"});
             }
         }
         

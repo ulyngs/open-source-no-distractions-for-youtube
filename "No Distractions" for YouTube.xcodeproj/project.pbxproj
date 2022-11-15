@@ -17,8 +17,8 @@
 		D76921BC2756452E00EB4CEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D76921BA2756452E00EB4CEA /* LaunchScreen.storyboard */; };
 		D76921BF2756452E00EB4CEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D76921BD2756452E00EB4CEA /* Main.storyboard */; };
 		D76921C82756452E00EB4CEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76921C72756452E00EB4CEA /* AppDelegate.swift */; };
-		D76921D22756452E00EB4CEA /* "No Distractions" for YouTube Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D76921D12756452E00EB4CEA /* "No Distractions" for YouTube Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		D76921DC2756452E00EB4CEA /* "No Distractions" for YouTube Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D76921DB2756452E00EB4CEA /* "No Distractions" for YouTube Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D76921D22756452E00EB4CEA /* "No Distractions" for YouTube Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D76921D12756452E00EB4CEA /* "No Distractions" for YouTube Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D76921DC2756452E00EB4CEA /* "No Distractions" for YouTube Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D76921DB2756452E00EB4CEA /* "No Distractions" for YouTube Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D76921E22756452E00EB4CEA /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = D769219D2756452C00EB4CEA /* Main.html */; };
 		D76921E32756452E00EB4CEA /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = D769219D2756452C00EB4CEA /* Main.html */; };
 		D76921E62756452E00EB4CEA /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = D76921A02756452C00EB4CEA /* Style.css */; };
@@ -69,26 +69,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D76922052756452E00EB4CEA /* Embed App Extensions */ = {
+		D76922052756452E00EB4CEA /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D76921D22756452E00EB4CEA /* "No Distractions" for YouTube Extension.appex in Embed App Extensions */,
+				D76921D22756452E00EB4CEA /* "No Distractions" for YouTube Extension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D769220C2756452E00EB4CEA /* Embed App Extensions */ = {
+		D769220C2756452E00EB4CEA /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D76921DC2756452E00EB4CEA /* "No Distractions" for YouTube Extension.appex in Embed App Extensions */,
+				D76921DC2756452E00EB4CEA /* "No Distractions" for YouTube Extension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -284,7 +284,7 @@
 				D76921AF2756452E00EB4CEA /* Sources */,
 				D76921B02756452E00EB4CEA /* Frameworks */,
 				D76921B12756452E00EB4CEA /* Resources */,
-				D76922052756452E00EB4CEA /* Embed App Extensions */,
+				D76922052756452E00EB4CEA /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -303,7 +303,7 @@
 				D76921C12756452E00EB4CEA /* Sources */,
 				D76921C22756452E00EB4CEA /* Frameworks */,
 				D76921C32756452E00EB4CEA /* Resources */,
-				D769220C2756452E00EB4CEA /* Embed App Extensions */,
+				D769220C2756452E00EB4CEA /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -357,7 +357,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1310;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					D76921B22756452E00EB4CEA = {
 						CreatedOnToolsVersion = 13.1;
@@ -579,6 +579,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -638,6 +639,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -805,6 +807,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 21;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -838,6 +841,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 21;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -874,6 +878,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 21;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -911,6 +916,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 21;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
