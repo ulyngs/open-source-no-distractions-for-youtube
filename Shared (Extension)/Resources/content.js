@@ -79,30 +79,78 @@ chrome.runtime.onMessage.addListener(
             checkElement(comments, "visibility", is_multi_element = false);
         }
         
-        // change visibility
+        // create function to toggle hidden-ness
+        function toggleElement(element, css_to_change, is_multi_element){
+            
+            if (is_multi_element){
+                element_to_check = element[0];
+            } else {
+                element_to_check = element;
+            }
+            
+            if (css_to_change === "visibility"){
+                if (element_to_check.style.visibility === "hidden") {
+                    if (is_multi_element){
+                        for (var i = 0, max = element.length; i < max; i++) {
+                            element[i].style.visibility = "visible";
+                        }
+                    } else {
+                        element.style.visibility = "visible";
+                    }
+                    
+                } else if (element_to_check.style.visibility === "visible") {
+                    if (is_multi_element){
+                        for (var i = 0, max = element.length; i < max; i++) {
+                            element[i].style.visibility = "hidden";
+                        }
+                    } else {
+                        element.style.visibility = "hidden";
+                    }
+                } else {
+                    if (is_multi_element){
+                        for (var i = 0, max = element.length; i < max; i++) {
+                            element[i].style.visibility = "visible";
+                        }
+                    } else {
+                        element.style.visibility = "visible";
+                    }
+                }
+            } else if (css_to_change === "display"){
+                if (element_to_check.style.display === "none") {
+                    if (is_multi_element){
+                        for (var i = 0, max = element.length; i < max; i++) {
+                            element[i].style.display = "block";
+                        }
+                    } else {
+                        element.style.display = "block";
+                    }
+                    
+                } else if (element_to_check.style.display === "block") {
+                    if (is_multi_element){
+                        for (var i = 0, max = element.length; i < max; i++) {
+                            element[i].style.display = "none";
+                        }
+                    } else {
+                        element.style.display = "none";
+                    }
+                } else {
+                    if (is_multi_element){
+                        for (var i = 0, max = element.length; i < max; i++) {
+                            element[i].style.display = "block";
+                        }
+                    } else {
+                        element.style.display = "block";
+                    }
+                }
+            }
+        };
+        
+        
         if(request.method == "changeRecVids"){
             if (recVidsMobile == null){
-                if (recVids.style.visibility === "hidden") {
-                    recVids.style.visibility = "visible";
-                    sendResponse({text: "rec vids visible", method: "changeRecVids"});
-                } else if (recVids.style.visibility === "visible") {
-                    recVids.style.visibility = "hidden";
-                    sendResponse({text: "rec vids hidden", method: "changeRecVids"});
-                } else {
-                    recVids.style.visibility = "visible";
-                    sendResponse({text: "rec vids visible", method: "changeRecVids"});
-                }
+                toggleElement(recVids, "visibility", is_multi_element = false);
             } else {
-                if (recVidsMobile.style.visibility === "hidden") {
-                    recVidsMobile.style.visibility = "visible";
-                    sendResponse({text: "rec vids visible", method: "changeRecVidsMobile"});
-                } else if (recVidsMobile.style.visibility === "visible") {
-                    recVidsMobile.style.visibility = "hidden";
-                    sendResponse({text: "rec vids hidden", method: "changeRecVidsMobile"});
-                } else {
-                    recVidsMobile.style.visibility = "visible";
-                    sendResponse({text: "rec vids visible", method: "changeRecVidsMobile"});
-                }
+                toggleElement(recVidsMobile, "visibility", is_multi_element = false);
             }
         }
         
@@ -110,91 +158,26 @@ chrome.runtime.onMessage.addListener(
         if(request.method == "changeShorts"){
             // mobile case
             if (shortsSmall == null && shortsLarge == null){
-                if (shortsMobile.style.visibility === "hidden") {
-                    shortsMobile.style.visibility = "visible";
-                    sendResponse({text: "shorts visible", method: "changeShorts"});
-                } else if (shortsMobile.style.visibility === "visible") {
-                    shortsMobile.style.visibility = "hidden";
-                    sendResponse({text: "shorts hidden", method: "changeShorts"});
-                } else {
-                    shortsMobile.style.visibility = "visible";
-                    sendResponse({text: "shorts visible", method: "changeShorts"});
-                }
-            } else if (shortsSmall == null){  // large desktop case
-                if (shortsLarge.style.display === "none") {
-                    shortsLarge.style.display = "block";
-                    shortsSmall.style.display = "block";
-                    sendResponse({text: "shorts visible", method: "changeShorts"});
-                } else if (shortsLarge.style.display === "block") {
-                    shortsLarge.style.display = "none";
-                    shortsSmall.style.display = "none";
-                    sendResponse({text: "shorts hidden", method: "changeShorts"});
-                } else {
-                    shortsLarge.style.display = "block";
-                    shortsSmall.style.display = "block";
-                    sendResponse({text: "shorts visible", method: "changeShorts"});
-                }
-            } else {  // small desktop case
-                if (shortsSmall.style.display === "none") {
-                    shortsSmall.style.display = "block";
-                    shortsLarge.style.display = "block";
-                    sendResponse({text: "shorts visible", method: "changeShorts"});
-                } else if (shortsSmall.style.display === "block") {
-                    shortsSmall.style.display = "none";
-                    shortsLarge.style.display = "none";
-                    sendResponse({text: "shorts hidden", method: "changeShorts"});
-                } else {
-                    shortsSmall.style.display = "block";
-                    shortsLarge.style.display = "block";
-                    sendResponse({text: "shorts visible", method: "changeShorts"});
-                }
+                toggleElement(shortsMobile, "visibility", is_multi_element = false);
+            } else {  // desktop case
+                toggleElement(shortsSmall, "display", is_multi_element = false);
+                toggleElement(shortsLarge, "display", is_multi_element = false);
             }
         }
         
         // change visibility
         if(request.method == "changeRelVids"){
             if (relVidsMobile == null){
-                if (relVids.style.visibility === "hidden") {
-                    relVids.style.visibility = "visible";
-                    relVids.style.display = "block";
-                    sendResponse({text: "rel vids visible", method: "changeRelVids"});
-                } else if (relVids.style.visibility === "visible") {
-                    relVids.style.visibility = "hidden";
-                    relVids.style.display = "none";
-                    sendResponse({text: "rel vids hidden", method: "changeRelVids"});
-                } else {
-                    relVids.style.visibility = "visible";
-                    relVids.style.display = "block";
-                    sendResponse({text: "rel vids visible", method: "changeRelVids"});
-                }
+                toggleElement(relVids, "visibility", is_multi_element = false);
             } else {
-                if (relVidsMobile.style.visibility === "hidden") {
-                    relVidsMobile.style.visibility = "visible";
-                    sendResponse({text: "rel vids visible", method: "changeRelVidsMobile"});
-                } else if (relVidsMobile.style.visibility === "visible") {
-                    relVidsMobile.style.visibility = "hidden";
-                    sendResponse({text: "rel vids hidden", method: "changeRelVidsMobile"});
-                } else {
-                    relVidsMobile.style.visibility = "visible";
-                    sendResponse({text: "rel vids visible", method: "changeRelVidsMobile"});
-                }
+                toggleElement(relVidsMobile, "visibility", is_multi_element = false);
             }
         }
         
         // change visibility
         if(request.method == "changeComments"){
-            if (comments.style.visibility === "hidden") {
-                comments.style.visibility = "visible";
-                sendResponse({text: "comments visible", method: "changeComments"});
-            } else if (comments.style.visibility === "visible") {
-                comments.style.visibility = "hidden";
-                sendResponse({text: "comments hidden", method: "changeComments"});
-            } else {
-                comments.style.visibility = "visible";
-                sendResponse({text: "comments visible", method: "changeComments"});
-            }
+            toggleElement(comments, "visibility", is_multi_element = false);
         }
-        
     }
 );
 
