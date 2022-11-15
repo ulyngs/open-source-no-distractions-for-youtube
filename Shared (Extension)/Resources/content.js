@@ -80,7 +80,7 @@ chrome.runtime.onMessage.addListener(
         }
         
         // create function to toggle hidden-ness
-        function toggleElement(element, css_to_change, is_multi_element){
+        function toggleElement(element, css_to_change, is_multi_element, change_display_too = false){
             
             if (is_multi_element){
                 element_to_check = element[0];
@@ -96,6 +96,9 @@ chrome.runtime.onMessage.addListener(
                         }
                     } else {
                         element.style.visibility = "visible";
+                        if(change_display_too){
+                            element.style.display = "block";
+                        }
                     }
                     
                 } else if (element_to_check.style.visibility === "visible") {
@@ -105,6 +108,9 @@ chrome.runtime.onMessage.addListener(
                         }
                     } else {
                         element.style.visibility = "hidden";
+                        if(change_display_too){
+                            element.style.display = "none";
+                        }
                     }
                 } else {
                     if (is_multi_element){
@@ -113,6 +119,9 @@ chrome.runtime.onMessage.addListener(
                         }
                     } else {
                         element.style.visibility = "visible";
+                        if(change_display_too){
+                            element.style.display = "block";
+                        }
                     }
                 }
             } else if (css_to_change === "display"){
@@ -168,11 +177,12 @@ chrome.runtime.onMessage.addListener(
         // change visibility
         if(request.method == "changeRelVids"){
             if (relVidsMobile == null){
-                toggleElement(relVids, "visibility", is_multi_element = false);
+                toggleElement(relVids, "visibility", is_multi_element = false, change_display_too = true);
             } else {
-                toggleElement(relVidsMobile, "visibility", is_multi_element = false);
+                toggleElement(relVidsMobile, "visibility", is_multi_element = false, change_display_too = true);
             }
         }
+        
         
         // change visibility
         if(request.method == "changeComments"){
