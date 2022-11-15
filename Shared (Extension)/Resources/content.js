@@ -20,7 +20,7 @@ chrome.runtime.onMessage.addListener(
         
         
         // create function to check if element is hidden
-        function checkElement(method_to_send, element, css_to_change, is_multi_element){
+        function checkElement(element, css_to_change, is_multi_element){
             if (is_multi_element){
                 element_to_check = element[0];
             } else {
@@ -29,19 +29,19 @@ chrome.runtime.onMessage.addListener(
             
             if (css_to_change === "visibility"){
                 if (element_to_check.style.visibility === "hidden") {
-                    sendResponse({text: "hidden", method: method_to_send});
+                    sendResponse({text: "hidden", method: request.method});
                 } else if (element_to_check.style.visibility === "visible") {
-                    sendResponse({text: "visible", method: method_to_send});
+                    sendResponse({text: "visible", method: request.method});
                 } else {
-                    sendResponse({text: "hidden", method: method_to_send});
+                    sendResponse({text: "hidden", method: request.method});
                 }
             } else if (css_to_change === "display"){
                 if (element_to_check.style.display === "none") {
-                    sendResponse({text: "hidden", method: method_to_send});
+                    sendResponse({text: "hidden", method: request.method});
                 } else if (element_to_check.style.display === "block") {
-                    sendResponse({text: "visible", method: method_to_send});
+                    sendResponse({text: "visible", method: request.method});
                 } else {
-                    sendResponse({text: "hidden", method: method_to_send});
+                    sendResponse({text: "hidden", method: request.method});
                 }
             }
         };
@@ -49,34 +49,34 @@ chrome.runtime.onMessage.addListener(
         // check the hidden-ness --- we use this to set the checkboxes correctly when opening the pop-up
         if(request.method == "checkRecHome"){
             if (recVidsMobile == null){
-                checkElement("checkRecHome", recVids, "visibility", is_multi_element = false);
+                checkElement(recVids, "visibility", is_multi_element = false);
             } else {
-                checkElement("checkRecHome", recVidsMobile, "visibility", is_multi_element = false);
+                checkElement(recVidsMobile, "visibility", is_multi_element = false);
             }
         }
         
         if(request.method == "checkShorts"){
             // mobile case
             if (shortsSmall == null && shortsLarge == null){
-                checkElement("checkShorts", shortsMobile, "visibility", is_multi_element = false);
+                checkElement(shortsMobile, "visibility", is_multi_element = false);
             } else if (shortsSmall == null){ // large desktop case
-                checkElement("checkShorts", shortsLarge, "display", is_multi_element = false);
+                checkElement(shortsLarge, "display", is_multi_element = false);
             } else {  // small desktop case
-                checkElement("checkShorts", shortsSmall, "display", is_multi_element = false);
+                checkElement(shortsSmall, "display", is_multi_element = false);
             }
         }
         
         if(request.method == "checkRelVids"){
             if (relVidsMobile == null){
-                checkElement("checkRelVids", relVids, "visibility", is_multi_element = false);
+                checkElement(relVids, "visibility", is_multi_element = false);
             } else {
-                checkElement("checkRelVids", relVidsMobile, "visibility", is_multi_element = false);
+                checkElement(relVidsMobile, "visibility", is_multi_element = false);
             }
         }
         
         // check for visibility
         if(request.method == "checkComments"){
-            checkElement("checkComments", comments, "visibility", is_multi_element = false);
+            checkElement(comments, "visibility", is_multi_element = false);
         }
         
         // change visibility
