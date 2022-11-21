@@ -64,7 +64,7 @@
      };
      
      
-     // let the popup ask for the current status of the elements
+     // let the popup ask for the current status of the elements and of the saved state
      chrome.runtime.onMessage.addListener(
         function(request, sender, sendResponse) {
             function checkStyleStatus(some_style_id, some_css_for_shown){
@@ -77,6 +77,13 @@
                 };
             };
             
+            if(request.method == "getSavedState"){
+                sendResponse({recVidsOn: localStorage.getItem("recVidsOn"),
+                                shortsOn: localStorage.getItem("shortsOn"),
+                                relatedOn: localStorage.getItem("relatedOn"),
+                                commentsOn: localStorage.getItem("commentsOn")});
+            };
+            
             if(request.method == "checkRecShown"){
                 checkStyleStatus("recVidsStyle", rec_vids_css_on);
             } else if (request.method == "checkShortsShown"){
@@ -86,6 +93,7 @@
             } else if (request.method == "checkCommentsShown"){
                 checkStyleStatus("commentsStyle", comments_css_on);
             };
+            
      });
      
      // let the content script toggle elements when the popup asks for it
