@@ -2,56 +2,61 @@
 // https://developer.chrome.com/docs/extensions/mv3/messaging/
 
 document.addEventListener('DOMContentLoaded', function() {
-    
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        var activeTab = tabs[0].url;
-        // if we're on YouTube, then set the status of the checkboxes correctly
-        if (activeTab.indexOf("://m.youtube.com/") > -1 || activeTab.indexOf("://www.youtube.com/") > -1){
+    // set checkboxes
+    function setPopupToggle(id_of_toggle, method_to_send){
+        var currentToggle = document.getElementById(id_of_toggle);
+        
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             
-            // create function to check if element is hidden
-            function setPopupToggle(method_to_send, id_of_toggle){
+            chrome.tabs.sendMessage(tabs[0].id, { method: method_to_send }, function(response){
                 
-                chrome.tabs.sendMessage(tabs[0].id, {method: method_to_send}, function(response) {
-                    
-                    var currentToggle = document.getElementById(id_of_toggle);
-                    
-                    if(response.method === method_to_send){
-                        if(response.text === "visible"){
-                            currentToggle.checked = true;
-                        } else {
-                            currentToggle.checked = false;
-                        }
-                    }
-                });
-            };
-            
-            setPopupToggle("checkRecHome", "recVidsToggle");
-            setPopupToggle("checkShorts", "shortsToggle");
-            setPopupToggle("checkRelVids", "relVidsToggle");
-            setPopupToggle("checkComments", "commentsToggle");
-            
-        }
-    });
+                if(response.text === "visible"){
+                    currentToggle.checked = true;
+                } else {
+                    currentToggle.checked = false;
+                }
+            });
+        });
+    };
+    
+    setPopupToggle("recVidsToggle", "checkRecShown");
+    setPopupToggle("shortsToggle", "checkShortsShown");
+    setPopupToggle("relatedToggle", "checkRelatedShown");
+    setPopupToggle("commentsToggle", "checkCommentsShown");
     
     // assign functions to the checkboxes
     function assignCheckBoxFunction(method_to_send, id_of_toggle){
-        
         var currentToggle = document.getElementById(id_of_toggle);
         
         // make it hide/show on mac
         currentToggle.addEventListener('click', function() {
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-                chrome.tabs.sendMessage(tabs[0].id, {method: method_to_send});
+                chrome.tabs.sendMessage(tabs[0].id, { method: method_to_send, status: currentToggle.checked });
               });
             }, false);
     };
     
-    assignCheckBoxFunction("changeRecVids", "recVidsToggle");
-    assignCheckBoxFunction("changeRecVidsMobile", "recVidsToggle");
-    assignCheckBoxFunction("changeShorts", "shortsToggle");
-    assignCheckBoxFunction("changeRelVids", "relVidsToggle");
-    assignCheckBoxFunction("changeRelVidsMobile", "relVidsToggle");
-    assignCheckBoxFunction("changeComments", "commentsToggle");
+    assignCheckBoxFunction("recVidsChange", "recVidsToggle");
+    assignCheckBoxFunction("shortsChange", "shortsToggle");
+    assignCheckBoxFunction("relatedChange", "relatedToggle");
+    assignCheckBoxFunction("commentsChange", "commentsToggle");
     
+    // assign functions to the checkboxes
+    var saveButton = document.getElementById('saveButton');
+    
+    // make the save button save setting in local storage
+    saveButton.addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { method: "saveState",
+                recVidsState: document.getElementById('recVidsToggle').checked,
+                shortsState: document.getElementById('shortsToggle').checked,
+                relatedState: document.getElementById('relatedToggle').checked,
+                commentsState: document.getElementById('commentsToggle').checked
+            } );
+        });
+        
+        saveButton.innerHTML = "Saved!";
+        
+    }, false);
     
 }, false);
