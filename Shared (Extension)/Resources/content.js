@@ -45,15 +45,6 @@
             createStyleElement(styleName, eval(item + "CssOff"));
         };
     });
-     
-    // save state if the popup asks for it
-    browser.runtime.onMessage.addListener((message) => {
-        if (message.method === "saveState"){
-            elementsThatCanBeHidden.forEach(function (item) {
-                localStorage.setItem(item, eval('message.' + item + 'State'));
-            });
-        };
-    });
     
     // let the popup ask for the current status of the elements and of the saved state
     chrome.runtime.onMessage.addListener(
@@ -94,6 +85,13 @@
     browser.runtime.onMessage.addListener((message) => {
         if(message.method === "change"){
             toggleHiding(message.element + 'Style', eval(message.element + 'CssOn'), eval(message.element + 'CssOff'), message.status);
+        };
+        
+        // save state if the popup asks for it
+        if (message.method === "saveState"){
+            elementsThatCanBeHidden.forEach(function (item) {
+                localStorage.setItem(item, eval('message.' + item + 'State'));
+            });
         };
     });
     
