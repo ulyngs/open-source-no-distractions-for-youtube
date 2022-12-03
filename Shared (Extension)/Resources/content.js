@@ -42,26 +42,18 @@
      const commentsCssOn = '#comments { visibility: visible; }';
      const commentsCssOff = '#comments { visibility: hidden; }';
      
-     if (localStorage.getItem("recVids") === "true"){
-         createStyleElement("recVidsStyle", recVidsCssOn);
-     } else {
-         createStyleElement("recVidsStyle", recVidsCssOff);
-     };
-     if (localStorage.getItem("shorts") === "true"){
-         createStyleElement("shortsStyle", shortsCssOn);
-     } else {
-         createStyleElement("shortsStyle", shortsCssOff);
-     };
-     if (localStorage.getItem("related") === "true"){
-         createStyleElement("relatedStyle", relatedCssOn);
-     } else {
-         createStyleElement("relatedStyle", relatedCssOff);
-     };
-     if (localStorage.getItem("comments") === "true"){
-         createStyleElement("commentsStyle", commentsCssOn);
-     } else {
-         createStyleElement("commentsStyle", commentsCssOff);
-     };
+     
+     // generate the style elements
+     var elementsThatCanBeHidden = [ "recVids", "shorts", "related", "comments" ];
+     
+     for (var i = 0; i < elementsThatCanBeHidden.length; i++) {
+         var styleName = elementsThatCanBeHidden[i] + "Style";
+         if (localStorage.getItem(elementsThatCanBeHidden[i]) === "true"){
+             createStyleElement(styleName, eval(elementsThatCanBeHidden[i] + "CssOn"));
+         } else {
+             createStyleElement(styleName, eval(elementsThatCanBeHidden[i] + "CssOff"));
+         };
+     }
      
      
      // let the popup ask for the current status of the elements and of the saved state
