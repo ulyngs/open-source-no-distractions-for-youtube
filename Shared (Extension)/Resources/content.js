@@ -71,7 +71,7 @@
         };
     });
     
-    // let the content script toggle elements when the popup asks for it
+    // function to let the content script toggle elements when the popup asks for it
     function toggleHiding(some_style_id, css_shown, css_hidden, status){
         var styleElement = document.getElementById(some_style_id);
         
@@ -83,6 +83,7 @@
     };
     
     browser.runtime.onMessage.addListener((message) => {
+        // toggling hiding when popup asks
         if(message.method === "change"){
             toggleHiding(message.element + 'Style', eval(message.element + 'CssOn'), eval(message.element + 'CssOff'), message.status);
         };
