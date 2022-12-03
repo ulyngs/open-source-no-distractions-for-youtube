@@ -46,15 +46,14 @@
      // generate the style elements
      var elementsThatCanBeHidden = [ "recVids", "shorts", "related", "comments" ];
      
-     for (var i = 0; i < elementsThatCanBeHidden.length; i++) {
-         var styleName = elementsThatCanBeHidden[i] + "Style";
-         if (localStorage.getItem(elementsThatCanBeHidden[i]) === "true"){
-             createStyleElement(styleName, eval(elementsThatCanBeHidden[i] + "CssOn"));
+     elementsThatCanBeHidden.forEach(function (item) {
+         var styleName = item + "Style";
+         if (localStorage.getItem(item) === "true"){
+             createStyleElement(styleName, eval(item + "CssOn"));
          } else {
-             createStyleElement(styleName, eval(elementsThatCanBeHidden[i] + "CssOff"));
+             createStyleElement(styleName, eval(item + "CssOff"));
          };
-     }
-     
+     });
      
      // let the popup ask for the current status of the elements and of the saved state
      chrome.runtime.onMessage.addListener(
