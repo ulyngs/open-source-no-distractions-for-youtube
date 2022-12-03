@@ -9,13 +9,14 @@
     }
     window.hasRun = true;
      
+     var elementsThatCanBeHidden = [ "recVids", "shorts", "related", "comments" ];
+     
      // save state if the popup asks for it
      browser.runtime.onMessage.addListener((message) => {
          if (message.method === "saveState"){
-             localStorage.setItem("recVids", message.recVidsState);
-             localStorage.setItem("shorts", message.shortsState);
-             localStorage.setItem("related", message.relatedState);
-             localStorage.setItem("comments", message.commentsState);
+             elementsThatCanBeHidden.forEach(function (item) {
+                 localStorage.setItem(item, eval('message.' + item + 'State'));
+             });
          };
      });
      
@@ -44,8 +45,6 @@
      
      
      // generate the style elements
-     var elementsThatCanBeHidden = [ "recVids", "shorts", "related", "comments" ];
-     
      elementsThatCanBeHidden.forEach(function (item) {
          var styleName = item + "Style";
          if (localStorage.getItem(item) === "true"){
