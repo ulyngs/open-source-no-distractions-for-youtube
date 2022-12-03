@@ -47,11 +47,8 @@
     });
     
     // let the popup ask for the current status of the elements and of the saved state
-    chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {
-        function checkStyleStatus(some_style_id, some_css_for_shown){
-            var currentStyle = document.getElementById(some_style_id);
-            
+    chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+        function checkStyleStatus(currentStyle, some_css_for_shown){
             if (currentStyle.innerHTML === some_css_for_shown) {
                 sendResponse({text: "visible"});
             } else {
@@ -60,7 +57,9 @@
         };
         
         if(request.method === "check"){
-            checkStyleStatus(request.element + "Style", eval(request.element + 'CssOn'));
+            var currentStyle = document.getElementById(request.element + "Style");
+            
+            checkStyleStatus(currentStyle, eval(request.element + 'CssOn'));
         };
         
         if(request.method == "getSavedState"){
