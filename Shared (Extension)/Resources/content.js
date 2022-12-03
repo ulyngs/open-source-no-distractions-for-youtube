@@ -12,10 +12,10 @@
      // save state if the popup asks for it
      browser.runtime.onMessage.addListener((message) => {
          if (message.method === "saveState"){
-             localStorage.setItem("recVidsOn", message.recVidsState);
-             localStorage.setItem("shortsOn", message.shortsState);
-             localStorage.setItem("relatedOn", message.relatedState);
-             localStorage.setItem("commentsOn", message.commentsState);
+             localStorage.setItem("recVids", message.recVidsState);
+             localStorage.setItem("shorts", message.shortsState);
+             localStorage.setItem("related", message.relatedState);
+             localStorage.setItem("comments", message.commentsState);
          };
      });
      
@@ -42,22 +42,22 @@
      const comments_css_on = '#comments { visibility: visible; }';
      const comments_css_off = '#comments { visibility: hidden; }';
      
-     if (localStorage.getItem("recVidsOn") === "true"){
+     if (localStorage.getItem("recVids") === "true"){
          createStyleElement("recVidsStyle", rec_vids_css_on);
      } else {
          createStyleElement("recVidsStyle", rec_vids_css_off);
      };
-     if (localStorage.getItem("shortsOn") === "true"){
+     if (localStorage.getItem("shorts") === "true"){
          createStyleElement("shortsStyle", shorts_css_on);
      } else {
          createStyleElement("shortsStyle", shorts_css_off);
      };
-     if (localStorage.getItem("relatedOn") === "true"){
+     if (localStorage.getItem("related") === "true"){
          createStyleElement("relatedStyle", related_css_on);
      } else {
          createStyleElement("relatedStyle", related_css_off);
      };
-     if (localStorage.getItem("commentsOn") === "true"){
+     if (localStorage.getItem("comments") === "true"){
          createStyleElement("commentsStyle", comments_css_on);
      } else {
          createStyleElement("commentsStyle", comments_css_off);
@@ -78,10 +78,10 @@
             };
             
             if(request.method == "getSavedState"){
-                sendResponse({recVidsOn: localStorage.getItem("recVidsOn"),
-                                shortsOn: localStorage.getItem("shortsOn"),
-                                relatedOn: localStorage.getItem("relatedOn"),
-                                commentsOn: localStorage.getItem("commentsOn")});
+                sendResponse({recVids: localStorage.getItem("recVids"),
+                                shorts: localStorage.getItem("shorts"),
+                                related: localStorage.getItem("related"),
+                                comments: localStorage.getItem("comments")});
             };
             
             if(request.method == "checkRecShown"){

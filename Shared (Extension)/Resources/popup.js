@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     saveButton.innerHTML = "......";
                     delay(250).then(() => saveButton.innerHTML = "Saved!");
-                } else if((((document.getElementById('recVidsToggle').checked && response.recVidsOn == "false") || (document.getElementById('shortsToggle').checked && response.shortsOn == "false" ) || (document.getElementById('relatedToggle').checked && response.relatedOn == "false") || (document.getElementById('commentsToggle').checked && response.commentsOn == "false"))) && saveButton.innerHTML != "Are you sure? This makes YouTube more distracting!"){
+                } else if((((document.getElementById('recVidsToggle').checked && response.recVids == "false") || (document.getElementById('shortsToggle').checked && response.shorts == "false" ) || (document.getElementById('relatedToggle').checked && response.related == "false") || (document.getElementById('commentsToggle').checked && response.comments == "false"))) && saveButton.innerHTML != "Are you sure? This makes YouTube more distracting!"){
                     saveButton.innerHTML = "Are you sure? This makes YouTube more distracting!";
                 } else {
                     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
