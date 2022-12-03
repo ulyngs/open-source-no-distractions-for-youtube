@@ -2,6 +2,8 @@
 // https://developer.chrome.com/docs/extensions/mv3/messaging/
 
 document.addEventListener('DOMContentLoaded', function() {
+    var elementsThatCanBeHidden = [ "recVids", "shorts", "related", "comments" ];
+    
     // set checkboxes
     function setPopupToggle(element_to_check, id_of_toggle){
         var currentToggle = document.getElementById(id_of_toggle);
@@ -19,11 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
     
-    setPopupToggle("recVids", "recVidsToggle");
-    setPopupToggle("shorts", "shortsToggle");
-    setPopupToggle("related", "relatedToggle");
-    setPopupToggle("comments", "commentsToggle");
-    
     // assign functions to the checkboxes
     function assignCheckBoxFunction(method_to_send, id_of_toggle){
         var currentToggle = document.getElementById(id_of_toggle);
@@ -36,10 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }, false);
     };
     
-    assignCheckBoxFunction("recVids", "recVidsToggle");
-    assignCheckBoxFunction("shorts", "shortsToggle");
-    assignCheckBoxFunction("related", "relatedToggle");
-    assignCheckBoxFunction("comments", "commentsToggle");
+    elementsThatCanBeHidden.forEach(function (item) {
+        setPopupToggle(item, item + "Toggle");
+        assignCheckBoxFunction(item, item + "Toggle");
+    });
     
     // make the save button save setting in local storage
     var saveButton = document.getElementById("saveButton");
