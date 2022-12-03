@@ -75,16 +75,9 @@
                             comments: localStorage.getItem("comments")});
         };
         
-        if(request.method == "checkRecShown"){
-            checkStyleStatus("recVidsStyle", recVidsCssOn);
-        } else if (request.method == "checkShortsShown"){
-            checkStyleStatus("shortsStyle", shortsCssOn);
-        } else if (request.method == "checkRelatedShown"){
-            checkStyleStatus("relatedStyle", relatedCssOn);
-        } else if (request.method == "checkCommentsShown"){
-            checkStyleStatus("commentsStyle", commentsCssOn);
+        if(request.method === "check"){
+            checkStyleStatus(request.element + "Style", eval(request.element + 'CssOn'));
         };
-        
     });
     
     // let the content script toggle elements when the popup asks for it

@@ -3,12 +3,12 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // set checkboxes
-    function setPopupToggle(id_of_toggle, method_to_send){
+    function setPopupToggle(element_to_check, id_of_toggle){
         var currentToggle = document.getElementById(id_of_toggle);
         
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             
-            chrome.tabs.sendMessage(tabs[0].id, { method: method_to_send }, function(response){
+            chrome.tabs.sendMessage(tabs[0].id, { method: "check", element: element_to_check }, function(response){
                 
                 if(response.text === "visible"){
                     currentToggle.checked = true;
@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
     
-    setPopupToggle("recVidsToggle", "checkRecShown");
-    setPopupToggle("shortsToggle", "checkShortsShown");
-    setPopupToggle("relatedToggle", "checkRelatedShown");
-    setPopupToggle("commentsToggle", "checkCommentsShown");
+    setPopupToggle("recVids", "recVidsToggle");
+    setPopupToggle("shorts", "shortsToggle");
+    setPopupToggle("related", "relatedToggle");
+    setPopupToggle("comments", "commentsToggle");
     
     // assign functions to the checkboxes
     function assignCheckBoxFunction(method_to_send, id_of_toggle){
