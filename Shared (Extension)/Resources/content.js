@@ -68,15 +68,15 @@
             };
         };
         
+        if(request.method === "check"){
+            checkStyleStatus(request.element + "Style", eval(request.element + 'CssOn'));
+        };
+        
         if(request.method == "getSavedState"){
             sendResponse({recVids: localStorage.getItem("recVids"),
                             shorts: localStorage.getItem("shorts"),
                             related: localStorage.getItem("related"),
                             comments: localStorage.getItem("comments")});
-        };
-        
-        if(request.method === "check"){
-            checkStyleStatus(request.element + "Style", eval(request.element + 'CssOn'));
         };
     });
     
