@@ -36,7 +36,7 @@
         };
     };
     
-    // loop over the elements and create the elements
+    // loop over the elements and create the style
     elementsThatCanBeHidden.forEach(function (item) {
         var styleName = item + "Style";
         if (localStorage.getItem(item) === "true"){
@@ -70,9 +70,9 @@
         
         if(request.method == "getSavedState"){
             sendResponse({recVids: localStorage.getItem("recVids"),
-                          shorts: localStorage.getItem("shorts"),
-                          related: localStorage.getItem("related"),
-                          comments: localStorage.getItem("comments")});
+                            shorts: localStorage.getItem("shorts"),
+                            related: localStorage.getItem("related"),
+                            comments: localStorage.getItem("comments")});
         };
         
         if(request.method == "checkRecShown"){
@@ -99,14 +99,8 @@
     };
     
     browser.runtime.onMessage.addListener((message) => {
-        if (message.method === "recVidsChange"){
-            toggleHiding("recVidsStyle", recVidsCssOn, recVidsCssOff, message.status);
-        } else if (message.method === "shortsChange"){
-            toggleHiding("shortsStyle", shortsCssOn, shortsCssOff, message.status);
-        } else if (message.method === "relatedChange"){
-            toggleHiding("relatedStyle", relatedCssOn, relatedCssOff, message.status);
-        } else if (message.method === "commentsChange"){
-            toggleHiding("commentsStyle", commentsCssOn, commentsCssOff, message.status);
+        if(message.method === "change"){
+            toggleHiding(message.element + 'Style', eval(message.element + 'CssOn'), eval(message.element + 'CssOff'), message.status);
         };
     });
     
