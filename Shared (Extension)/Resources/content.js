@@ -30,37 +30,37 @@
          };
      };
      
-     const rec_vids_css_on = 'ytd-browse[page-subtype="home"] { visibility: visible; } div[tab-identifier="FEwhat_to_watch"] { visibility:  visible; }';
-     const rec_vids_css_off = 'ytd-browse[page-subtype="home"] { visibility: hidden; } div[tab-identifier="FEwhat_to_watch"] { visibility:  hidden; }';
+     const recVidsCssOn = 'ytd-browse[page-subtype="home"] { visibility: visible; } div[tab-identifier="FEwhat_to_watch"] { visibility:  visible; }';
+     const recVidsCssOff = 'ytd-browse[page-subtype="home"] { visibility: hidden; } div[tab-identifier="FEwhat_to_watch"] { visibility:  hidden; }';
      
-     const shorts_css_on = '#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Shorts"], ytd-mini-guide-entry-renderer[aria-label="Shorts"] { display: block; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(2){ visibility: visible; }'
-     const shorts_css_off = '#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Shorts"], ytd-mini-guide-entry-renderer[aria-label="Shorts"] { display: none; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(2){ visibility: hidden; }';
+     const shortsCssOn = '#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Shorts"], ytd-mini-guide-entry-renderer[aria-label="Shorts"] { display: block; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(2){ visibility: visible; }'
+     const shortsCssOff = '#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Shorts"], ytd-mini-guide-entry-renderer[aria-label="Shorts"] { display: none; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(2){ visibility: hidden; }';
      
-     const related_css_on = '#related { visibility: visible; display: block; } ytm-item-section-renderer[section-identifier="related-items"] { visibility: visible; }';
-     const related_css_off = '#related { visibility: hidden; display: none; } ytm-item-section-renderer[section-identifier="related-items"] { visibility: hidden; }';
+     const relatedCssOn = '#related { visibility: visible; display: block; } ytm-item-section-renderer[section-identifier="related-items"] { visibility: visible; }';
+     const relatedCssOff = '#related { visibility: hidden; display: none; } ytm-item-section-renderer[section-identifier="related-items"] { visibility: hidden; }';
      
-     const comments_css_on = '#comments { visibility: visible; }';
-     const comments_css_off = '#comments { visibility: hidden; }';
+     const commentsCssOn = '#comments { visibility: visible; }';
+     const commentsCssOff = '#comments { visibility: hidden; }';
      
      if (localStorage.getItem("recVids") === "true"){
-         createStyleElement("recVidsStyle", rec_vids_css_on);
+         createStyleElement("recVidsStyle", recVidsCssOn);
      } else {
-         createStyleElement("recVidsStyle", rec_vids_css_off);
+         createStyleElement("recVidsStyle", recVidsCssOff);
      };
      if (localStorage.getItem("shorts") === "true"){
-         createStyleElement("shortsStyle", shorts_css_on);
+         createStyleElement("shortsStyle", shortsCssOn);
      } else {
-         createStyleElement("shortsStyle", shorts_css_off);
+         createStyleElement("shortsStyle", shortsCssOff);
      };
      if (localStorage.getItem("related") === "true"){
-         createStyleElement("relatedStyle", related_css_on);
+         createStyleElement("relatedStyle", relatedCssOn);
      } else {
-         createStyleElement("relatedStyle", related_css_off);
+         createStyleElement("relatedStyle", relatedCssOff);
      };
      if (localStorage.getItem("comments") === "true"){
-         createStyleElement("commentsStyle", comments_css_on);
+         createStyleElement("commentsStyle", commentsCssOn);
      } else {
-         createStyleElement("commentsStyle", comments_css_off);
+         createStyleElement("commentsStyle", commentsCssOff);
      };
      
      
@@ -85,13 +85,13 @@
             };
             
             if(request.method == "checkRecShown"){
-                checkStyleStatus("recVidsStyle", rec_vids_css_on);
+                checkStyleStatus("recVidsStyle", recVidsCssOn);
             } else if (request.method == "checkShortsShown"){
-                checkStyleStatus("shortsStyle", shorts_css_on);
+                checkStyleStatus("shortsStyle", shortsCssOn);
             } else if (request.method == "checkRelatedShown"){
-                checkStyleStatus("relatedStyle", related_css_on);
+                checkStyleStatus("relatedStyle", relatedCssOn);
             } else if (request.method == "checkCommentsShown"){
-                checkStyleStatus("commentsStyle", comments_css_on);
+                checkStyleStatus("commentsStyle", commentsCssOn);
             };
             
      });
@@ -109,13 +109,13 @@
      
      browser.runtime.onMessage.addListener((message) => {
          if (message.method === "recVidsChange"){
-             toggleHiding("recVidsStyle", rec_vids_css_on, rec_vids_css_off, message.status);
+             toggleHiding("recVidsStyle", recVidsCssOn, recVidsCssOff, message.status);
          } else if (message.method === "shortsChange"){
-             toggleHiding("shortsStyle", shorts_css_on, shorts_css_off, message.status);
+             toggleHiding("shortsStyle", shortsCssOn, shortsCssOff, message.status);
          } else if (message.method === "relatedChange"){
-             toggleHiding("relatedStyle", related_css_on, related_css_off, message.status);
+             toggleHiding("relatedStyle", relatedCssOn, relatedCssOff, message.status);
          } else if (message.method === "commentsChange"){
-             toggleHiding("commentsStyle", comments_css_on, comments_css_off, message.status);
+             toggleHiding("commentsStyle", commentsCssOn, commentsCssOff, message.status);
          };
      });
      
