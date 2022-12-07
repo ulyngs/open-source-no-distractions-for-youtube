@@ -25,6 +25,14 @@ body {
   display: block;
 }
 
+.toggle-group {
+    margin: 0px 0px 15px 0px;
+    padding: 0px;
+}
+.toggle-group h2 {
+    font-size: 1.1em;
+    margin: 0px 0px 5px 0px;
+}
 
 @media (prefers-color-scheme: dark) {
     /* Dark Mode styles go here. */

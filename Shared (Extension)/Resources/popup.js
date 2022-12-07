@@ -2,7 +2,7 @@
 // https://developer.chrome.com/docs/extensions/mv3/messaging/
 
 document.addEventListener('DOMContentLoaded', function() {
-    var elementsThatCanBeHidden = [ "recVids", "shorts", "related", "comments" ];
+    var elementsThatCanBeHidden = [ "recVids", "shorts", "subscriptions", "explore", "more", "related", "comments" ];
     
     // set checkboxes
     function setPopupToggle(element_to_check, id_of_toggle){
@@ -57,6 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         chrome.tabs.sendMessage(tabs[0].id, { method: "saveState",
                             recVidsState: document.getElementById('recVidsToggle').checked,
                             shortsState: document.getElementById('shortsToggle').checked,
+                            subscriptionsState: document.getElementById('subscriptionsToggle').checked,
+                            exploreState: document.getElementById('exploreToggle').checked,
+                            moreState: document.getElementById('moreToggle').checked,
                             relatedState: document.getElementById('relatedToggle').checked,
                             commentsState: document.getElementById('commentsToggle').checked
                         } );
@@ -71,6 +74,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         chrome.tabs.sendMessage(tabs[0].id, { method: "saveState",
                             recVidsState: document.getElementById('recVidsToggle').checked,
                             shortsState: document.getElementById('shortsToggle').checked,
+                            subscriptionsState: document.getElementById('subscriptionsToggle').checked,
+                            exploreState: document.getElementById('exploreToggle').checked,
+                            moreState: document.getElementById('moreToggle').checked,
                             relatedState: document.getElementById('relatedToggle').checked,
                             commentsState: document.getElementById('commentsToggle').checked
                         } );

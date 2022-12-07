@@ -7,24 +7,41 @@
 </head>
 <body>
     <div class="content-toggles">
-        <div class="a-toggle">
-            <input type="checkbox" id="recVidsToggle" name="recVidsToggle">
-            <label for="recVidsToggle">Recommended videos <span class="colored-font">(home page)</span></label>
+        <div class="toggle-group">
+          <h2>Home page</h2>
+          <div class="a-toggle">
+              <input type="checkbox" id="recVidsToggle" name="recVidsToggle">
+              <label for="recVidsToggle">Recommended videos</label>
+          </div>
+          <div class="a-toggle">
+              <input type="checkbox" id="shortsToggle" name="shortsToggle">
+              <label for="shortsToggle">Shorts</label>
+          </div>
+          <div class="a-toggle">
+              <input type="checkbox" id="subscriptionsToggle" name="subscriptionsToggle">
+              <label for="subscriptionsToggle">Subscriptions</label>
+          </div>
+          <div class="a-toggle">
+              <input type="checkbox" id="exploreToggle" name="exploreToggle">
+              <label for="exploreToggle">Explore</label>
+          </div>
+          <div class="a-toggle">
+              <input type="checkbox" id="moreToggle" name="moreToggle">
+              <label for="moreToggle">More from YouTube</label>
+          </div>
         </div>
-        <div class="a-toggle">
-            <input type="checkbox" id="shortsToggle" name="shortsToggle">
-            <label for="shortsToggle">Shorts <span class="colored-font">(home page)</span></label>
+        <div class="toggle-group">
+            <h2>When watching</h2>
+            <div class="a-toggle">
+                <input type="checkbox" id="relatedToggle" name="relatedToggle">
+                <label for="relatedToggle">Related/Up next videos</label>
+            </div>
+            <div class="a-toggle platform-ipad-mac comments-toggle-wrapper">
+                <input class="platform-ipad-mac" type="checkbox" id="commentsToggle" name="commentsToggle">
+                <label class="platform-ipad-mac" for="commentsToggle">Comments</label>
+            </div>
+            <div class="smaller-font platform-ipad-mac tooltip-content"></div>
         </div>
-        <div class="a-toggle">
-            <input type="checkbox" id="relatedToggle" name="relatedToggle">
-            <label for="relatedToggle">Related/Up next videos <span class="colored-font">(when watching)</span></label>
-        </div>
-        <div class="a-toggle platform-ipad-mac comments-toggle-wrapper">
-            <input class="platform-ipad-mac" type="checkbox" id="commentsToggle" name="commentsToggle">
-            <label class="platform-ipad-mac" for="commentsToggle">Comments</label>
-        </div>
-        <div class="smaller-font platform-ipad-mac tooltip-content"></div>
-        
     </div>
     <p class="smaller-font">To flag bugs or suggest improvements, visit the extension's <a href="https://github.com/ulyngs/open-source-no-distractions-for-youtube" target="_blank">GitHub repository</a>.
     </p>

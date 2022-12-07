@@ -14,6 +14,15 @@
     
     const shortsCssOn = '#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Shorts"],ytd-mini-guide-entry-renderer[aria-label="Shorts"] { display: block; } ytm-pivot-bar-renderer[role="tablist"]ytm-pivot-bar-item-renderer:nth-child(2){ visibility: visible; }'
     const shortsCssOff = '#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Shorts"],ytd-mini-guide-entry-renderer[aria-label="Shorts"] { display: none; } ytm-pivot-bar-renderer[role="tablist"]ytm-pivot-bar-item-renderer:nth-child(2){ visibility: hidden; }';
+     
+     const subscriptionsCssOn = '#sections ytd-guide-section-renderer:nth-child(2) { display: block; }';
+     const subscriptionsCssOff = '#sections ytd-guide-section-renderer:nth-child(2) { display: none; }';
+     
+     const exploreCssOn = '#sections ytd-guide-section-renderer:nth-child(3) { display: block; }';
+     const exploreCssOff = '#sections ytd-guide-section-renderer:nth-child(3) { display: none; }';
+     
+     const moreCssOn = '#sections ytd-guide-section-renderer:nth-child(4) { display: block; }';
+     const moreCssOff = '#sections ytd-guide-section-renderer:nth-child(4) { display: none; }';
     
     const relatedCssOn = '#related { visibility: visible; display: block; } ytm-item-section-renderer[section-identifier="related-items"] {visibility: visible; }';
     const relatedCssOff = '#related { visibility: hidden; display: none; } ytm-item-section-renderer[section-identifier="related-items"] {visibility: hidden; }';
@@ -23,7 +32,7 @@
     
     
     // generate the style elements
-    var elementsThatCanBeHidden = [ "recVids", "shorts", "related", "comments" ];
+    var elementsThatCanBeHidden = [ "recVids", "shorts", "subscriptions", "explore", "more", "related", "comments" ];
      
     // function to create style element with the specified CSS content
     function createStyleElement(some_style_id, some_css){
@@ -40,6 +49,10 @@
     elementsThatCanBeHidden.forEach(function (item) {
         var styleName = item + "Style";
         if (localStorage.getItem(item) === "true"){
+            createStyleElement(styleName, eval(item + "CssOn"));
+        } else if (localStorage.getItem(item) === "false"){
+            createStyleElement(styleName, eval(item + "CssOff"));
+        } else if(item === "subscriptions"){
             createStyleElement(styleName, eval(item + "CssOn"));
         } else {
             createStyleElement(styleName, eval(item + "CssOff"));
@@ -65,6 +78,9 @@
         if(request.method == "getSavedState"){
             sendResponse({recVids: localStorage.getItem("recVids"),
                             shorts: localStorage.getItem("shorts"),
+                            subscriptions: localStorage.getItem("subscriptions"),
+                            explore: localStorage.getItem("explore"),
+                            more: localStorage.getItem("more"),
                             related: localStorage.getItem("related"),
                             comments: localStorage.getItem("comments")});
         };

@@ -38,6 +38,13 @@ ytm-item-section-renderer[section-identifier="related-items"] {
     visibility: hidden;
 }
 
+/****** sidebar: subscriptions, explore, and More from YouTube  ******/
+#sections ytd-guide-section-renderer:nth-child(2),
+#sections ytd-guide-section-renderer:nth-child(3),
+#sections ytd-guide-section-renderer:nth-child(4) {
+    display: none;
+}
+
 
 /* on narrow viewport, hide this element
 because the comments will otherwise jump down
