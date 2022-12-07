@@ -3,8 +3,8 @@
     "default_locale": "en",
 
     "name": "'No Distractions' for YouTube",
-    "description": "Hides recommendations on home page and when watching. On Mac + iPad hides comments until a button is pressed.",
-    "version": "3.0",
+    "description": "Hides distraction on home page and when watching. Show hidden elements when you need them. Store your personal preferences.",
+    "version": "3.1",
 
     "icons": {
         "48": "images/new-icon48.png",
