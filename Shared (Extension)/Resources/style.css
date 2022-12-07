@@ -38,8 +38,14 @@ ytm-item-section-renderer[section-identifier="related-items"] {
     visibility: hidden;
 }
 
-/****** sidebar: subscriptions, explore, and More from YouTube  ******/
-#sections ytd-guide-section-renderer:nth-child(2),
+/****** sidebar: subscriptions  ******/
+#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Subscriptions"],
+ytd-mini-guide-entry-renderer[aria-label="Subscriptions"],
+#sections ytd-guide-section-renderer:nth-child(2) {
+    display: none;
+}
+
+/*** sidebar: explore and More from YouTube ***/
 #sections ytd-guide-section-renderer:nth-child(3),
 #sections ytd-guide-section-renderer:nth-child(4) {
     display: none;
