@@ -24,12 +24,12 @@
      const moreCssOn = '#sections ytd-guide-section-renderer:nth-child(4) { display: block; }';
      const moreCssOff = '#sections ytd-guide-section-renderer:nth-child(4) { display: none; }';
     
-    const relatedCssOn = '#related { visibility: visible; display: block; } ytm-item-section-renderer[section-identifier="related-items"] {visibility: visible; }';
-    const relatedCssOff = '#related { visibility: hidden; display: none; } ytm-item-section-renderer[section-identifier="related-items"] {visibility: hidden; }';
+    const relatedCssOn = '#related { visibility: visible; display: block; } #app ytm-item-section-renderer[section-identifier="related-items"] { display: block; }';
+    const relatedCssOff = '#related { visibility: hidden; display: none; } #app ytm-item-section-renderer[section-identifier="related-items"] { display: none; }';
     
-    const commentsCssOn = '#comments { visibility: visible; } #app ytm-item-section-renderer lazy-list { display: block; }';
-    const commentsCssOff = '#comments { visibility: hidden; } #app ytm-item-section-renderer lazy-list { display: none; }';
-    
+    const commentsCssOn = '#comments { visibility: visible; } #app ytm-comments-entry-point-header-renderer { display: block; }';
+    const commentsCssOff = '#comments { visibility: hidden; } #app ytm-comments-entry-point-header-renderer { display: none; }';
+     /*#app ytm-item-section-renderer lazy-list { display: none; }*/
     
     // generate the style elements
     var elementsThatCanBeHidden = [ "recVids", "shorts", "subscriptions", "explore", "more", "related", "comments" ];

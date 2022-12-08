@@ -29,17 +29,13 @@ ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(2){
 }
 
 /* mobile version */
-ytm-item-section-renderer[section-identifier="related-items"] {
-    visibility: hidden;
+#app ytm-item-section-renderer[section-identifier="related-items"] {
+    display: none;
 }
 
-/***** hide comment ********/
+/***** hide comments ********/
 #comments {
     visibility: hidden;
-}
-/* mobile */
-#app ytm-item-section-renderer lazy-list {
-    display: none;
 }
 
 /****** sidebar: subscriptions  ******/
