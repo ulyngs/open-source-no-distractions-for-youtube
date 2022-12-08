@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     saveButton.innerHTML = "......";
                     delay(250).then(() => saveButton.innerHTML = "Saved!");
+                    delay(1500).then(() => saveButton.innerHTML = "Save settings");
                     
                 };
             });
