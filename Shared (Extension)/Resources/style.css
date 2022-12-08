@@ -18,7 +18,7 @@ ytd-mini-guide-entry-renderer[aria-label="Shorts"] {
 
 /* mobile version */
 ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(2){
-    visibility: hidden;
+    display: none;
 }
 
 /***** hide related videos when you watch a video *****/
@@ -37,11 +37,19 @@ ytm-item-section-renderer[section-identifier="related-items"] {
 #comments {
     visibility: hidden;
 }
+/* mobile */
+#app ytm-item-section-renderer lazy-list {
+    display: none;
+}
 
 /****** sidebar: subscriptions  ******/
 #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Subscriptions"],
 ytd-mini-guide-entry-renderer[aria-label="Subscriptions"],
 #sections ytd-guide-section-renderer:nth-child(2) {
+    display: none;
+}
+/* mobile version */
+ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(3){
     display: none;
 }
 
