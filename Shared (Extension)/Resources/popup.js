@@ -2,7 +2,13 @@
 // https://developer.chrome.com/docs/extensions/mv3/messaging/
 
 document.addEventListener('DOMContentLoaded', function() {
-    var elementsThatCanBeHidden = [ "recVids", "shorts", "subscriptions", "explore", "more", "related", "comments" ];
+    var elementsThatCanBeHidden = [ "youtubeRecVids",
+                                    "youtubeShorts",
+                                    "youtubeSubscriptions",
+                                    "youtubeExplore",
+                                    "youtubeMore",
+                                    "youtubeRelated",
+                                    "youtubeComments" ];
     
     // set checkboxes according to current status
     function setCheckboxState(element_to_check, id_of_toggle){
