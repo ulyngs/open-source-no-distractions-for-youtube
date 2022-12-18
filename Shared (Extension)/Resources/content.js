@@ -21,8 +21,8 @@
      const exploreCssOn = '#sections ytd-guide-section-renderer:has(a[href="/gaming"]) { display: block; }';
      const exploreCssOff = '#sections ytd-guide-section-renderer:has(a[href="/gaming"]) { display: none; }';
      
-     const moreCssOn = '#sections ytd-guide-section-renderer:nth-child(4) { display: block; }';
-     const moreCssOff = '#sections ytd-guide-section-renderer:nth-child(4) { display: none; }';
+     const moreCssOn = '#sections ytd-guide-section-renderer:has(a[href="/premium"]) { display: block; }';
+     const moreCssOff = '#sections ytd-guide-section-renderer:has(a[href="/premium"]) { display: none; }';
     
     const relatedCssOn = '#related { visibility: visible; display: block; } #app ytm-item-section-renderer[section-identifier="related-items"] { display: block; }';
     const relatedCssOff = '#related { visibility: hidden; display: none; } #app ytm-item-section-renderer[section-identifier="related-items"] { display: none; }';
