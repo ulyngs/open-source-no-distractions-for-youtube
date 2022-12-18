@@ -15,8 +15,8 @@
     const shortsCssOn = '#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Shorts"],ytd-mini-guide-entry-renderer[aria-label="Shorts"] { display: block; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(2){ display: flex; }'
     const shortsCssOff = '#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Shorts"],ytd-mini-guide-entry-renderer[aria-label="Shorts"] { display: none; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(2){ display: none; }';
      
-     const subscriptionsCssOn = '#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Subscriptions"], ytd-mini-guide-entry-renderer[aria-label="Subscriptions"], #sections ytd-guide-section-renderer:nth-child(2) { display: block; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(3){ display: flex; }';
-     const subscriptionsCssOff = '#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Subscriptions"], ytd-mini-guide-entry-renderer[aria-label="Subscriptions"], #sections ytd-guide-section-renderer:nth-child(2) { display: none; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(3){ display: none; }';
+     const subscriptionsCssOn = 'a[href="/feed/subscriptions/] { display: flex; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(3) { display: flex; }';
+     const subscriptionsCssOff = 'a[href="/feed/subscriptions"] { display: none !important; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(3) { display: none; }';
      
      const exploreCssOn = '#sections ytd-guide-section-renderer:nth-child(3) { display: block; }';
      const exploreCssOff = '#sections ytd-guide-section-renderer:nth-child(3) { display: none; }';
@@ -29,7 +29,6 @@
     
     const commentsCssOn = '#comments { visibility: visible; } #app ytm-comments-entry-point-header-renderer { display: block; }';
     const commentsCssOff = '#comments { visibility: hidden; } #app ytm-comments-entry-point-header-renderer { display: none; }';
-     /*#app ytm-item-section-renderer lazy-list { display: none; }*/
     
     // generate the style elements
     var elementsThatCanBeHidden = [ "recVids", "shorts", "subscriptions", "explore", "more", "related", "comments" ];
