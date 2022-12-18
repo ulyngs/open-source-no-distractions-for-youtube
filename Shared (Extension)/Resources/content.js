@@ -18,8 +18,8 @@
      const subscriptionsCssOn = 'a[href="/feed/subscriptions/] { display: flex; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(3) { display: flex; }';
      const subscriptionsCssOff = 'a[href="/feed/subscriptions"] { display: none !important; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(3) { display: none; }';
      
-     const exploreCssOn = '#sections ytd-guide-section-renderer:nth-child(3) { display: block; }';
-     const exploreCssOff = '#sections ytd-guide-section-renderer:nth-child(3) { display: none; }';
+     const exploreCssOn = '#sections ytd-guide-section-renderer:has(a[href="/gaming"]) { display: block; }';
+     const exploreCssOff = '#sections ytd-guide-section-renderer:has(a[href="/gaming"]) { display: none; }';
      
      const moreCssOn = '#sections ytd-guide-section-renderer:nth-child(4) { display: block; }';
      const moreCssOff = '#sections ytd-guide-section-renderer:nth-child(4) { display: none; }';
