@@ -4,15 +4,24 @@
 document.addEventListener('DOMContentLoaded', function() {
     var elementsThatCanBeHidden = [ "recVids", "shorts", "subscriptions", "explore", "more", "related", "comments" ];
     
-    // set checkboxes
-    function setPopupToggle(element_to_check, id_of_toggle){
+    // set checkboxes according to current status
+    function setCheckboxState(element_to_check, id_of_toggle){
         var currentToggle = document.getElementById(id_of_toggle);
         
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             
             chrome.tabs.sendMessage(tabs[0].id, { method: "check", element: element_to_check }, function(response){
-                
-                if(response.text === "visible"){
+                // if the checkbox is for a page that's different from the one we're on, set to its saved state
+                if (response.text === "not on active tab") {
+                    elementsThatCanBeHidden.forEach(function (element) {
+                        var key = element_to_check + "Status";
+                        
+                        browser.storage.sync.get(key, function(result) {
+                            currentToggle.checked = result[key];
+                        });
+                    });
+                    // otherwise set it to what's currently visible on the page
+                } else if (response.text === "visible"){
                     currentToggle.checked = true;
                 } else {
                     currentToggle.checked = false;
@@ -21,75 +30,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
     
+    function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+    }
+    
+    
+    var saveButton = document.querySelector('#saveButton');
+    
+    saveButton.addEventListener('click', (e) => {
+        // save the state of the checkboxes to local storage
+        elementsThatCanBeHidden.forEach(function (element) {
+            var key = element + "Status";
+            
+            browser.storage.sync.set({ [key]: document.getElementById(element + "Toggle").checked });
+        });
+    
+        e.target.setAttribute("value", "......");
+        delay(250).then(() => e.target.setAttribute("value", "Saved!"));
+        delay(1500).then(() => e.target.setAttribute("value", "Save settings"));
+    })
+    
+    
     // assign functions to the checkboxes
-    function assignCheckBoxFunction(method_to_send, id_of_toggle){
+    function assignCheckBoxFunction(element_to_change, id_of_toggle){
         var currentToggle = document.getElementById(id_of_toggle);
         
         // make it hide/show on mac
         currentToggle.addEventListener('click', function() {
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-                chrome.tabs.sendMessage(tabs[0].id, { method: "change", element: method_to_send, status: currentToggle.checked });
+                chrome.tabs.sendMessage(tabs[0].id, { method: "change", element: element_to_change, status: currentToggle.checked });
               });
             }, false);
     };
     
     elementsThatCanBeHidden.forEach(function (item) {
-        setPopupToggle(item, item + "Toggle");
+        setCheckboxState(item, item + "Toggle");
         assignCheckBoxFunction(item, item + "Toggle");
     });
-    
-    // make the save button save setting in local storage
-    var saveButton = document.getElementById("saveButton");
-    
-    saveButton.addEventListener('click', function() {
-        function delay(time) {
-          return new Promise(resolve => setTimeout(resolve, time));
-        }
-        
-        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, { method: "getSavedState" }, function(response){
-                // ask for confirmation if a new thing will be shown by default that isn't shown in current saved state
-                // except when we're removing recommended videos from the front page -- this is the biggest distractor
-                // so if people untoggle that and save, then we'll save right away with asking for confirmation
-                
-                if(!(document.getElementById('recVidsToggle').checked) && response.recVidsOn == "true"){
-                    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-                        chrome.tabs.sendMessage(tabs[0].id, { method: "saveState",
-                            recVidsState: document.getElementById('recVidsToggle').checked,
-                            shortsState: document.getElementById('shortsToggle').checked,
-                            subscriptionsState: document.getElementById('subscriptionsToggle').checked,
-                            exploreState: document.getElementById('exploreToggle').checked,
-                            moreState: document.getElementById('moreToggle').checked,
-                            relatedState: document.getElementById('relatedToggle').checked,
-                            commentsState: document.getElementById('commentsToggle').checked
-                        } );
-                    });
-                    
-                    saveButton.innerHTML = "......";
-                    delay(250).then(() => saveButton.innerHTML = "Saved!");
-                } else if((((document.getElementById('recVidsToggle').checked && response.recVids == "false") || (document.getElementById('shortsToggle').checked && response.shorts == "false" ) || (document.getElementById('relatedToggle').checked && response.related == "false") || (document.getElementById('commentsToggle').checked && response.comments == "false"))) && saveButton.innerHTML != "Are you sure? This makes YouTube more distracting!"){
-                    saveButton.innerHTML = "Are you sure? This makes YouTube more distracting!";
-                } else {
-                    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-                        chrome.tabs.sendMessage(tabs[0].id, { method: "saveState",
-                            recVidsState: document.getElementById('recVidsToggle').checked,
-                            shortsState: document.getElementById('shortsToggle').checked,
-                            subscriptionsState: document.getElementById('subscriptionsToggle').checked,
-                            exploreState: document.getElementById('exploreToggle').checked,
-                            moreState: document.getElementById('moreToggle').checked,
-                            relatedState: document.getElementById('relatedToggle').checked,
-                            commentsState: document.getElementById('commentsToggle').checked
-                        } );
-                    });
-                    
-                    saveButton.innerHTML = "......";
-                    delay(250).then(() => saveButton.innerHTML = "Saved!");
-                    delay(1500).then(() => saveButton.innerHTML = "Save settings");
-                    
-                };
-            });
-        });
-        
-    }, false);
     
 }, false);

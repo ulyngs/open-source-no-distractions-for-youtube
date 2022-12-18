@@ -14,8 +14,10 @@ body {
     font-size: 0.85em;
 }
 
-.a-toggle {
+.a-toggle,
+.save-toggle {
     margin-bottom: 5px;
+    text-align: left;
 }
 
 .tooltip-content {
@@ -46,6 +48,9 @@ body {
     .youtube-large-only {
         display:none
     }
+    a:visited {
+        color: darkgray;
+    }
 }
 
 
@@ -73,3 +78,14 @@ a:visited {
     color: blue;
 }
 
+#saveButton {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 7px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-top: 8px;
+}
