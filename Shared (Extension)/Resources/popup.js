@@ -23,14 +23,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         var key = element_to_check + "Status";
                         
                         browser.storage.sync.get(key, function(result) {
-                            currentToggle.checked = result[key];
+                            currentToggle.checked = !result[key];
                         });
                     });
                     // otherwise set it to what's currently visible on the page
                 } else if (response.text === "visible"){
-                    currentToggle.checked = true;
-                } else {
                     currentToggle.checked = false;
+                } else {
+                    currentToggle.checked = true;
                 }
             });
         });
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         elementsThatCanBeHidden.forEach(function (element) {
             var key = element + "Status";
             
-            browser.storage.sync.set({ [key]: document.getElementById(element + "Toggle").checked });
+            browser.storage.sync.set({ [key]: !document.getElementById(element + "Toggle").checked });
         });
     
         e.target.setAttribute("value", "......");
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // make it hide/show on mac
         currentToggle.addEventListener('click', function() {
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-                chrome.tabs.sendMessage(tabs[0].id, { method: "change", element: element_to_change, status: currentToggle.checked });
+                chrome.tabs.sendMessage(tabs[0].id, { method: "change", element: element_to_change, status: !currentToggle.checked });
               });
             }, false);
     };
