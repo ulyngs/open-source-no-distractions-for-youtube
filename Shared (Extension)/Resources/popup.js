@@ -18,8 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             chrome.tabs.sendMessage(tabs[0].id, { method: "check", element: element_to_check }, function(response){
                 // if the checkbox is for a page that's different from the one we're on, set to its saved state
-                console.log("Here is the response:");
-                console.log(response.text);
                 
                 if (response.text === "not on active tab") {
                     elementsThatCanBeHidden.forEach(function (element) {
