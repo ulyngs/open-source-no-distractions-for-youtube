@@ -18,12 +18,15 @@ document.addEventListener('DOMContentLoaded', function() {
             
             chrome.tabs.sendMessage(tabs[0].id, { method: "check", element: element_to_check }, function(response){
                 // if the checkbox is for a page that's different from the one we're on, set to its saved state
+                console.log("Here is the response:");
+                console.log(response.text);
+                
                 if (response.text === "not on active tab") {
                     elementsThatCanBeHidden.forEach(function (element) {
                         var key = element_to_check + "Status";
                         
                         browser.storage.sync.get(key, function(result) {
-                            currentToggle.checked = !result[key];
+                            currentToggle.checked = result[key];
                         });
                     });
                     // otherwise set it to what's currently visible on the page
@@ -48,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         elementsThatCanBeHidden.forEach(function (element) {
             var key = element + "Status";
             
-            browser.storage.sync.set({ [key]: !document.getElementById(element + "Toggle").checked });
+            browser.storage.sync.set({ [key]: document.getElementById(element + "Toggle").checked });
         });
     
         e.target.setAttribute("value", "......");

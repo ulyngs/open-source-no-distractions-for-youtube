@@ -56,7 +56,7 @@
          var key = item + "Status";
          
          browser.storage.sync.get(key, function(result) {
-             if (result[key] == true){
+             if (result[key] == false){
                  createStyleElement(styleName, eval(item + "CssOn"));
              } else {
                  createStyleElement(styleName, eval(item + "CssOff"));
