@@ -72,7 +72,7 @@
              var currentStyle = document.getElementById(message.element + "Style");
      
              if (currentStyle == undefined){
-                 sendResponse({text: "not on active tab"});
+                 sendResponse({text: "style element is undefined"});
              } else if (currentStyle.innerHTML === eval(message.element + 'CssOn')) {
                  sendResponse({text: "visible"});
              } else {

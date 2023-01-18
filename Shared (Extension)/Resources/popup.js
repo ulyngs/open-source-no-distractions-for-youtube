@@ -10,16 +10,19 @@ document.addEventListener('DOMContentLoaded', function() {
                                     "youtubeRelated",
                                     "youtubeComments" ];
     
-    // set checkboxes according to current status
+    // when the icon is clicked, set checkboxes according to current view status
     function setCheckboxState(element_to_check, id_of_toggle){
         var currentToggle = document.getElementById(id_of_toggle);
         
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             
             chrome.tabs.sendMessage(tabs[0].id, { method: "check", element: element_to_check }, function(response){
-                // if the checkbox is for a page that's different from the one we're on, set to its saved state
-                
-                if (response.text === "not on active tab") {
+                if (response.text === "hidden"){
+                    currentToggle.checked = true;
+                } else if (response.text === "visible"){
+                    currentToggle.checked = false;
+                } else {
+                    // if the style element is undefined, set to saved status
                     elementsThatCanBeHidden.forEach(function (element) {
                         var key = element_to_check + "Status";
                         
@@ -27,11 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             currentToggle.checked = result[key];
                         });
                     });
-                    // otherwise set it to what's currently visible on the page
-                } else if (response.text === "visible"){
-                    currentToggle.checked = false;
-                } else {
-                    currentToggle.checked = true;
                 }
             });
         });
