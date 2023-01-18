@@ -30,15 +30,7 @@
     const youtubeCommentsCssOn = '#comments { visibility: visible; } #app ytm-comments-entry-point-header-renderer { display: block; }';
     const youtubeCommentsCssOff = '#comments { visibility: hidden; } #app ytm-comments-entry-point-header-renderer { display: none; }';
     
-    // generate the style elements
-    var elementsThatCanBeHidden = [ "youtubeRecVids",
-                                    "youtubeShorts",
-                                    "youtubeSubscriptions",
-                                    "youtubeExplore",
-                                    "youtubeMore",
-                                    "youtubeRelated",
-                                    "youtubeComments" ];
-     
+    //----- generate the style elements ----//
      // function to create style element with the specified CSS content
      function createStyleElement(some_style_id, some_css){
          if(!document.getElementById(some_style_id)){
@@ -50,8 +42,18 @@
          };
      };
      
+     var elementsThatCanBeHidden = [ "youtubeRecVids",
+                                     "youtubeShorts",
+                                     "youtubeSubscriptions",
+                                     "youtubeExplore",
+                                     "youtubeMore",
+                                     "youtubeRelated",
+                                     "youtubeComments" ];
+     
+     // loop over the elements and create HTML style element for each
+     // If an element's key in storage is set to 'false', show the
+     // element, otherwise hide it
      elementsThatCanBeHidden.forEach(function (item) {
-         console.log("create the styles " + item);
          var styleName = item + "Style";
          var key = item + "Status";
          
@@ -66,20 +68,16 @@
      
      // let the popup ask for the current status of the elements and of the saved state
      chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-         function checkStyleStatus(currentStyle, some_css_for_shown){
+         if(request.method === "check"){
+             var currentStyle = document.getElementById(request.element + "Style");
+     
              if (currentStyle == undefined){
                  sendResponse({text: "not on active tab"});
-             } else if (currentStyle.innerHTML === some_css_for_shown) {
+             } else if (currentStyle.innerHTML === eval(request.element + 'CssOn')) {
                  sendResponse({text: "visible"});
              } else {
                  sendResponse({text: "hidden"});
              };
-         };
-     
-         if(request.method === "check"){
-             var currentStyle = document.getElementById(request.element + "Style");
-     
-             checkStyleStatus(currentStyle, eval(request.element + 'CssOn'));
          };
      });
      
