@@ -66,7 +66,7 @@
          });
      });
      
-     // let the popup ask for the current status of the elements and of the saved state
+     // let the popup ask for the current view status of the elements (so it can set the checkboxes accordingly)
      chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
          if(message.method === "check"){
              var currentStyle = document.getElementById(message.element + "Style");
