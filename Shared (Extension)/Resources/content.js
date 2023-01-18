@@ -67,13 +67,13 @@
      });
      
      // let the popup ask for the current status of the elements and of the saved state
-     chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-         if(request.method === "check"){
-             var currentStyle = document.getElementById(request.element + "Style");
+     chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+         if(message.method === "check"){
+             var currentStyle = document.getElementById(message.element + "Style");
      
              if (currentStyle == undefined){
                  sendResponse({text: "not on active tab"});
-             } else if (currentStyle.innerHTML === eval(request.element + 'CssOn')) {
+             } else if (currentStyle.innerHTML === eval(message.element + 'CssOn')) {
                  sendResponse({text: "visible"});
              } else {
                  sendResponse({text: "hidden"});
