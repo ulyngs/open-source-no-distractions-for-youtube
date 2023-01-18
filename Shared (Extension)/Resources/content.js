@@ -82,20 +82,17 @@
      });
      
      // let the content script toggle elements when the popup asks for it
-     function toggleHiding(some_style_id, css_shown, css_hidden, status){
-         var styleElement = document.getElementById(some_style_id);
-     
-         if(status == true){
-             styleElement.innerHTML = css_shown;
-         } else {
-             styleElement.innerHTML = css_hidden;
-         };
-     };
-     
      browser.runtime.onMessage.addListener((message) => {
-         // toggle hiding when popup asks
+         var currentStyle = document.getElementById(message.element + "Style");
+         
          if(message.method === "change"){
-             toggleHiding(message.element + 'Style', eval(message.element + 'CssOn'), eval(message.element + 'CssOff'),  message.status);
+             if (currentStyle == undefined){
+                 console.log("not on active tab");
+             } else if (currentStyle.innerHTML === eval(message.element + 'CssOn')) {
+                 currentStyle.innerHTML = eval(message.element + 'CssOff')
+             } else {
+                 currentStyle.innerHTML = eval(message.element + 'CssOn')
+             };
          };
      });
  })();
