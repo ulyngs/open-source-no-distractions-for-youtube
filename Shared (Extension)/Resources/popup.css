@@ -100,7 +100,7 @@ a:visited {
 
 
 
-
+/******  make the checkboxes use 'prohibited' symbols   ******/
 /* Base for label styling */
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
