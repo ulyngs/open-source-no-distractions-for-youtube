@@ -21,6 +21,9 @@
      const youtubeLibraryCssOn = '#endpoint[href="/feed/library"] { display: flex; } /* mobile */ ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(4) { display: flex; }';
      const youtubeLibraryCssOff = '#endpoint[href="/feed/library"] { display: none !important; } /* mobile */ ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(4) { display: none; } ';
      
+     const youtubeHistoryCssOn = '#endpoint[href="/feed/history"] { display: flex; }';
+     const youtubeHistoryCssOff = '#endpoint[href="/feed/history"] { display: none !important; }';
+     
      const youtubeExploreCssOn = '#sections ytd-guide-section-renderer:has(a[href="/gaming"]) { display: block; }';
      const youtubeExploreCssOff = '#sections ytd-guide-section-renderer:has(a[href="/gaming"]) { display: none; }';
      
@@ -38,6 +41,7 @@
                                      "youtubeShorts",
                                      "youtubeSubscriptions",
                                      "youtubeLibrary",
+                                     "youtubeHistory",
                                      "youtubeExplore",
                                      "youtubeMore",
                                      "youtubeRelated",

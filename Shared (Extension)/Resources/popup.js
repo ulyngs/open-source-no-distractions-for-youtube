@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     "youtubeShorts",
                                     "youtubeSubscriptions",
                                     "youtubeLibrary",
+                                    "youtubeHistory",
                                     "youtubeExplore",
                                     "youtubeMore",
                                     "youtubeRelated",
