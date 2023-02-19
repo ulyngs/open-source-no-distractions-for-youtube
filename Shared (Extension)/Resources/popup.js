@@ -3,6 +3,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     var elementsThatCanBeHidden = [ "youtubeRecVids",
+                                    "youtubeThumbnails",
                                     "youtubeShorts",
                                     "youtubeSubscriptions",
                                     "youtubeLibrary",
