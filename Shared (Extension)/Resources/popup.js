@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var waitText = result.waitText;
             var messageBox = document.getElementById("delay-message");
 
-            if (waitText) {
+            if (waitText != null) {
                 // set the placeholder text
                 document.getElementById("waitText").value = result.waitText;
                 messageBox.innerText = result.waitText;
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
           var countdownBox = document.getElementById("delay-time");
           var countdown = 0;
                 
-          if (waitTime) {
+          if (waitTime != null) {
               // set the placeholder text
               document.getElementById("waitTime").value = waitTime;
               
