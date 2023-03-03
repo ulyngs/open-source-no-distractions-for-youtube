@@ -4,19 +4,21 @@
 document.addEventListener('DOMContentLoaded', function() {
     // set friction checkbox
     browser.storage.sync.get("addFriction", function(result) {
+      console.log("addFriction is " + result.addFriction)
       var frictionToggle = document.getElementById("frictionToggle");
-      var frictionCustomisation = document.querySelector(".friction-customisation");
+      var frictionCustomisation = document.querySelectorAll(".friction-customisation");
       
-      frictionToggle.checked = result["addFriction"];
+      frictionToggle.checked = result.addFriction;
       
-        if (frictionToggle.checked) {
-            for (var i = 0; i < frictionCustomisation.length; i++) {
-                frictionCustomisation[i].style.display = "block";
-                }
-        } else {
-          // Otherwise, hide it
+        if (result.addFriction == undefined || !frictionToggle.checked) {
+            console.log("executing this")
+            // don't show the customisation options if we haven't checked the box
             for (var i = 0; i < frictionCustomisation.length; i++) {
                 frictionCustomisation[i].style.display = "none";
+                }
+        } else {
+            for (var i = 0; i < frictionCustomisation.length; i++) {
+                frictionCustomisation[i].style.display = "block";
                 }
         }
         
@@ -27,9 +29,14 @@ document.addEventListener('DOMContentLoaded', function() {
       messageBox.innerText = "What is your intention?";
             
       if(result["addFriction"]) {
-        messageContainer.style.display = "block";
-        popupContainer.style.display = "none";
+          popupContainer.style.display = "none";
+          messageContainer.style.display = "block";
           
+          // Wait for 1 second before removing the 'show' class
+            setTimeout(function() {
+              messageContainer.classList.add("show");
+            }, 100);
+        
         browser.storage.sync.get("waitText").then(function(result) {
             var waitText = result.waitText;
             
@@ -75,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       } else {
         messageContainer.style.display = "none";
+        messageContainer.classList.remove("show");
         popupContainer.style.display = "block";
           
       }
