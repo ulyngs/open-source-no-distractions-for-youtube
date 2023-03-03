@@ -4,14 +4,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     // set friction checkbox
     browser.storage.sync.get("addFriction", function(result) {
-      console.log("addFriction is " + result.addFriction)
       var frictionToggle = document.getElementById("frictionToggle");
       var frictionCustomisation = document.querySelectorAll(".friction-customisation");
       
       frictionToggle.checked = result.addFriction;
       
         if (result.addFriction == undefined || !frictionToggle.checked) {
-            console.log("executing this")
             // don't show the customisation options if we haven't checked the box
             for (var i = 0; i < frictionCustomisation.length; i++) {
                 frictionCustomisation[i].style.display = "none";
@@ -25,8 +23,20 @@ document.addEventListener('DOMContentLoaded', function() {
       var popupContainer = document.getElementById("popup-content");
       var messageContainer = document.getElementById("delay-content");
             
-      var messageBox = document.getElementById("delay-message");
-      messageBox.innerText = "What is your intention?";
+        
+        browser.storage.sync.get("waitText").then(function(result) {
+            var waitText = result.waitText;
+            var messageBox = document.getElementById("delay-message");
+
+            if (waitText) {
+                // set the placeholder text
+                document.getElementById("waitText").value = result.waitText;
+                messageBox.innerText = result.waitText;
+            } else {
+                document.getElementById("waitText").value = "What's your intention?";
+                messageBox.innerText = "What is your intention?";
+            }
+        });
             
       if(result["addFriction"]) {
           popupContainer.style.display = "none";
@@ -36,26 +46,15 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(function() {
               messageContainer.classList.add("show");
             }, 100);
-        
-        browser.storage.sync.get("waitText").then(function(result) {
-            var waitText = result.waitText;
-            
-            if (waitText != null) {
-                // set the placeholder text
-                document.getElementById("waitText").placeholder = result.waitText;
-            } else {
-                document.getElementById("waitText").placeholder = "What's your intention?";
-            }
-        });
                 
         browser.storage.sync.get("waitTime").then(function(result) {
           var waitTime = result.waitTime;
           var countdownBox = document.getElementById("delay-time");
           var countdown = 0;
                 
-          if (waitTime != null) {
+          if (waitTime) {
               // set the placeholder text
-              document.getElementById("waitTime").placeholder = waitTime;
+              document.getElementById("waitTime").value = waitTime;
               
               // Use the wait time value for the count down
               countdownBox.innerText = waitTime;
@@ -63,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
           } else {
             countdownBox.innerText = "10";
+            document.getElementById("waitTime").value = "10";
             countdown = 10;
           }
                 
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         browser.storage.sync.set({ "addFriction": document.getElementById("frictionToggle").checked });
         browser.storage.sync.set({ "waitTime": parseInt(document.getElementById("waitTime").value) });
-        browser.storage.sync.set({ "waitText": parseInt(document.getElementById("waitText").value) });
+        browser.storage.sync.set({ "waitText": document.getElementById("waitText").value });
     
         e.target.setAttribute("value", "......");
         delay(250).then(() => e.target.setAttribute("value", "Saved!"));
