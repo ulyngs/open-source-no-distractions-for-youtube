@@ -16,8 +16,8 @@ body {
 }
 
 .save-toggle {
-    text-align: center;
-    margin: 0 !important;
+    text-align: left;
+    margin: 15px 0px 0px 10px !important;
     padding: 0 !important;
 }
 
@@ -61,6 +61,24 @@ body {
 @media only screen and (max-device-width: 768px) {
     .platform-ipad-mac {
         display: none;
+    }
+    
+    body {
+        width: 350px;
+    }
+    #how-to-image, #how-to-arrow {
+        width: 1.2em;
+        vertical-align: bottom;
+    }
+    #how-to-image {
+        display: inline-block;
+    }
+    .previews-text {
+        display: inline-block;
+    }
+    #how-to-description {
+        padding: 8px;
+        font-style: italic;
     }
 }
 
@@ -195,9 +213,19 @@ a:visited {
 .friction-customisation {
     font-size: 0.9em;
     font-style: italic;
+    color: gray;
 }
-.friction-toggle {
+.friction-customisation input {
+    margin-bottom: 5px;
+}
+.a-toggle.friction-toggle {
     margin-bottom: 10px;
+    margin-top: 1em;
+    font-size: 0.9em;
+}
+.a-toggle p {
+    margin: 0;
+    padding: 0
 }
 #delay-message {
     font-size: 1.8em;

@@ -15,6 +15,12 @@
         <div class="content-toggles">
             <div class="toggle-group hide-checkboxes">
               <h2>Home page</h2>
+              <div class="a-toggle platform-iphone" id="hide-previews">
+                  <img src="/images/how-to.svg" id="how-to-image"/>
+                  <p class="previews-text">Auto-playing previews</p>
+                  <img src="/images/down-arrow.svg" id="how-to-arrow" style="display: none;"/>
+                  <p id="how-to-description" style="display: none;">Tap your account image > Settings > Account > untick 'Video previews'</p>
+              </div>
               <div class="a-toggle">
                   <input type="checkbox" id="youtubeRecVidsToggle" name="youtubeRecVidsToggle">
                   <label for="youtubeRecVidsToggle">Recommended videos</label>
@@ -62,23 +68,22 @@
                       <label for="youtubeThumbnailsToggle">Thumbnails</label>
                   </div>
             </div>
-            <div class="toggle-group">
-                <h2>Friction</h2>
+            <div class="save-toggle">
+                <input type="button" id="saveButton" value="Save settings">
+            </div>
+            <div class="toggle-group center-align">
                 <div class="a-toggle friction-toggle">
                       <input type="checkbox" id="frictionToggle" name="frictionToggle">
-                      <label for="frictionToggle">Delay to see settings</label>
+                      <label for="frictionToggle">Delay to change settings</label>
                   </div>
                 <div class="a-toggle friction-customisation">
-                      <input type="number" id="waitTime" name="waitTime" value="10">
+                      <input type="number" id="waitTime" name="waitTime" value="10" max="15">
                       <label for="waitTime">Wait time (seconds)</label>
                   </div>
                 <div class="a-toggle friction-customisation">
                       <input type="text" id="waitText" name="waitText" value="What's your intention?">
-                      <label for="waitText">Message to show</label>
+                      <label for="waitText">Message</label>
                   </div>
-            </div>
-            <div class="save-toggle">
-                <input type="button" id="saveButton" value="Save settings">
             </div>
         </div>
         <p class="smaller-font">To flag bugs or suggest improvements, go to <a href="https://github.com/ulyngs/open-source-no-distractions-for-youtube" target="_blank">GitHub</a>.

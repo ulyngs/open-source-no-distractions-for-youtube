@@ -93,18 +93,30 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add event listener to detect changes in the checkbox status
     frictionToggle.addEventListener('change', function() {
-      // If the checkbox is checked, show the delay time input
-      if (frictionToggle.checked) {
-          for (var i = 0; i < frictionCustomisation.length; i++) {
-              frictionCustomisation[i].style.display = "block";
+        // If the checkbox is checked, show the delay time input
+        if (frictionToggle.checked) {
+            for (var i = 0; i < frictionCustomisation.length; i++) {
+                frictionCustomisation[i].style.display = "block";
               }
-      } else {
-        // Otherwise, hide it
-          for (var i = 0; i < frictionCustomisation.length; i++) {
-              frictionCustomisation[i].style.display = "none";
+        } else {
+            // Otherwise, hide it
+            for (var i = 0; i < frictionCustomisation.length; i++) {
+                frictionCustomisation[i].style.display = "none";
               }
-      }
+        }
+        
+        // store the setting
+        browser.storage.sync.set({ "addFriction": document.getElementById("frictionToggle").checked });
     });
+    
+    // store wait customisation immediately
+    document.getElementById("waitTime").addEventListener('input', function(){
+        browser.storage.sync.set({ "waitTime": parseInt(document.getElementById("waitTime").value) });
+    });
+    document.getElementById("waitText").addEventListener('input', function(){
+        browser.storage.sync.set({ "waitText": document.getElementById("waitText").value });
+    });
+    
     
     var elementsThatCanBeHidden = [ "youtubeRecVids",
                                     "youtubeThumbnails",
@@ -174,14 +186,24 @@ document.addEventListener('DOMContentLoaded', function() {
             
             browser.storage.sync.set({ [key]: document.getElementById(element + "Toggle").checked });
         });
-        
-        browser.storage.sync.set({ "addFriction": document.getElementById("frictionToggle").checked });
-        browser.storage.sync.set({ "waitTime": parseInt(document.getElementById("waitTime").value) });
-        browser.storage.sync.set({ "waitText": document.getElementById("waitText").value });
     
         e.target.setAttribute("value", "......");
         delay(250).then(() => e.target.setAttribute("value", "Saved!"));
         delay(1500).then(() => e.target.setAttribute("value", "Save settings"));
     })
+    
+    const howTo = document.querySelector('#hide-previews');
+    const howToText = document.querySelector('#how-to-description');
+    const howToArrow = document.querySelector('#how-to-arrow');
+
+    howTo.addEventListener("click", function() {
+      if (howToText.style.display === "none") {
+        howToText.style.display = "block";
+        howToArrow.style.display = "inline-block";
+      } else {
+        howToText.style.display = "none";
+        howToArrow.style.display = "none";
+      }
+    });
     
 }, false);
