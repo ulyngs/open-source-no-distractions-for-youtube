@@ -118,8 +118,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     
-    var elementsThatCanBeHidden = [ "youtubeRecVids",
+    var elementsThatCanBeHidden = [ "youtubeSearch",
+                                    "youtubeRecVids",
                                     "youtubeThumbnails",
+                                    "youtubeProfileImg",
                                     "youtubeShorts",
                                     "youtubeSubscriptions",
                                     "youtubeLibrary",
