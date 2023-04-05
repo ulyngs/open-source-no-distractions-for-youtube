@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D72A796527904DBF00FF7E23 /* iphone_manage_extensions.png in Resources */ = {isa = PBXBuildFile; fileRef = D72A796427904DBF00FF7E23 /* iphone_manage_extensions.png */; };
-		D72A796727904EC800FF7E23 /* iphone_allow_access.png in Resources */ = {isa = PBXBuildFile; fileRef = D72A796627904EC800FF7E23 /* iphone_allow_access.png */; };
 		D72A7969279054C100FF7E23 /* ipad_manage_extensions.png in Resources */ = {isa = PBXBuildFile; fileRef = D72A7968279054C100FF7E23 /* ipad_manage_extensions.png */; };
 		D72A796B279054C500FF7E23 /* ipad_allow_access.png in Resources */ = {isa = PBXBuildFile; fileRef = D72A796A279054C500FF7E23 /* ipad_allow_access.png */; };
 		D7607A1D276792B100FB0E82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D76921C92756452E00EB4CEA /* Main.storyboard */; };
@@ -94,10 +92,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D72A796427904DBF00FF7E23 /* iphone_manage_extensions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_manage_extensions.png; sourceTree = "<group>"; };
-		D72A796627904EC800FF7E23 /* iphone_allow_access.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_allow_access.png; sourceTree = "<group>"; };
 		D72A7968279054C100FF7E23 /* ipad_manage_extensions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad_manage_extensions.png; sourceTree = "<group>"; };
 		D72A796A279054C500FF7E23 /* ipad_allow_access.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad_allow_access.png; sourceTree = "<group>"; };
+		D754754D29D9AF8F007DD2CF /* iphone_allow_access.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_allow_access.png; sourceTree = "<group>"; };
+		D754754E29D9AF8F007DD2CF /* iphone_manage_extensions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_manage_extensions.png; sourceTree = "<group>"; };
+		D754754F29D9AFA4007DD2CF /* iphone_allow_access.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_allow_access.png; sourceTree = "<group>"; };
+		D754755029D9AFA4007DD2CF /* iphone_manage_extensions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_manage_extensions.png; sourceTree = "<group>"; };
 		D769219E2756452C00EB4CEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
 		D76921A02756452C00EB4CEA /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
 		D76921A12756452C00EB4CEA /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
@@ -234,8 +234,10 @@
 		D76921B52756452E00EB4CEA /* iOS (App) */ = {
 			isa = PBXGroup;
 			children = (
-				D72A796427904DBF00FF7E23 /* iphone_manage_extensions.png */,
-				D72A796627904EC800FF7E23 /* iphone_allow_access.png */,
+				D754754D29D9AF8F007DD2CF /* iphone_allow_access.png */,
+				D754754E29D9AF8F007DD2CF /* iphone_manage_extensions.png */,
+				D754754F29D9AFA4007DD2CF /* iphone_allow_access.png */,
+				D754755029D9AFA4007DD2CF /* iphone_manage_extensions.png */,
 				D72A7968279054C100FF7E23 /* ipad_manage_extensions.png */,
 				D72A796A279054C500FF7E23 /* ipad_allow_access.png */,
 				D76921B62756452E00EB4CEA /* AppDelegate.swift */,
@@ -400,7 +402,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D72A796B279054C500FF7E23 /* ipad_allow_access.png in Resources */,
-				D72A796527904DBF00FF7E23 /* iphone_manage_extensions.png in Resources */,
 				D72A7969279054C100FF7E23 /* ipad_manage_extensions.png in Resources */,
 				D76921BC2756452E00EB4CEA /* LaunchScreen.storyboard in Resources */,
 				D76921E22756452E00EB4CEA /* Main.html in Resources */,
@@ -409,7 +410,6 @@
 				D76921BF2756452E00EB4CEA /* Main.storyboard in Resources */,
 				D7692211275645D800EB4CEA /* Icon.png in Resources */,
 				D76921E62756452E00EB4CEA /* Style.css in Resources */,
-				D72A796727904EC800FF7E23 /* iphone_allow_access.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,7 +662,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
@@ -674,7 +674,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.8;
+				MARKETING_VERSION = 3.8.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -693,7 +693,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
@@ -705,7 +705,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.8;
+				MARKETING_VERSION = 3.8.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -728,7 +728,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
@@ -744,7 +744,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.8;
+				MARKETING_VERSION = 3.8.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -767,7 +767,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
@@ -783,7 +783,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.8;
+				MARKETING_VERSION = 3.8.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -806,7 +806,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/No Distractions for YouTube.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 41;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -820,7 +820,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 3.8;
+				MARKETING_VERSION = 3.8.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -840,7 +840,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/No Distractions for YouTube.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 41;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -854,7 +854,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 3.8;
+				MARKETING_VERSION = 3.8.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -877,7 +877,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/No Distractions for YouTube.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 41;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -891,7 +891,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 3.8;
+				MARKETING_VERSION = 3.8.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -915,7 +915,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/No Distractions for YouTube.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 41;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -929,7 +929,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 3.8;
+				MARKETING_VERSION = 3.8.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
