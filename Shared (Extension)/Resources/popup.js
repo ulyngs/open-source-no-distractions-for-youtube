@@ -113,12 +113,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // store wait customisation
     // wait time
     var savedTextTime = document.getElementById("savedTextTime");
-    let displayTimeTimeOut;
-    let hideTimeTimeOut;
+    let hideTimeOut;
     
     document.getElementById("waitTime").addEventListener('input', function(){
-        clearTimeout(displayTimeTimeOut);
-        clearTimeout(hideTimeTimeOut);
+        clearTimeout(hideTimeOut);
         
         let waitValue = parseInt(document.getElementById("waitTime").value);
         const maxLimit = 600;
@@ -130,41 +128,11 @@ document.addEventListener('DOMContentLoaded', function() {
             savedTextTime.innerText = "Maximum is " + maxLimit;
             document.getElementById("waitTime").value = maxLimit;
             savedTextTime.style.display = 'block';
-            savedTextTime.style.color = 'red';
-        } else {
-            browser.storage.sync.set({ "waitTime": waitValue });
-            savedTextTime.innerText = "Saved!";
-            savedTextTime.style.color = 'black';
-            
-            displayTimeTimeOut = setTimeout(function() {
-                savedTextTime.style.display = 'block';
-            }, 500);
-            
-            hideTimeTimeOut = setTimeout(function() {
+            hideTimeOut = setTimeout(function() {
                 savedTextTime.style.display = 'none';
             }, 1500);
         }
     });
-    // wait text
-    var savedTextText = document.getElementById("savedTextText");
-    let displayTextTimeOut;
-    let hideTextTimeOut;
-    
-    document.getElementById("waitText").addEventListener('input', function(){
-        clearTimeout(displayTextTimeOut);
-        clearTimeout(hideTextTimeOut);
-        
-        displayTextTimeOut = setTimeout(function() {
-            browser.storage.sync.set({ "waitText": document.getElementById("waitText").value });
-            savedTextText.style.display = 'block';
-        }, 500);
-        
-        hideTextTimeOut = setTimeout(function() {
-            savedTextText.style.display = 'none';
-        }, 1500);
-            
-    });
-    
     
     var elementsThatCanBeHidden = [ "youtubeSearch",
                                     "youtubeRecVids",
@@ -236,6 +204,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             browser.storage.sync.set({ [key]: document.getElementById(element + "Toggle").checked });
         });
+        
+        // save the delay time
+        let waitValue = parseInt(document.getElementById("waitTime").value);
+        browser.storage.sync.set({ "waitTime": waitValue });
+        // save the delay message
+        browser.storage.sync.set({ "waitText": document.getElementById("waitText").value });
     
         e.target.setAttribute("value", "......");
         delay(250).then(() => e.target.setAttribute("value", "Saved!"));
