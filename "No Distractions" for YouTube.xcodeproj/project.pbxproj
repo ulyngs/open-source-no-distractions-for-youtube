@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D72A7969279054C100FF7E23 /* ipad_manage_extensions.png in Resources */ = {isa = PBXBuildFile; fileRef = D72A7968279054C100FF7E23 /* ipad_manage_extensions.png */; };
 		D72A796B279054C500FF7E23 /* ipad_allow_access.png in Resources */ = {isa = PBXBuildFile; fileRef = D72A796A279054C500FF7E23 /* ipad_allow_access.png */; };
+		D756776629E3F99800C66C6A /* iphone_allow_access.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D756776429E3F99800C66C6A /* iphone_allow_access.jpg */; };
+		D756776729E3F99800C66C6A /* iphone_manage_extensions.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D756776529E3F99800C66C6A /* iphone_manage_extensions.jpg */; };
 		D7607A1D276792B100FB0E82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D76921C92756452E00EB4CEA /* Main.storyboard */; };
 		D76921B72756452E00EB4CEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76921B62756452E00EB4CEA /* AppDelegate.swift */; };
 		D76921B92756452E00EB4CEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76921B82756452E00EB4CEA /* SceneDelegate.swift */; };
@@ -94,10 +96,8 @@
 /* Begin PBXFileReference section */
 		D72A7968279054C100FF7E23 /* ipad_manage_extensions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad_manage_extensions.png; sourceTree = "<group>"; };
 		D72A796A279054C500FF7E23 /* ipad_allow_access.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad_allow_access.png; sourceTree = "<group>"; };
-		D754754D29D9AF8F007DD2CF /* iphone_allow_access.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_allow_access.png; sourceTree = "<group>"; };
-		D754754E29D9AF8F007DD2CF /* iphone_manage_extensions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_manage_extensions.png; sourceTree = "<group>"; };
-		D754754F29D9AFA4007DD2CF /* iphone_allow_access.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_allow_access.png; sourceTree = "<group>"; };
-		D754755029D9AFA4007DD2CF /* iphone_manage_extensions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_manage_extensions.png; sourceTree = "<group>"; };
+		D756776429E3F99800C66C6A /* iphone_allow_access.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iphone_allow_access.jpg; sourceTree = "<group>"; };
+		D756776529E3F99800C66C6A /* iphone_manage_extensions.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iphone_manage_extensions.jpg; sourceTree = "<group>"; };
 		D769219E2756452C00EB4CEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
 		D76921A02756452C00EB4CEA /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
 		D76921A12756452C00EB4CEA /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
@@ -234,10 +234,8 @@
 		D76921B52756452E00EB4CEA /* iOS (App) */ = {
 			isa = PBXGroup;
 			children = (
-				D754754D29D9AF8F007DD2CF /* iphone_allow_access.png */,
-				D754754E29D9AF8F007DD2CF /* iphone_manage_extensions.png */,
-				D754754F29D9AFA4007DD2CF /* iphone_allow_access.png */,
-				D754755029D9AFA4007DD2CF /* iphone_manage_extensions.png */,
+				D756776429E3F99800C66C6A /* iphone_allow_access.jpg */,
+				D756776529E3F99800C66C6A /* iphone_manage_extensions.jpg */,
 				D72A7968279054C100FF7E23 /* ipad_manage_extensions.png */,
 				D72A796A279054C500FF7E23 /* ipad_allow_access.png */,
 				D76921B62756452E00EB4CEA /* AppDelegate.swift */,
@@ -401,6 +399,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D756776629E3F99800C66C6A /* iphone_allow_access.jpg in Resources */,
 				D72A796B279054C500FF7E23 /* ipad_allow_access.png in Resources */,
 				D72A7969279054C100FF7E23 /* ipad_manage_extensions.png in Resources */,
 				D76921BC2756452E00EB4CEA /* LaunchScreen.storyboard in Resources */,
@@ -409,6 +408,7 @@
 				D76921EC2756452E00EB4CEA /* Assets.xcassets in Resources */,
 				D76921BF2756452E00EB4CEA /* Main.storyboard in Resources */,
 				D7692211275645D800EB4CEA /* Icon.png in Resources */,
+				D756776729E3F99800C66C6A /* iphone_manage_extensions.jpg in Resources */,
 				D76921E62756452E00EB4CEA /* Style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

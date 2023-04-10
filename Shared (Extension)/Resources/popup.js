@@ -109,12 +109,60 @@ document.addEventListener('DOMContentLoaded', function() {
         browser.storage.sync.set({ "addFriction": document.getElementById("frictionToggle").checked });
     });
     
-    // store wait customisation immediately
+    
+    // store wait customisation
+    // wait time
+    var savedTextTime = document.getElementById("savedTextTime");
+    let displayTimeTimeOut;
+    let hideTimeTimeOut;
+    
     document.getElementById("waitTime").addEventListener('input', function(){
-        browser.storage.sync.set({ "waitTime": parseInt(document.getElementById("waitTime").value) });
+        clearTimeout(displayTimeTimeOut);
+        clearTimeout(hideTimeTimeOut);
+        
+        let waitValue = parseInt(document.getElementById("waitTime").value);
+        const maxLimit = 600;
+        const minLimit = 1;
+        
+        if(waitValue < minLimit){
+            document.getElementById("waitTime").value = minLimit;
+        } else if(waitValue > maxLimit){
+            savedTextTime.innerText = "Maximum is " + maxLimit;
+            document.getElementById("waitTime").value = maxLimit;
+            savedTextTime.style.display = 'block';
+            savedTextTime.style.color = 'red';
+        } else {
+            browser.storage.sync.set({ "waitTime": waitValue });
+            savedTextTime.innerText = "Saved!";
+            savedTextTime.style.color = 'black';
+            
+            displayTimeTimeOut = setTimeout(function() {
+                savedTextTime.style.display = 'block';
+            }, 500);
+            
+            hideTimeTimeOut = setTimeout(function() {
+                savedTextTime.style.display = 'none';
+            }, 1500);
+        }
     });
+    // wait text
+    var savedTextText = document.getElementById("savedTextText");
+    let displayTextTimeOut;
+    let hideTextTimeOut;
+    
     document.getElementById("waitText").addEventListener('input', function(){
-        browser.storage.sync.set({ "waitText": document.getElementById("waitText").value });
+        clearTimeout(displayTextTimeOut);
+        clearTimeout(hideTextTimeOut);
+        
+        displayTextTimeOut = setTimeout(function() {
+            browser.storage.sync.set({ "waitText": document.getElementById("waitText").value });
+            savedTextText.style.display = 'block';
+        }, 500);
+        
+        hideTextTimeOut = setTimeout(function() {
+            savedTextText.style.display = 'none';
+        }, 1500);
+            
     });
     
     
