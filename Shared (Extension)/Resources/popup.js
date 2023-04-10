@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
             savedTextTime.style.display = 'block';
             hideTimeOut = setTimeout(function() {
                 savedTextTime.style.display = 'none';
-            }, 1500);
+            }, 2500);
         }
     });
     
