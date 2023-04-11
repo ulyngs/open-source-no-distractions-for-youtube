@@ -2,6 +2,8 @@
 // https://developer.chrome.com/docs/extensions/mv3/messaging/
 
 document.addEventListener('DOMContentLoaded', function() {
+    const maxLimit = 600;
+    
     // set friction checkbox
     browser.storage.sync.get("addFriction", function(result) {
       var frictionToggle = document.getElementById("frictionToggle");
@@ -52,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
           var countdownBox = document.getElementById("delay-time");
           var countdown = 0;
                 
-          if (waitTime != null) {
+          if (waitTime != null && parseInt(waitTime) <= maxLimit) {
               // set the placeholder text
               document.getElementById("waitTime").value = waitTime;
               
@@ -119,7 +121,6 @@ document.addEventListener('DOMContentLoaded', function() {
         clearTimeout(hideTimeOut);
         
         let waitValue = parseInt(document.getElementById("waitTime").value);
-        const maxLimit = 600;
         const minLimit = 1;
         
         if(waitValue < minLimit){
