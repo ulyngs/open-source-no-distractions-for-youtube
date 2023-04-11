@@ -46,49 +46,6 @@ body {
     margin: 10px 0px 5px 0px;
 }
 
-/******* HIDE IRRELEVANT TOGGLES *******/
-@media only screen and (max-device-width: 1312px) {
-    .youtube-large-only {
-        display:none
-    }
-    a:visited {
-        color: darkgray;
-    }
-}
-
-
-/* iPhone */
-@media only screen and (max-device-width: 768px) {
-    .platform-ipad-mac {
-        display: none;
-    }
-    
-    body {
-        width: 350px;
-    }
-    #how-to-image, #how-to-arrow {
-        width: 1.2em;
-        vertical-align: bottom;
-    }
-    #how-to-image {
-        display: inline-block;
-    }
-    .previews-text {
-        display: inline-block;
-    }
-    #how-to-description {
-        padding: 8px;
-        font-style: italic;
-    }
-}
-
-
-@media only screen and (min-device-width: 768px) {
-    .platform-iphone {
-        display: none;
-    }
-}
-
 .content-toggles {
     text-align: left;
     font-size: 1em;
@@ -277,4 +234,54 @@ a:visited {
         filter: invert(100%) sepia(0%) saturate(7399%) hue-rotate(180deg) brightness(112%) contrast(80%);
     }
     
+}
+
+
+
+/******* HIDE IRRELEVANT TOGGLES *******/
+@media only screen and (max-device-width: 1312px) {
+    .youtube-large-only {
+        display:none
+    }
+    a:visited {
+        color: darkgray;
+    }
+}
+
+
+/* iPhone */
+@media only screen and (max-device-width: 768px) {
+    .platform-ipad-mac {
+        display: none;
+    }
+    
+    body {
+        width: 350px;
+    }
+    #how-to-image, #how-to-arrow {
+        width: 1.2em;
+        vertical-align: bottom;
+    }
+    #how-to-image {
+        display: inline-block;
+    }
+    .previews-text {
+        display: inline-block;
+    }
+    #how-to-description {
+        padding: 8px;
+        font-style: italic;
+    }
+    
+    #delay-content img {
+    width: 70%;
+    margin-bottom: 0px;
+    }
+}
+
+
+@media only screen and (min-device-width: 768px) {
+    .platform-iphone {
+        display: none;
+    }
 }
