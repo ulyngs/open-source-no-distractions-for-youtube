@@ -146,7 +146,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                     "youtubeExplore",
                                     "youtubeMore",
                                     "youtubeRelated",
-                                    "youtubeComments" ];
+                                    "youtubeComments",
+                                    "youtubeAds" ];
     
     // create function to set a checkbox according to current view status on the page
     function setCheckboxState(element_to_check, id_of_toggle){
