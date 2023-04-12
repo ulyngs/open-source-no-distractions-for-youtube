@@ -234,6 +234,10 @@ a:visited {
         filter: invert(100%) sepia(0%) saturate(7399%) hue-rotate(180deg) brightness(112%) contrast(80%);
     }
     
+    #how-to-arrow-right path, #how-to-arrow-down path {
+        fill: rgb(194, 194, 194);
+    }
+    
 }
 
 

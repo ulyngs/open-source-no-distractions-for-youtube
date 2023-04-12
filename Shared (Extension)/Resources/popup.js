@@ -220,15 +220,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const howTo = document.querySelector('#hide-previews');
     const howToText = document.querySelector('#how-to-description');
-    const howToArrow = document.querySelector('#how-to-arrow');
+    const howToArrowRight = document.querySelector('#how-to-arrow-right');
+    const howToArrowDown = document.querySelector('#how-to-arrow-down');
 
     howTo.addEventListener("click", function() {
       if (howToText.style.display === "none") {
-        howToText.style.display = "block";
-        howToArrow.style.display = "inline-block";
+          howToText.style.display = "block";
+          howToArrowRight.style.display = "none";
+          howToArrowDown.style.display = "inline-block";
       } else {
-        howToText.style.display = "none";
-        howToArrow.style.display = "none";
+          howToText.style.display = "none";
+          howToArrowRight.style.display = "inline-block";
+          howToArrowDown.style.display = "none";
       }
     });
     
