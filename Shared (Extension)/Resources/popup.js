@@ -136,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     var elementsThatCanBeHidden = [ "youtubeSearch",
+                                    "youtubeSearchPredict",
                                     "youtubeRecVids",
                                     "youtubeThumbnails",
                                     "youtubeProfileImg",

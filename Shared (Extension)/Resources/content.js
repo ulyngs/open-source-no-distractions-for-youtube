@@ -11,6 +11,9 @@
      
      const youtubeSearchCssOn = 'ytd-searchbox { display: flex; } button[aria-label="Search YouTube"] {display: block;}';
      const youtubeSearchCssOff = 'ytd-searchbox { display: none; } button[aria-label="Search YouTube"] {display: none;}';
+     
+     const youtubeSearchPredictCssOn = '';
+     const youtubeSearchPredictCssOff = 'div.gstl_50 { display: none !important; }';
     
      const youtubeRecVidsCssOn = 'ytd-browse[page-subtype="home"] { visibility: visible !important; } div[tab-identifier="FEwhat_to_watch"] { visibility: visible !important; }';
      const youtubeRecVidsCssOff = 'ytd-browse[page-subtype="home"] { display: none; } div[tab-identifier="FEwhat_to_watch"] { visibility: hidden; }';
@@ -53,6 +56,7 @@
     
     //----- generate the style elements ----//
      var elementsThatCanBeHidden = [ "youtubeSearch",
+                                     "youtubeSearchPredict",
                                      "youtubeRecVids",
                                      "youtubeThumbnails",
                                      "youtubeProfileImg",
