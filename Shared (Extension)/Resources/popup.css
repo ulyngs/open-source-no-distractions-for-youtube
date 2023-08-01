@@ -5,9 +5,10 @@
 body {
     width: 200px;
     padding: 10px;
-
     font-family: system-ui;
     text-align: center;
+    background-color: #F5F5F5;
+    color: #333333;
 }
 
 .smaller-font {
@@ -17,7 +18,7 @@ body {
 
 .save-toggle {
     text-align: left;
-    margin: 15px 0px 0px 10px !important;
+    5px 0px 0px 2px;
     padding: 0 !important;
 }
 
@@ -57,15 +58,14 @@ a:visited {
 }
 
 #saveButton {
-    background-color: #008CBA;
+    background-color: #3498DB;
     border: none;
     color: white;
     padding: 7px;
     text-align: center;
     text-decoration: none;
-    font-size: 0.9em;
+    font-size: 0.8em;
     font-weight: bold;
-    margin-top: 8px;
 }
 
 
@@ -168,7 +168,7 @@ a:visited {
     width: 50px;
 }
 .friction-customisation {
-    font-size: 0.9em;
+    font-size: 0.8em;
     font-style: italic;
     color: gray;
 }
@@ -177,7 +177,7 @@ a:visited {
 }
 .a-toggle.friction-toggle {
     margin-bottom: 10px;
-    margin-top: 1em;
+    margin-top: 0.5em;
     font-size: 0.9em;
 }
 .a-toggle p {
@@ -289,3 +289,25 @@ a:visited {
         display: none;
     }
 }
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    font-size: 0.9em;
+    border-top: 1px solid rgb(207, 206, 206);
+    background-color: #F5F5F5;
+}
+
+footer a,
+footer a:visited {
+    color: #9b9fa7;
+    text-decoration: none;
+
+}
+
+
