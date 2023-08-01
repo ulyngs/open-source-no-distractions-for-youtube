@@ -9,7 +9,7 @@
     }
     window.hasRun = true;
      
-     const youtubeSearchCssOn = 'ytd-searchbox { display: flex; } button[aria-label="Search YouTube"] {display: block;}';
+     const youtubeSearchCssOn = '';
      const youtubeSearchCssOff = 'ytd-searchbox { display: none; } button[aria-label="Search YouTube"] {display: none;}';
      
      const youtubeSearchPredictCssOn = '';
