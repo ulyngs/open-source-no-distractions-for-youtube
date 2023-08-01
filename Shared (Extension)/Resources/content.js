@@ -55,13 +55,13 @@
      const youtubeAdsCssOff = 'ytm-promoted-sparkles-text-search-renderer, ytd-promoted-sparkles-text-search-renderer, ytd-promoted-sparkles-web-renderer, ytd-carousel-ad-renderer, ytd-ad-slot-renderer, #masthead-ad, ytd-ad-slot-renderer { display: none !important; }  /* video page */ ytm-promoted-sparkles-web-renderer, ytm-companion-ad-renderer, #player-ads {display: none !important; }';
      
      const youtubeViewsCssOn = '';
-     const youtubeViewsCssOff = '#metadata-line.ytd-video-meta-block > .ytd-video-meta-block:first-of-type {display: none !important; } #metadata-line.ytd-video-meta-block>.ytd-video-meta-block:not(:first-of-type):before { content: ""; margin: 0px; } /* video page */ #info-container > .ytd-watch-metadata > .yt-formatted-string:nth-of-type(1), #info-container > .ytd-watch-metadata > .yt-formatted-string:nth-of-type(2) { display: none; }';
+     const youtubeViewsCssOff = '#metadata-line.ytd-video-meta-block > .ytd-video-meta-block:first-of-type {display: none !important; } #metadata-line.ytd-video-meta-block>.ytd-video-meta-block:not(:first-of-type):before { content: ""; margin: 0px; } /* video page */ #info-container > .ytd-watch-metadata > .yt-formatted-string:nth-of-type(1), #info-container > .ytd-watch-metadata > .yt-formatted-string:nth-of-type(2) { display: none; }  /* m.youtube.com */ ytm-badge-and-byline-renderer .ytm-badge-and-byline-item-byline:not(:first-of-type):not(:last-of-type), ytm-badge-and-byline-renderer .ytm-badge-and-byline-separator:not(:first-of-type) { display: none; } .slim-video-metadata-header .secondary-text .yt-core-attributed-string {display: none;}';
      
      const youtubeLikesCssOn = '';
-     const youtubeLikesCssOff = '#segmented-like-button .yt-core-attributed-string { display: none; }';
+     const youtubeLikesCssOff = '#segmented-like-button .yt-core-attributed-string { display: none; } /* m.youtube.com */ ytm-segmented-like-dislike-button-renderer .animated-like-toggle-button .yt-spec-button-shape-next__button-text-content .yt-core-attributed-string { display: none; }';
      
      const youtubeSubscribersCssOn = '';
-     const youtubeSubscribersCssOff = '#owner-sub-count { display: none !important; }';
+     const youtubeSubscribersCssOff = '#owner-sub-count { display: none !important; } /* m.youtube.com */ .slim-owner-icon-and-title .subhead .yt-core-attributed-string { display: none; }';
      
     
     //----- generate the style elements ----//
