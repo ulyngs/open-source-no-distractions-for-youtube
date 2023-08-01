@@ -13,6 +13,24 @@
     </div>
     <div id="popup-content" style="display: none;">
         <div class="content-toggles">
+            <div class="save-toggle">
+                <input type="button" id="saveButton" value="Save settings">
+            </div>
+            <div class="toggle-group center-align">
+                <div class="a-toggle friction-toggle">
+                      <input type="checkbox" id="frictionToggle" name="frictionToggle">
+                      <label for="frictionToggle">Delay to change settings</label>
+                  </div>
+                <div class="a-toggle friction-customisation">
+                      <input type="number" id="waitTime" name="waitTime" value="10" min="1" max="600">
+                      <label for="waitTime"> Wait time (seconds)</label>
+                      <p id="savedTextTime" style="display: none; color: red;"></p>
+                  </div>
+                <div class="a-toggle friction-customisation">
+                      <input type="text" id="waitText" name="waitText" value="What's your intention?">
+                      <label for="waitText"> Message</label>
+                  </div>
+            </div>
             <div class="toggle-group hide-checkboxes">
               <h2>Home page</h2>
               <div class="a-toggle platform-iphone" id="hide-previews">
@@ -80,6 +98,10 @@
                     <input type="checkbox" id="youtubeCommentsToggle" name="youtubeCommentsToggle">
                     <label for="youtubeCommentsToggle">Comments</label>
                 </div>
+                <div class="a-toggle">
+                    <input class="hide-checkbox" type="checkbox" id="youtubeLikesToggle" name="youtubeLikesToggle">
+                        <label for="youtubeLikesToggle">Like numbers</label>
+                </div>
             </div>
             <div class="toggle-group hide-checkboxes">
                 <h2>General</h2>
@@ -95,24 +117,14 @@
                     <input class="hide-checkbox" type="checkbox" id="youtubeAdsToggle" name="youtubeAdsToggle">
                         <label for="youtubeAdsToggle">Ads</label>
                 </div>
-            </div>
-            <div class="save-toggle">
-                <input type="button" id="saveButton" value="Save settings">
-            </div>
-            <div class="toggle-group center-align">
-                <div class="a-toggle friction-toggle">
-                      <input type="checkbox" id="frictionToggle" name="frictionToggle">
-                      <label for="frictionToggle">Delay to change settings</label>
-                  </div>
-                <div class="a-toggle friction-customisation">
-                      <input type="number" id="waitTime" name="waitTime" value="10" min="1" max="600">
-                      <label for="waitTime"> Wait time (seconds)</label>
-                      <p id="savedTextTime" style="display: none; color: red;"></p>
-                  </div>
-                <div class="a-toggle friction-customisation">
-                      <input type="text" id="waitText" name="waitText" value="What's your intention?">
-                      <label for="waitText"> Message</label>
-                  </div>
+                <div class="a-toggle">
+                    <input class="hide-checkbox" type="checkbox" id="youtubeViewsToggle" name="youtubeViewsToggle">
+                        <label for="youtubeViewsToggle">View numbers</label>
+                </div>
+                <div class="a-toggle">
+                    <input class="hide-checkbox" type="checkbox" id="youtubeSubscribersToggle" name="youtubeSubscribersToggle">
+                        <label for="youtubeSubscribersToggle">Subscriber numbers</label>
+                </div>
             </div>
         </div>
         <p class="smaller-font">To flag bugs or suggest improvements, go to <a href="https://github.com/ulyngs/open-source-no-distractions-for-youtube" target="_blank">GitHub</a>.

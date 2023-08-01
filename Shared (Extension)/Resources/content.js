@@ -53,6 +53,16 @@
      
      const youtubeAdsCssOn = '';
      const youtubeAdsCssOff = 'ytm-promoted-sparkles-text-search-renderer, ytd-promoted-sparkles-text-search-renderer, ytd-promoted-sparkles-web-renderer, ytd-carousel-ad-renderer, ytd-ad-slot-renderer, #masthead-ad, ytd-ad-slot-renderer { display: none !important; }  /* video page */ ytm-promoted-sparkles-web-renderer, ytm-companion-ad-renderer, #player-ads {display: none !important; }';
+     
+     const youtubeViewsCssOn = '';
+     const youtubeViewsCssOff = '#metadata-line.ytd-video-meta-block > .ytd-video-meta-block:first-of-type {display: none !important; } #metadata-line.ytd-video-meta-block>.ytd-video-meta-block:not(:first-of-type):before { content: ""; margin: 0px; } /* video page */ #info-container > .ytd-watch-metadata > .yt-formatted-string:nth-of-type(1), #info-container > .ytd-watch-metadata > .yt-formatted-string:nth-of-type(2) { display: none; }';
+     
+     const youtubeLikesCssOn = '';
+     const youtubeLikesCssOff = '#segmented-like-button .yt-core-attributed-string { display: none; }';
+     
+     const youtubeSubscribersCssOn = '';
+     const youtubeSubscribersCssOff = '#owner-sub-count { display: none !important; }';
+     
     
     //----- generate the style elements ----//
      var elementsThatCanBeHidden = [ "youtubeSearch",
@@ -69,7 +79,10 @@
                                      "youtubeRelated",
                                      "youtubeSidebar",
                                      "youtubeComments",
-                                     "youtubeAds" ];
+                                     "youtubeAds",
+                                     "youtubeViews",
+                                     "youtubeLikes",
+                                     "youtubeSubscribers"];
      
      // function to create style element with the specified CSS content
      function createStyleElement(some_style_id, some_css){
