@@ -7,19 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // set friction checkbox
     browser.storage.sync.get("addFriction", function(result) {
       var frictionToggle = document.getElementById("frictionToggle");
-      var frictionCustomisation = document.querySelectorAll(".friction-customisation");
+      var frictionCustomisationArrow = document.getElementById("frictionCustomisationArrow");
       
       frictionToggle.checked = result.addFriction;
       
         if (result.addFriction == undefined || !frictionToggle.checked) {
-            // don't show the customisation options if we haven't checked the box
-            for (var i = 0; i < frictionCustomisation.length; i++) {
-                frictionCustomisation[i].style.display = "none";
-                }
+            frictionCustomisationArrow.style.display = "none";
         } else {
-            for (var i = 0; i < frictionCustomisation.length; i++) {
-                frictionCustomisation[i].style.display = "block";
-                }
+            frictionCustomisationArrow.style.display = "block";
         }
         
       var popupContainer = document.getElementById("popup-content");
@@ -90,25 +85,42 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
+    
+    // make the friction customisation arrow and text appear/disappear with the delay toggle
     var frictionToggle = document.getElementById("frictionToggle");
-    var frictionCustomisation = document.querySelectorAll(".friction-customisation");
+    var frictionCustomisationArrow = document.getElementById("frictionCustomisationArrow");
     
     // Add event listener to detect changes in the checkbox status
     frictionToggle.addEventListener('change', function() {
-        // If the checkbox is checked, show the delay time input
-        if (frictionToggle.checked) {
-            for (var i = 0; i < frictionCustomisation.length; i++) {
-                frictionCustomisation[i].style.display = "block";
-              }
-        } else {
-            // Otherwise, hide it
-            for (var i = 0; i < frictionCustomisation.length; i++) {
-                frictionCustomisation[i].style.display = "none";
-              }
-        }
-        
         // store the setting
         browser.storage.sync.set({ "addFriction": document.getElementById("frictionToggle").checked });
+        
+        // If the checkbox is checked, show the delay time input
+        if (frictionToggle.checked) {
+            frictionCustomisationArrow.style.display = "block";
+        } else {
+            frictionCustomisationArrow.style.display = "none";
+        }
+        
+    });
+    
+    // make the frictionCustomisationArrow go from right to down on click
+    var frictionCustomisationArrowRight = document.getElementById("frictionCustomisationArrowRight");
+    var frictionCustomisationArrowDown = document.getElementById("frictionCustomisationArrowDown");
+    var frictionCustomisationOptions = document.querySelector(".toggle-group.friction-customisation");
+    
+    // Add event listener to detect changes in the checkbox status
+    frictionCustomisationArrow.addEventListener('click', function() {
+        // If the checkbox is checked, show the delay time input
+        if (frictionCustomisationArrowRight.style.display == "inline") {
+            frictionCustomisationArrowRight.style.display = "none";
+            frictionCustomisationArrowDown.style.display = "inline";
+            frictionCustomisationOptions.style.display = "block";
+        } else {
+            frictionCustomisationArrowRight.style.display = "inline";
+            frictionCustomisationArrowDown.style.display = "none";
+            frictionCustomisationOptions.style.display = "none";
+        }
     });
     
     

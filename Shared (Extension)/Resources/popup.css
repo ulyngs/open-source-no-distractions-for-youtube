@@ -4,7 +4,7 @@
 
 body {
     width: 200px;
-    padding: 10px;
+    padding: 10px 10px 70px 10px;
     font-family: system-ui;
     text-align: center;
     background-color: #F5F5F5;
@@ -14,12 +14,6 @@ body {
 .smaller-font {
     font-size: 0.85em;
     text-align: left;
-}
-
-.save-toggle {
-    text-align: left;
-    5px 0px 0px 2px;
-    padding: 0 !important;
 }
 
 .a-toggle {
@@ -66,6 +60,7 @@ a:visited {
     text-decoration: none;
     font-size: 0.8em;
     font-weight: bold;
+    border-radius: 2px;
 }
 
 
@@ -295,9 +290,8 @@ footer {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
     text-align: center;
-    padding: 5px;
+    padding: 4px 8px;
     font-size: 0.9em;
     border-top: 1px solid rgb(207, 206, 206);
     background-color: #F5F5F5;
@@ -310,4 +304,38 @@ footer a:visited {
 
 }
 
+.footer-settings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.save-toggle {
+    flex: 1 0 50%; /* Flex-grow | Flex-shrink | Flex-basis */
+    text-align: left;
+    5px 0px 0px 2px;
+    padding: 0px 3px;
+}
+
+.friction-toggle {
+    flex: 1 0 45%; /* Flex-grow | Flex-shrink | Flex-basis */
+    padding: 0px 3px;
+}
+
+footer .toggle-group {
+    margin: 0px 0px 5px 0px;
+}
+
+#friction-customisation-prompt {
+    display: inline;
+    font-style: italic;
+    color: gray;
+}
+
+#frictionCustomisationArrow {
+    margin-top: 3px;
+}
+
+.suggestions-link {
+    margin-top: 2px;
+}

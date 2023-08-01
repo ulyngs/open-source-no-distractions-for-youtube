@@ -13,24 +13,6 @@
     </div>
     <div id="popup-content" style="display: none;">
         <div class="content-toggles">
-            <div class="save-toggle">
-                <input type="button" id="saveButton" value="Save settings">
-            </div>
-            <div class="toggle-group center-align">
-                <div class="a-toggle friction-toggle">
-                      <input type="checkbox" id="frictionToggle" name="frictionToggle">
-                      <label for="frictionToggle">Delay to open settings</label>
-                  </div>
-                <div class="a-toggle friction-customisation">
-                      <input type="number" id="waitTime" name="waitTime" value="10" min="1" max="600">
-                      <label for="waitTime"> Wait time (seconds)</label>
-                      <p id="savedTextTime" style="display: none; color: red;"></p>
-                  </div>
-                <div class="a-toggle friction-customisation">
-                      <input type="text" id="waitText" name="waitText" value="What's your intention?">
-                      <label for="waitText"> Text</label>
-                  </div>
-            </div>
             <div class="toggle-group hide-checkboxes">
               <h2>Menu bar</h2>
               <div class="a-toggle">
@@ -105,21 +87,13 @@
             <div class="toggle-group hide-checkboxes">
                 <h2>General</h2>
                 <div class="a-toggle">
-                    <input type="checkbox" id="youtubeSearchToggle" name="youtubeSearchToggle">
-                        <label for="youtubeSearchToggle">Search box</label>
-                </div>
-                <div class="a-toggle platform-ipad-mac">
-                    <input type="checkbox" id="youtubeSearchPredictToggle" name="youtubeSearchPredictToggle">
-                        <label for="youtubeSearchPredictToggle">Search predictions</label>
-                </div>
-                <div class="a-toggle">
-                      <input class="hide-checkbox" type="checkbox" id="youtubeThumbnailsToggle" name="youtubeThumbnailsToggle">
-                      <label for="youtubeThumbnailsToggle">Thumbnails</label>
-                  </div>
-                <div class="a-toggle">
                     <input class="hide-checkbox" type="checkbox" id="youtubeAdsToggle" name="youtubeAdsToggle">
                         <label for="youtubeAdsToggle">Ads</label>
                 </div>
+                <div class="a-toggle">
+                      <input class="hide-checkbox" type="checkbox" id="youtubeThumbnailsToggle" name="youtubeThumbnailsToggle">
+                      <label for="youtubeThumbnailsToggle">Video thumbnails</label>
+                  </div>
                 <div class="a-toggle">
                     <input class="hide-checkbox" type="checkbox" id="youtubeViewsToggle" name="youtubeViewsToggle">
                         <label for="youtubeViewsToggle">View numbers</label>
@@ -128,10 +102,53 @@
                     <input class="hide-checkbox" type="checkbox" id="youtubeSubscribersToggle" name="youtubeSubscribersToggle">
                         <label for="youtubeSubscribersToggle">Subscriber numbers</label>
                 </div>
-            </div>
+                <div class="a-toggle">
+                    <input type="checkbox" id="youtubeSearchToggle" name="youtubeSearchToggle">
+                        <label for="youtubeSearchToggle">Search box</label>
+                </div>
+                <div class="a-toggle platform-ipad-mac">
+                    <input type="checkbox" id="youtubeSearchPredictToggle" name="youtubeSearchPredictToggle">
+                        <label for="youtubeSearchPredictToggle">Search predictions</label>
+                </div>
+             </div>
         </div>
         <footer>
-            <a href="https://github.com/ulyngs/open-source-no-distractions-for-youtube" target="_blank">Suggest improvements</a>
+            <div class="footer-settings">
+                <div class="save-toggle">
+                    <input type="button" id="saveButton" value="Save settings">
+                </div>
+                <div class="a-toggle friction-toggle">
+                    <input type="checkbox" id="frictionToggle" name="frictionToggle">
+                    <label for="frictionToggle">Delay to open settings</label>
+                    <div id="frictionCustomisationArrow">
+                        <div id="frictionCustomisationArrowRight" style="display: inline;">
+                            <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+                             <path d="m360 1170-90-91.199 478.8-478.8-478.8-478.8 90-91.199 570 570z" fill="#808080" />
+                            </svg>
+                        </div>
+                        <div id="frictionCustomisationArrowDown" style="display: none;">
+                            <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+                             <path d="m652.1 915.27 526.35-524.55c28.742-30.539 28.742-77.246 0-105.99-28.742-28.742-77.246-28.742-105.99 0l-472.46 472.46-472.46-472.46c-30.539-28.742-77.246-28.742-105.99 0-28.742 28.742-28.742 75.449 0 105.99l524.55 524.55c30.539 28.742 77.246 28.742 105.99 0z" fill="#808080" fill-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <p id="friction-customisation-prompt">Customise</p>
+                    </div>
+                </div>
+            </div>
+            <div class="toggle-group center-align friction-customisation" style="display: none;">
+                <div class="a-toggle">
+                    <input type="number" id="waitTime" name="waitTime" value="10" min="1" max="600">
+                    <label for="waitTime"> Wait time (seconds)</label>
+                    <p id="savedTextTime" style="display: none; color: red;"></p>
+                </div>
+                <div class="a-toggle">
+                    <input type="text" id="waitText" name="waitText" value="What's your intention?">
+                    <label for="waitText"> Text</label>
+                </div>
+            </div>
+            <div class="suggestions-link">
+                <a href="https://github.com/ulyngs/open-source-no-distractions-for-youtube" target="_blank">Suggest improvements</a>
+            </div>
         </footer>
     </div>
 </body>
