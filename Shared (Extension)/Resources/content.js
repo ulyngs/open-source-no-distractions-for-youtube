@@ -20,6 +20,8 @@
      
      const youtubeThumbnailsCssOn = 'ytd-thumbnail {display: block; } ytd-compact-video-renderer { padding: 0px 10px 10px 10px; /* mobile */ .media-item-thumbnail-container, .video-thumbnail-img { display: block; }';
      const youtubeThumbnailsCssOff = 'ytd-thumbnail { display: none; } /* mobile */ .media-item-thumbnail-container, .video-thumbnail-img { display: none !important; } .reel-shelf-items ytm-reel-item-renderer, .reel-shelf-items .reel-item-endpoint, .video-thumbnail-container-vertical { height: 100px !important; }';
+     const youtubeThumbnailsCssBlur = 'ytd-thumbnail img { filter: blur(7px); } /* mobile */ .media-item-thumbnail-container, .video-thumbnail-img { filter: blur(7px); }';
+
      
      const youtubeProfileImgCssOn = '#avatar-link {display: inline-block; visibility: visible;} .channel-thumbnail-icon {display: inline-block;}';
      const youtubeProfileImgCssOff = '#avatar-link {display: none; visibility: hidden;} .channel-thumbnail-icon {display: none;}';
@@ -102,25 +104,47 @@
          var styleName = item + "Style";
          var key = item + "Status";
          
-         browser.storage.sync.get(key, function(result) {
-             if (result[key] == true){
-                 createStyleElement(styleName, eval(item + "CssOff"));
-             } else {
-                 createStyleElement(styleName, eval(item + "CssOn"));
-             };
-         });
+         if (item === "youtubeThumbnails") {
+             
+             browser.storage.sync.get(key, function(result) {
+                 if (result[key] == undefined){
+                     createStyleElement(styleName, eval(item + "CssOn"));
+                 } else {
+                     createStyleElement(styleName, eval(item + "Css" + result[key]));
+                 };
+             });
+         } else {
+             browser.storage.sync.get(key, function(result) {
+                 if (result[key] == true){
+                     createStyleElement(styleName, eval(item + "CssOff"));
+                 } else {
+                     createStyleElement(styleName, eval(item + "CssOn"));
+                 };
+             });
+         }
+
      });
      
      // let the popup ask for the current view status of the elements (so it can set the checkboxes accordingly)
      chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
          if(message.method === "check"){
              var currentStyle = document.getElementById(message.element + "Style");
-     
-             if (currentStyle == undefined){
-                 sendResponse({text: "style element is undefined"});
+             
+             // only check the blur element for elements that have it
+             if(message.element == "youtubeThumbnails"){
+                 if (currentStyle.innerHTML === eval(message.element + 'CssBlur')){
+                     sendResponse({text: "blur"});
+                 }
+             }
+             
+            // do the other checks for all
+            if (currentStyle == undefined){
+                sendResponse({text: "style element is undefined"});
+                
              } else if (currentStyle.innerHTML === eval(message.element + 'CssOn')) {
                  sendResponse({text: "visible"});
-             } else {
+                 
+             } else if (currentStyle.innerHTML === eval(message.element + 'CssOff')){
                  sendResponse({text: "hidden"});
              };
          };
@@ -137,6 +161,15 @@
                  currentStyle.innerHTML = eval(message.element + 'CssOff')
              } else {
                  currentStyle.innerHTML = eval(message.element + 'CssOn')
+             };
+         };
+         
+         if(message.method === "changeHideBlur"){
+             if (currentStyle == undefined){
+                 console.log("not on active tab");
+             } else {
+                 
+                 currentStyle.innerHTML = eval(message.element + 'Css' + message.action)
              };
          };
      });

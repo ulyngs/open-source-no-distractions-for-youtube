@@ -219,81 +219,6 @@ a:visited {
 }
 
 
-@media (prefers-color-scheme: dark) {
-    .colored-font {
-        color: lightgray;
-    }
-    
-    .friction-customisation input {
-        background-color: white;
-        color: black;
-    }
-    
-    a,
-    a:visited {
-        color: gray;
-    }
-    #sites-arrow path {
-        fill: rgb(194, 194, 194);
-    }
-    #sites-arrow-right path, #sites-arrow-down path,
-    #how-to-arrow-right path, #how-to-arrow-down path {
-        fill: rgb(194, 194, 194);
-    }
-    
-}
-
-
-
-/******* HIDE IRRELEVANT TOGGLES *******/
-@media only screen and (max-device-width: 1312px) {
-    .youtube-large-only {
-        display:none
-    }
-    a:visited {
-        color: darkgray;
-    }
-}
-
-
-/* iPhone */
-@media only screen and (max-device-width: 768px) {
-    .platform-ipad-mac {
-        display: none;
-    }
-    
-    body {
-        width: 350px;
-    }
-    #how-to-image, #how-to-arrow {
-        width: 1.2em;
-        vertical-align: bottom;
-    }
-    #how-to-image {
-        display: inline-block;
-    }
-    .previews-text {
-        display: inline-block;
-    }
-    #how-to-description {
-        padding: 8px;
-        font-style: italic;
-    }
-    
-    #delay-content img {
-    width: 70%;
-    margin-bottom: 0px;
-    }
-}
-
-
-@media only screen and (min-device-width: 768px) {
-    .platform-iphone {
-        display: none;
-    }
-}
-
-
 footer {
     position: fixed;
     bottom: 0;
@@ -347,3 +272,162 @@ footer .toggle-group {
 .suggestions-link {
     margin-top: 2px;
 }
+
+.previews-text {
+    display: inline-block;
+}
+.a-toggle p.how-to-description {
+    padding: 8px;
+    font-style: italic;
+}
+
+
+.tri-state-checkbox {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    width: 17px;
+    height: 18px;
+    top: -4px;
+    left: 0px;
+    margin-right: 2px;
+    border: 1px solid rgb(192,192,192);
+    padding: 0;
+    background-color: color(srgb 0.9999 1 1);
+    border-radius: 3px;
+}
+
+.tri-state-label {
+    vertical-align: middle;
+}
+
+.tri-state-checkbox[data-state="On"]::after {
+    content: '';  /* Empty for show state */
+}
+
+.tri-state-checkbox[data-state="Off"]::after {
+    content: '\01F6AB';
+    position: absolute;
+    top: -1px;  /* Match with other checkboxes */
+    left: -2px;  /* Match with other checkboxes */
+    font-size: 14px;  /* Match with other checkboxes */
+}
+
+.tri-state-checkbox[data-state="Blur"]::after {
+    content: '\2601';
+    position: absolute;
+    top: -1px;
+    left: 0px;
+    font-size: 16px;
+    color: dimgray;
+}
+
+#how-to-arrow-right-not-mobile {
+    margin-right: 9px;
+}
+#how-to-arrow-down-not-mobile {
+    margin-right: 9px;
+}
+#hide-previews-not-mobile {
+    cursor: pointer;
+}
+
+/***** DARK MODE *****/
+@media (prefers-color-scheme: dark) {
+    .colored-font {
+        color: lightgray;
+    }
+    
+    .friction-customisation input {
+        background-color: white;
+        color: black;
+    }
+    
+    a,
+    a:visited {
+        color: gray;
+    }
+    #sites-arrow path {
+        fill: rgb(194, 194, 194);
+    }
+    #sites-arrow-right path, #sites-arrow-down path,
+    #how-to-arrow-right path, #how-to-arrow-down path {
+        fill: rgb(194, 194, 194);
+    }
+    
+    @media only screen and (max-device-width: 768px) {
+        #frictionToggle:not(:checked) {
+            filter: invert(100%) hue-rotate(18deg) brightness(1.7);
+        }
+    }
+    
+    @media only screen and (max-device-width: 1312px) {
+        #frictionToggle:not(:checked) {
+            filter: invert(100%) hue-rotate(18deg) brightness(1.7);
+        }
+    }
+}
+
+
+
+/******* HIDE IRRELEVANT TOGGLES *******/
+/* iPad */
+@media only screen and (max-device-width: 1312px) {
+    .youtube-large-only {
+        display:none
+    }
+    a:visited {
+        color: darkgray;
+    }
+}
+
+
+/* iPhone */
+@media only screen and (max-device-width: 768px) {
+    .platform-ipad-mac {
+        display: none;
+    }
+    
+    .tri-state-checkbox[data-state="Blur"]::after {
+        top: -2px;
+        left: -3px;
+    }
+    
+    .footer-settings {
+        margin-top: -5px;
+    }
+    
+    .a-toggle.friction-toggle {
+        margin-top: 1em;
+    }
+    
+    body {
+        width: 350px;
+    }
+    #how-to-image, #how-to-arrow {
+        width: 1.2em;
+        vertical-align: bottom;
+    }
+    #how-to-image {
+        display: inline-block;
+    }
+    
+    #delay-content img {
+    width: 70%;
+        margin-bottom: 0px;
+    }
+    
+    #frictionToggle {
+        background-color: #fff !important;
+        background: #fff !important;
+    }
+}
+
+/* when larger then iPhone, don't show the iphone-only toggles */
+@media only screen and (min-device-width: 768px) {
+    .platform-iphone {
+        display: none;
+    }
+}
+
+
