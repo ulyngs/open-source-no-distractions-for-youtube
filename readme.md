@@ -17,5 +17,5 @@ This work is licensed under a
 [cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
 [cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
 
-That is, feel free to copy, reuse, and remix my code for your personal use, but you are not allowed to use it for commercial purposes without permission.
+That is, feel free to copy, reuse, and remix my code for your personal use, but you are not allowed to use it for commercial purposes.
 Please contact me on ulrik.lyngs@gmail.com if you want to reuse any of my code for commercial purposes.
