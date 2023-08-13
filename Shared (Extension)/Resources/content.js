@@ -104,10 +104,15 @@
          var styleName = item + "Style";
          var key = item + "Status";
          
+         
+         
          if (item === "youtubeThumbnails") {
              
              browser.storage.sync.get(key, function(result) {
-                 if (result[key] == undefined){
+                 
+                 console.log(result[key]);
+                 
+                 if (result[key] == undefined || result[key] === false){
                      createStyleElement(styleName, eval(item + "CssOn"));
                  } else {
                      createStyleElement(styleName, eval(item + "Css" + result[key]));
