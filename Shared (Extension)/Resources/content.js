@@ -9,6 +9,28 @@
     }
     window.hasRun = true;
      
+      var elementsThatCanBeHidden = [ "youtubeSearch",
+                                      "youtubeSearchPredict",
+                                      "youtubeRecVids",
+                                      "youtubeThumbnails",
+                                      "youtubeNotifications",
+                                      "youtubeProfileImg",
+                                      "youtubeShorts",
+                                      "youtubeSubscriptions",
+                                      "youtubeLibrary",
+                                      "youtubeHistory",
+                                      "youtubeExplore",
+                                      "youtubeMore",
+                                      "youtubeRelated",
+                                      "youtubeSidebar",
+                                      "youtubeComments",
+                                      "youtubeAds",
+                                      "youtubeViews",
+                                      "youtubeLikes",
+                                      "youtubeSubscribers"];
+     
+     
+     //----- generate the style elements ----//
      const youtubeSearchCssOn = '';
      const youtubeSearchCssOff = 'ytd-searchbox { display: none; } button[aria-label="Search YouTube"] {display: none;}';
      
@@ -69,27 +91,6 @@
      const youtubeSubscribersCssOn = '';
      const youtubeSubscribersCssOff = '#owner-sub-count, #subscriber-count { display: none !important; } /* m.youtube.com */ .slim-owner-icon-and-title .subhead .yt-core-attributed-string { display: none; }';
      
-    
-    //----- generate the style elements ----//
-     var elementsThatCanBeHidden = [ "youtubeSearch",
-                                     "youtubeSearchPredict",
-                                     "youtubeRecVids",
-                                     "youtubeThumbnails",
-                                     "youtubeNotifications",
-                                     "youtubeProfileImg",
-                                     "youtubeShorts",
-                                     "youtubeSubscriptions",
-                                     "youtubeLibrary",
-                                     "youtubeHistory",
-                                     "youtubeExplore",
-                                     "youtubeMore",
-                                     "youtubeRelated",
-                                     "youtubeSidebar",
-                                     "youtubeComments",
-                                     "youtubeAds",
-                                     "youtubeViews",
-                                     "youtubeLikes",
-                                     "youtubeSubscribers"];
      
      // function to create style element with the specified CSS content
      function createStyleElement(some_style_id, some_css){
