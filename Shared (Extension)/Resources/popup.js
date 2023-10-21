@@ -151,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     "youtubeSearchPredict",
                                     "youtubeRecVids",
                                     "youtubeThumbnails",
+                                    "youtubeNotifications",
                                     "youtubeProfileImg",
                                     "youtubeShorts",
                                     "youtubeSubscriptions",
@@ -256,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // assign the functions to the checkboxes
     elementsThatCanBeHidden.forEach(function (item) {
-        if (item === "youtubeThumbnails") {
+        if (item === "youtubeThumbnails" || item === "youtubeNotifications") {
             setButtonState(item, item + "Toggle");
             toggleViewStatusButton(item, item + "Toggle");
         } else {
@@ -279,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
         elementsThatCanBeHidden.forEach(function (element) {
             var key = element + "Status";
             
-            if (element === "youtubeThumbnails") {
+            if (element === "youtubeThumbnails" || element === "youtubeNotifications") {
                 console.log(document.getElementById(element + "Toggle").getAttribute("data-state"));
                 
                 browser.storage.sync.set({ [key]: document.getElementById(element + "Toggle").getAttribute("data-state") });
