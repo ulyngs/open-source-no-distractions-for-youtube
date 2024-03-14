@@ -340,6 +340,10 @@ footer .toggle-group {
     margin-top: 1.5em;
 }
 
+.toolbar-button-badge {
+    background-color: rgba(255, 255, 255, 0.5) !important; /* Semi-transparent white */
+}
+
 /***** DARK MODE *****/
 @media (prefers-color-scheme: dark) {
     .colored-font {

@@ -7,11 +7,11 @@
     "version": "3.16",
 
     "icons": {
-        "48": "images/new-icon48.png",
-        "96": "images/new-icon96.png",
-        "128": "images/new-icon128.png",
-        "256": "images/new-icon256.png",
-        "512": "images/new-icon512.png"
+        "48":  "images/icon-resized-48.png",
+        "96":  "images/icon-resized-96.png",
+        "128": "images/icon-resized-128.png",
+        "256": "images/icon-resized-256.png",
+        "512": "images/icon-resized-512.png"
     },
 
     "content_scripts": [{
@@ -23,10 +23,10 @@
     "browser_action": {
         "default_popup": "popup.html",
         "default_icon": {
-            "16": "images/new-toolbar-icon-16.png",
-            "19": "images/new-toolbar-icon-19.png",
-            "32": "images/new-toolbar-icon-32.png",
-            "38": "images/new-toolbar-icon-38.png"
+            "16": "images/icon-resized-16.png",
+            "19": "images/icon-resized-19.png",
+            "32": "images/icon-resized-32.png",
+            "38": "images/icon-resized-38.png"
         }
     },
 
