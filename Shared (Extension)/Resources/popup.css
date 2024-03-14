@@ -332,6 +332,14 @@ footer .toggle-group {
     cursor: pointer;
 }
 
+.review-prompt-content {
+    margin-bottom: 1.5em;
+}
+
+#noThanksButton {
+    margin-top: 1.5em;
+}
+
 /***** DARK MODE *****/
 @media (prefers-color-scheme: dark) {
     .colored-font {
