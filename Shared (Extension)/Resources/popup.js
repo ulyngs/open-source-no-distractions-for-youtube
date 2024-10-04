@@ -2,7 +2,11 @@
 // https://developer.chrome.com/docs/extensions/mv3/messaging/
 
 document.addEventListener('DOMContentLoaded', function() {
-    const maxLimit = 600;
+    const platformsWeTarget = [ "youtube" ];
+    const elementsThatCanBeHidden = [ "youtubeSearch", "youtubeSearchPredict", "youtubeRecVids", "youtubeThumbnails", "youtubeNotifications", "youtubeProfileImg",
+                                      "youtubeShorts", "youtubeSubscriptions", "youtubeLibrary", "youtubeHistory", "youtubeExplore", "youtubeMore",
+                                      "youtubeRelated", "youtubeSidebar", "youtubeComments", "youtubeAds", "youtubeViews", "youtubeLikes", "youtubeSubscribers" ];
+    
     
     // Initialize or increment the open count in localStorage
         let opensCount = localStorage.getItem('opensCount');
@@ -13,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let noThanksClicked = localStorage.getItem('noThanksClicked') === 'true';
 
         // Show the review prompt every 12th open unless 'No, thanks' has been clicked
-        if (opensCount % 12 === 0 && !noThanksClicked) {
+        if (opensCount % 10 === 0 && !noThanksClicked) {
             var reviewPrompt = document.getElementById('reviewPrompt');
             if (reviewPrompt) {
                 reviewPrompt.style.display = 'block';
@@ -32,16 +36,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // set friction checkbox
     browser.storage.sync.get("addFriction", function(result) {
-      var frictionToggle = document.getElementById("frictionToggle");
-      var frictionCustomisationArrow = document.getElementById("frictionCustomisationArrow");
-      
-      frictionToggle.checked = result.addFriction;
-      
-        if (result.addFriction == undefined || !frictionToggle.checked) {
-            frictionCustomisationArrow.style.display = "none";
-        } else {
-            frictionCustomisationArrow.style.display = "block";
-        }
+        var frictionToggle = document.getElementById("frictionToggle");
+        var frictionCustomisationArrow = document.getElementById("frictionCustomisationArrow");
+        
+        frictionToggle.checked = result.addFriction;
+        
+          if (result.addFriction == undefined || !frictionToggle.checked) {
+              frictionCustomisationArrow.style.display = "none";
+          } else {
+              frictionCustomisationArrow.style.display = "block";
+          }
         
       var popupContainer = document.getElementById("popup-content");
       var messageContainer = document.getElementById("delay-content");
@@ -75,13 +79,13 @@ document.addEventListener('DOMContentLoaded', function() {
           var countdownBox = document.getElementById("delay-time");
           var countdown = 0;
                 
-          if (waitTime != null && parseInt(waitTime) <= maxLimit) {
+          if (waitTime != null) {
               // set the placeholder text
               document.getElementById("waitTime").value = waitTime;
               
               // Use the wait time value for the count down
               countdownBox.innerText = waitTime;
-              countdown = waitTime;            
+              countdown = waitTime;
             
           } else {
             countdownBox.innerText = "10";
@@ -110,7 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
           
       }
     });
-    
     
     // make the friction customisation arrow and text appear/disappear with the delay toggle
     var frictionToggle = document.getElementById("frictionToggle");
@@ -149,7 +152,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    
     // store wait customisation
     // wait time
     var savedTextTime = document.getElementById("savedTextTime");
@@ -159,6 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
         clearTimeout(hideTimeOut);
         
         let waitValue = parseInt(document.getElementById("waitTime").value);
+        const maxLimit = 600;
         const minLimit = 1;
         
         if(waitValue < minLimit){
@@ -172,26 +175,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 2500);
         }
     });
-    
-    var elementsThatCanBeHidden = [ "youtubeSearch",
-                                    "youtubeSearchPredict",
-                                    "youtubeRecVids",
-                                    "youtubeThumbnails",
-                                    "youtubeNotifications",
-                                    "youtubeProfileImg",
-                                    "youtubeShorts",
-                                    "youtubeSubscriptions",
-                                    "youtubeLibrary",
-                                    "youtubeHistory",
-                                    "youtubeExplore",
-                                    "youtubeMore",
-                                    "youtubeRelated",
-                                    "youtubeSidebar",
-                                    "youtubeComments",
-                                    "youtubeAds",
-                                    "youtubeViews",
-                                    "youtubeLikes",
-                                    "youtubeSubscribers"];
     
     // create function to set a checkbox according to current view status on the page
     function setCheckboxState(element_to_check, id_of_toggle){
@@ -229,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, false);
     };
     
-    // create function to set a button according to current view status on the page
+    // create function to set a three-state button (hide-blur-show)
     function setButtonState(element_to_check, id_of_toggle){
         var currentButton = document.getElementById(id_of_toggle);
         
@@ -254,10 +237,37 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     };
-
     
-    // create function to make a button toggle view status on and off
-    function toggleViewStatusButton(element_to_change, id_of_toggle){
+    // create function to set a four-state button (hide-blur-black-show)
+    function setButtonStateFour(element_to_check, id_of_toggle){
+        var currentButton = document.getElementById(id_of_toggle);
+        
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            
+            chrome.tabs.sendMessage(tabs[0].id, { method: "check", element: element_to_check }, function(response){
+                if (response.text === "hidden"){
+                    currentButton.setAttribute("data-state", "Off");
+                } else if (response.text === "visible"){
+                    currentButton.setAttribute("data-state", "On");
+                } else if (response.text === "blur"){
+                    currentButton.setAttribute("data-state", "Blur");
+                } else if (response.text === "black"){
+                    currentButton.setAttribute("data-state", "Black");
+                } else {
+                    // if the style element is undefined, set to saved status
+                    var key = element_to_check + "Status";
+                    
+                    browser.storage.sync.get(key, function(result) {
+                        var status = result[key];
+                        currentButton.setAttribute("data-state", result[key]);
+                    });
+                }
+            });
+        });
+    };
+    
+    // create function to make a four-state button toggle status (hide-blur-black-view)
+    function toggleViewStatusMultiToggle(element_to_change, id_of_toggle){
         var currentButton = document.getElementById(id_of_toggle);
         let state;
 
@@ -268,13 +278,16 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (currentButton.getAttribute("data-state") == "Off"){
                 currentButton.setAttribute("data-state", "Blur");
                 state = "Blur";
+            } else if (currentButton.getAttribute("data-state") == "Blur"){
+                currentButton.setAttribute("data-state", "Black");
+                state = "Black";
             } else {
                 currentButton.setAttribute("data-state", "On");
                 state = "On";
             }
             
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-                chrome.tabs.sendMessage(tabs[0].id, { method: "changeHideBlur", element: element_to_change, action: state });
+                chrome.tabs.sendMessage(tabs[0].id, { method: "changeMultiToggle", element: element_to_change, action: state });
             });
         }, false);
     };
@@ -284,16 +297,114 @@ document.addEventListener('DOMContentLoaded', function() {
     // assign the functions to the checkboxes
     elementsThatCanBeHidden.forEach(function (item) {
         if (item === "youtubeThumbnails" || item === "youtubeNotifications") {
-            setButtonState(item, item + "Toggle");
-            toggleViewStatusButton(item, item + "Toggle");
+            setButtonStateFour(item, item + "Toggle");
+            toggleViewStatusMultiToggle(item, item + "Toggle");
         } else {
             setCheckboxState(item, item + "Toggle");
             toggleViewStatusCheckbox(item, item + "Toggle");
         }
     });
-
     
-    //---- make the save button save the state of the checkboxes to local storage ----//
+    // set switches according to current status
+    function setSwitch(platform_to_check, id_of_switch){
+        var currentSwitch = document.getElementById(id_of_switch);
+        
+        var key = platform_to_check + "Status";
+        
+        browser.storage.sync.get(key, function(result) {
+          if (result[key] == false ) {
+              currentSwitch.checked = false;
+              
+              // disable the checkboxes if the switch is off
+              var filteredElements = elementsThatCanBeHidden.filter(element =>
+                element.includes(platform_to_check)
+              );
+              filteredElements.forEach(function (item) {
+                  document.getElementById(item + "Toggle").disabled = true;
+              });
+              
+          } else {
+              currentSwitch.checked = true;
+          }
+        });
+    };
+    
+    // handle when then switches are turned off or on
+    platformsWeTarget.forEach(function(platform) {
+        var currentSwitch = document.querySelector('#website-toggles #toggle-' + platform + ' input');
+        var allCheckboxes = document.querySelectorAll('.dropdown.' + platform + ' .a-toggle input');
+        
+        currentSwitch.addEventListener("change", function() {
+            if(!currentSwitch.checked){
+                //console.log("just switched off");
+                
+                // show all distracting elements
+                elementsThatCanBeHidden.filter(elem => elem.indexOf(platform) !== -1).forEach(function(some_element){
+                    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                        chrome.tabs.sendMessage(tabs[0].id, { method: "showAll", element: some_element });
+                      });
+                    document.getElementById(some_element + "Toggle").checked = false;
+                });
+                
+                // disable the checkboxes
+                allCheckboxes.forEach(aCheckbox => {
+                        aCheckbox.disabled = true;
+                });
+                
+
+                // Save the state of the toggle
+                var key = platform + "Status";
+                browser.storage.sync.set({ [key]: false });
+                
+            } else {
+                //console.log("just switched on");
+
+                // restore saved state
+                elementsThatCanBeHidden.filter(elem => elem.indexOf(platform) !== -1).forEach(function(some_element){
+                    var currentToggle = document.getElementById(some_element + "Toggle");
+                    var key = some_element + "Status";
+                    
+                    browser.storage.sync.get(key, function(result) {
+                        currentToggle.checked = result[key];
+                        
+                        if(currentToggle.checked){
+                            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                                chrome.tabs.sendMessage(tabs[0].id, { method: "change", element: some_element });
+                              });
+                        }
+                    });
+                });
+                
+                // disable the checkboxes
+                allCheckboxes.forEach(aCheckbox => {
+                        aCheckbox.disabled = false;
+                });
+                
+                // Save the state of the toggle
+                var key = platform + "Status";
+                browser.storage.sync.set({ [key]: true });
+            }
+      });
+    });
+    
+    platformsWeTarget.forEach(function (platform) {
+        setSwitch(platform, platform + "Switch");
+    });
+    
+    
+    // show the options for the website we're currently on
+    chrome.tabs.query({active: true, currentWindow: true}, function(tab){
+        platformsWeTarget.forEach(function(platform) {
+            var currentHost = new URL(tab[0].url);
+            
+            if (currentHost.origin.includes(platform)){
+                document.querySelector('.dropdown.' + platform).classList.add('shown');
+                document.querySelector('#website-toggles #toggle-' + platform).classList.add('shown-inline');
+            }
+        });
+    });
+    
+    //---- make the save buttons save the state of the checkboxes to local storage ----//
     // helper function to wait for a specified time before executing, so we can give visual feedback on the button
     function delay(time) {
         return new Promise(resolve => setTimeout(resolve, time));
@@ -302,21 +413,27 @@ document.addEventListener('DOMContentLoaded', function() {
     var saveButton = document.querySelector('#saveButton');
     
     saveButton.addEventListener('click', (e) => {
-        // loop over the elements we can hide and set storage accordingly
-        elementsThatCanBeHidden.forEach(function (element) {
-            var key = element + "Status";
-            
-            if (element === "youtubeThumbnails" || element === "youtubeNotifications") {
-                console.log(document.getElementById(element + "Toggle").getAttribute("data-state"));
+        
+        // loop over the elements for the page we're currently on and set storage according to the checkboxes
+        chrome.tabs.query({active: true, currentWindow: true}, function(tab){
+            platformsWeTarget.forEach(function(platform) {
+                var currentHost = new URL(tab[0].url);
                 
-                browser.storage.sync.set({ [key]: document.getElementById(element + "Toggle").getAttribute("data-state") });
-            } else {
-                console.log(document.getElementById(element + "Toggle").checked);
-                
-                browser.storage.sync.set({ [key]: document.getElementById(element + "Toggle").checked });
-            }
-            
-            
+                if (currentHost.origin.includes(platform)){
+                    var filteredElements = elementsThatCanBeHidden.filter(element =>
+                                                                          element.includes(platform)
+                                                                          );
+                    
+                    filteredElements.forEach(function (element) {
+                        var key = element + "Status";
+                        var element = document.getElementById(element+"Toggle");
+                        var value = (element.getAttribute("data-state") != null) ?
+                                                        element.getAttribute("data-state") :
+                                                        element.checked;
+                        browser.storage.sync.set({ [key]: value });
+                    });
+                }
+            });
         });
         
         // save the delay time
@@ -330,7 +447,6 @@ document.addEventListener('DOMContentLoaded', function() {
         delay(1500).then(() => e.target.setAttribute("value", "Save settings"));
     })
     
-    // for hiding showing the removal of video previews on mobile
     const howTo = document.querySelector('#hide-previews');
     const howToText = document.querySelector('#how-to-description');
     const howToArrowRight = document.querySelector('#how-to-arrow-right');
@@ -363,6 +479,23 @@ document.addEventListener('DOMContentLoaded', function() {
           howToTextNotMobile.style.display = "none";
           howToArrowRightNotMobile.style.display = "inline-block";
           howToArrowDownNotMobile.style.display = "none";
+      }
+    });
+    
+    const sites = document.querySelector('#what-sites');
+    const sitesText = document.querySelector('#sites-available');
+    const sitesArrowRight = document.querySelector('#sites-arrow-right');
+    const sitesArrowDown = document.querySelector('#sites-arrow-down');
+
+    sites.addEventListener("click", function() {
+      if (sitesText.style.display === "none") {
+          sitesText.style.display = "block";
+          sitesArrowRight.style.display = "none";
+          sitesArrowDown.style.display = "inline-block";
+      } else {
+          sitesText.style.display = "none";
+          sitesArrowRight.style.display = "inline-block";
+          sitesArrowDown.style.display = "none";
       }
     });
     

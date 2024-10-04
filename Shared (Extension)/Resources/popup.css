@@ -4,19 +4,27 @@
 
 body {
     width: 200px;
-    padding: 10px 10px 70px 10px;
+    padding: 10px 10px 100px 10px;
     font-family: system-ui;
     text-align: center;
     background-color: #F5F5F5;
     color: #333333;
 }
 
-.smaller-font {
-    font-size: 0.85em;
-    text-align: left;
+.website-toggle {
+    display: none;
+}
+#website-toggles {
+    display: inline;
 }
 
-.a-toggle {
+.smaller-font {
+    font-size: 0.85em;
+    margin: 5px 0 0 0;
+}
+
+.a-toggle,
+.save-toggle {
     margin-bottom: 5px;
     text-align: left;
 }
@@ -33,22 +41,207 @@ body {
     padding: 0px;
 }
 .toggle-group h2 {
-    font-size: 1.05em;
+    font-size: 0.95em;
     margin: 0px 0px 5px 0px;
 }
-.toggle-group h3 {
-    font-size: 1em;
-    margin: 10px 0px 5px 0px;
-}
 
-.content-toggles {
-    text-align: left;
-    font-size: 1em;
-    margin-bottom: 2em;
-}
+
+
 
 a:visited {
-    color: blue;
+    color: rgb(69, 69, 69);
+}
+a {
+    color: rgb(69, 69, 69);
+}
+
+.github-link {
+    clear: both;
+    padding-top: 10px;
+}
+
+
+/* for hoverable dropdown */
+.dropbtn {
+  background-color: white;
+  color: black;
+  padding: 4px;
+  font-size: 0.9em;
+  border: none;
+  margin-left: 0px;
+}
+
+.dropdown .dropbtn:hover {
+    background-color: #008CBA;
+    color: white
+}
+.dropbtn:disabled {
+  background-color: #ccc;
+  color: #888;
+}
+.dropbtn:disabled:hover {
+  background-color: #ccc;
+  color: #888;
+}
+
+.dropdown {
+  position: relative;
+  display: none;
+  clear: both;
+}
+
+.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  padding: 12px 10px 5px 14px;
+  width: 140px;
+  font-size: 0.95em;
+  border-radius: 3px;
+}
+
+.dropdown-content .a-toggle:hover {
+    background-color: #ddd;
+}
+
+.colored-font {
+    color: darkgray;
+}
+
+.shown {
+  display: block !important;
+}
+.shown-inline {
+  display: inline !important;
+}
+
+/*** TOGGLES ***/
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 18px;
+  vertical-align: top;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(12px);
+  -ms-transform: translateX(12px);
+  transform: translateX(12px);
+}
+
+/* handle checkboxes that can be blurred */
+.multi-state-checkbox {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    width: 17px;
+    height: 18px;
+    top: -4px;
+    left: 0px;
+    margin-right: 2px;
+    border: 1px solid rgb(192,192,192);
+    padding: 0;
+    background-color: color(srgb 0.9999 1 1);
+    border-radius: 3px;
+}
+
+.multi-state-label {
+    vertical-align: middle;
+}
+
+.multi-state-checkbox[data-state="On"]::after {
+    content: '';  /* Empty for show state */
+}
+
+.multi-state-checkbox[data-state="Off"]::after {
+    content: '\01F6AB';
+    position: absolute;
+    top: -1px;  /* Match with other checkboxes */
+    left: -2px;  /* Match with other checkboxes */
+    font-size: 14px;  /* Match with other checkboxes */
+}
+
+.multi-state-checkbox[data-state="Blur"]::after {
+    content: '\2601';
+    position: absolute;
+    top: -1px;
+    left: 0px;
+    font-size: 16px;
+    color: dimgray;
+}
+
+.multi-state-checkbox[data-state="Black"]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 16px;
+    background-color: black;
+}
+
+
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.toggle-wrapper {
+    text-align: left;
+}
+
+
+.overlay {
+    background-color: rgba(0,0,0,0.7);
 }
 
 #saveButton {
@@ -62,10 +255,6 @@ a:visited {
     font-weight: bold;
     border-radius: 2px;
 }
-
-
-
-
 
 /******  make the checkboxes use 'prohibited' symbols   ******/
 /* Base for label styling */
@@ -143,6 +332,22 @@ a:visited {
 }
 
 
+/* harmonise ordinary check box */
+.ordinary-checkbox [type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+
+.website-label {
+    display: inline-block;
+    margin: 0px 5px 10px 0px;
+    padding: 0;
+    font-size: 1em;
+    font-weight: bold;
+}
+
 /* style the message box */
 #message-box {
       position: fixed;
@@ -163,7 +368,7 @@ a:visited {
     width: 50px;
 }
 .friction-customisation {
-    font-size: 0.8em;
+    font-size: 0.9em;
     font-style: italic;
     color: gray;
 }
@@ -172,7 +377,7 @@ a:visited {
 }
 .a-toggle.friction-toggle {
     margin-bottom: 10px;
-    margin-top: 0.5em;
+    margin-top: 1em;
     font-size: 0.9em;
 }
 .a-toggle p {
@@ -216,6 +421,32 @@ a:visited {
 
 #delay-content.show {
   opacity: 1;
+}
+
+
+#what-sites {
+    display: inline;
+    text-align: left;
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+#sites-text {
+    display: inline;
+    margin: 0;
+    font-style: italic;
+    font-size: 0.9em;
+    vertical-align: text-bottom;
+    color: gray;
+}
+#sites-arrow {
+    width: 0.7em;
+    vertical-align: middle;
+}
+#sites-available {
+    margin-left: 0px;
+    padding-left: 1.3em;
+    margin-top: 0em;
+    font-size: 0.9em;
 }
 
 
@@ -273,64 +504,7 @@ footer .toggle-group {
     margin-top: 2px;
 }
 
-.previews-text {
-    display: inline-block;
-}
-.a-toggle p.how-to-description {
-    padding: 8px;
-    font-style: italic;
-}
 
-
-.tri-state-checkbox {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    width: 17px;
-    height: 18px;
-    top: -4px;
-    left: 0px;
-    margin-right: 2px;
-    border: 1px solid rgb(192,192,192);
-    padding: 0;
-    background-color: color(srgb 0.9999 1 1);
-    border-radius: 3px;
-}
-
-.tri-state-label {
-    vertical-align: middle;
-}
-
-.tri-state-checkbox[data-state="On"]::after {
-    content: '';  /* Empty for show state */
-}
-
-.tri-state-checkbox[data-state="Off"]::after {
-    content: '\01F6AB';
-    position: absolute;
-    top: -1px;  /* Match with other checkboxes */
-    left: -2px;  /* Match with other checkboxes */
-    font-size: 14px;  /* Match with other checkboxes */
-}
-
-.tri-state-checkbox[data-state="Blur"]::after {
-    content: '\2601';
-    position: absolute;
-    top: -1px;
-    left: 0px;
-    font-size: 16px;
-    color: dimgray;
-}
-
-#how-to-arrow-right-not-mobile {
-    margin-right: 9px;
-}
-#how-to-arrow-down-not-mobile {
-    margin-right: 9px;
-}
-#hide-previews-not-mobile {
-    cursor: pointer;
-}
 
 .review-prompt-content {
     margin-bottom: 1.5em;
@@ -340,12 +514,9 @@ footer .toggle-group {
     margin-top: 1.5em;
 }
 
-.toolbar-button-badge {
-    background-color: rgba(255, 255, 255, 0.5) !important; /* Semi-transparent white */
-}
 
-/***** DARK MODE *****/
 @media (prefers-color-scheme: dark) {
+    /* Dark Mode styles go here. */
     .colored-font {
         color: lightgray;
     }
@@ -366,72 +537,68 @@ footer .toggle-group {
     #how-to-arrow-right path, #how-to-arrow-down path {
         fill: rgb(194, 194, 194);
     }
-    
-    @media only screen and (max-device-width: 768px) {
-        #frictionToggle:not(:checked) {
-            filter: invert(100%) hue-rotate(18deg) brightness(1.7);
-        }
-    }
-    
-    @media only screen and (max-device-width: 1312px) {
-        #frictionToggle:not(:checked) {
-            filter: invert(100%) hue-rotate(18deg) brightness(1.7);
-        }
-    }
 }
+
+
 
 
 
 /******* HIDE IRRELEVANT TOGGLES *******/
-/* iPad */
-@media only screen and (max-device-width: 1312px) {
-    .youtube-large-only {
-        display:none
-    }
-    a:visited {
-        color: darkgray;
-    }
-}
-
-
 /* iPhone */
 @media only screen and (max-device-width: 768px) {
+    .multi-state-checkbox[data-state="Black"]::after {
+        content: '';
+        position: absolute;
+        top: 0px !important;
+        left: 0px !important;
+        width: 15px;
+        height: 16px;
+        background-color: black;
+    }
+    
     .platform-ipad-mac {
         display: none;
     }
     
-    .tri-state-checkbox[data-state="Blur"]::after {
+    .multi-state-checkbox[data-state="Blur"]::after,
+    .multi-state-checkbox[data-state="Black"]::after {
         top: -2px;
         left: -3px;
     }
     
-    .footer-settings {
-        margin-top: -5px;
-    }
-    
-    .a-toggle.friction-toggle {
-        margin-top: 1em;
-    }
-    
     body {
-        width: 350px;
+        width: 100%
     }
-    #how-to-image, #how-to-arrow {
-        width: 1.2em;
-        vertical-align: bottom;
+    #delay-content {
+        margin: auto;
+        width: 50%;
+    }
+    #delay-content img {
+        width: 60% !important;
+        margin-bottom: 10px !important;
     }
     #how-to-image {
-        display: inline-block;
+        display: inline-block !important;
     }
-    
-    #delay-content img {
-    width: 70%;
-        margin-bottom: 0px;
+    #how-to-image {
+        width: 1.2em !important;
+        vertical-align: bottom important;
     }
-    
-    #frictionToggle {
-        background-color: #fff !important;
-        background: #fff !important;
+    #how-to-arrow {
+        width: 0.9em;
+        vertical-align: middle;
+        padding: 0px 1px 0px 3px;
+    }
+    p.previews-text {
+        display: inline-block !important;
+        margin: 5px 0px 1px 2px !important;
+    }
+    #how-to-description {
+        font-size: 0.9em;
+        padding: 8px;
+        font-style: italic;
+        margin: 0px;
+        max-width: 90%;
     }
 }
 

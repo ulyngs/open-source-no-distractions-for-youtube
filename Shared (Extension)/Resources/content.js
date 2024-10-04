@@ -1,36 +1,21 @@
  (function() {
-    /**
-     * Check and set a global guard variable.
-     * If this content script is injected into the same page again,
-     * it will do nothing next time.
-     */
-    if (window.hasRun) {
-      return;
-    }
-    window.hasRun = true;
      
-      var elementsThatCanBeHidden = [ "youtubeSearch",
-                                      "youtubeSearchPredict",
-                                      "youtubeRecVids",
-                                      "youtubeThumbnails",
-                                      "youtubeNotifications",
-                                      "youtubeProfileImg",
-                                      "youtubeShorts",
-                                      "youtubeSubscriptions",
-                                      "youtubeLibrary",
-                                      "youtubeHistory",
-                                      "youtubeExplore",
-                                      "youtubeMore",
-                                      "youtubeRelated",
-                                      "youtubeSidebar",
-                                      "youtubeComments",
-                                      "youtubeAds",
-                                      "youtubeViews",
-                                      "youtubeLikes",
-                                      "youtubeSubscribers"];
+     /**
+      * Check and set a global guard variable.
+      * If this content script is injected into the same page again,
+      * it will do nothing next time.
+      */
+     if (window.hasRun) {
+       return;
+     }
+     window.hasRun = true;
      
+     const platformsWeTarget = [ "youtube" ];
+     const elementsThatCanBeHidden = [ "youtubeSearch", "youtubeSearchPredict", "youtubeRecVids", "youtubeThumbnails", "youtubeNotifications", "youtubeProfileImg",
+                                       "youtubeShorts", "youtubeSubscriptions", "youtubeLibrary", "youtubeHistory", "youtubeExplore", "youtubeMore",
+                                       "youtubeRelated", "youtubeSidebar", "youtubeComments", "youtubeAds", "youtubeViews", "youtubeLikes", "youtubeSubscribers" ];
      
-     //----- generate the style elements ----//
+     // YouTube CSS
      const youtubeSearchCssOn = '';
      const youtubeSearchCssOff = 'ytd-searchbox { display: none; } button[aria-label="Search YouTube"] {display: none;}';
      
@@ -43,16 +28,17 @@
      const youtubeThumbnailsCssOn = 'ytd-thumbnail, ytd-playlist-thumbnail {display: block; } ytd-compact-video-renderer { padding: 0px 10px 10px 10px; } /* mobile */ .media-item-thumbnail-container, .video-thumbnail-img { display: block; }';
      const youtubeThumbnailsCssOff = 'ytd-thumbnail, ytd-playlist-thumbnail { display: none; } /* mobile */ .media-item-thumbnail-container, .video-thumbnail-img { display: none !important; } .reel-shelf-items ytm-reel-item-renderer, .reel-shelf-items .reel-item-endpoint, .video-thumbnail-container-vertical { height: 100px !important; }';
      const youtubeThumbnailsCssBlur = 'ytd-thumbnail img, ytd-playlist-thumbnail img { filter: blur(7px); } /* mobile */ .media-item-thumbnail-container, .video-thumbnail-img { filter: blur(7px); }';
+     const youtubeThumbnailsCssBlack = 'ytd-thumbnail img, ytd-playlist-thumbnail img { filter: brightness(0); } /* mobile */ .media-item-thumbnail-container, .video-thumbnail-img { filter: brightness(0); }';
      
      const youtubeNotificationsCssOn = '';
      const youtubeNotificationsCssOff = 'ytd-notification-topbar-button-renderer.ytd-masthead { display: none !important; }';
      const youtubeNotificationsCssBlur = 'ytd-notification-topbar-button-renderer.ytd-masthead .yt-spec-icon-badge-shape__badge { display: none; }';
 
      const youtubeProfileImgCssOn = '';
-     const youtubeProfileImgCssOff = '#avatar-link {display: none; visibility: hidden;} .channel-thumbnail-icon, #channel-thumbnail, #avatar-section, #author-thumbnail, ytm-comments-entry-point-teaser-renderer img.ytm-comments-entry-point-teaser-avatar, ytm-profile-icon.slim-owner-profile-icon, ytm-profile-icon.comment-icon {display: none;}';
+     const youtubeProfileImgCssOff = '#avatar-link, #avatar-container, #avatar {display: none; visibility: hidden;} .channel-thumbnail-icon, #channel-thumbnail, #avatar-section, #author-thumbnail, ytm-comments-entry-point-teaser-renderer img.ytm-comments-entry-point-teaser-avatar, ytm-profile-icon.slim-owner-profile-icon, ytm-profile-icon.comment-icon {display: none;}  #creator-thumbnail, #expander.ytd-comment-replies-renderer .dot.ytd-comment-replies-renderer, ytm-channel-thumbnail-with-link-renderer {display: none !important;}';
     
-     const youtubeShortsCssOn = '#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Shorts"], ytd-mini-guide-entry-renderer[aria-label="Shorts"], ytm-video-with-context-renderer:has(ytm-thumbnail-overlay-time-status-renderer[data-style="SHORTS"]) { display: block; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(2), ytd-reel-shelf-renderer, ytd-rich-shelf-renderer[is-shorts], ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]) { display: flex; }'
-     const youtubeShortsCssOff = '#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Shorts"],ytd-mini-guide-entry-renderer[aria-label="Shorts"], ytd-reel-shelf-renderer, ytd-rich-shelf-renderer[is-shorts] { display: none; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(2), ytm-reel-shelf-renderer, ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]), ytm-video-with-context-renderer:has(ytm-thumbnail-overlay-time-status-renderer[data-style="SHORTS"]) { display: none !important; }';
+     const youtubeShortsCssOn = ''
+     const youtubeShortsCssOff = '#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Shorts"],ytd-mini-guide-entry-renderer[aria-label="Shorts"], ytd-reel-shelf-renderer, ytd-rich-shelf-renderer[is-shorts], ytm-rich-section-renderer:has(ytm-shorts-lockup-view-model) { display: none; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(2), ytm-reel-shelf-renderer, ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]), ytm-video-with-context-renderer:has(ytm-thumbnail-overlay-time-status-renderer[data-style="SHORTS"]) { display: none !important; }';
      
      const youtubeSubscriptionsCssOn = 'a[href="/feed/subscriptions/] { display: flex; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(3) { display: flex; } #sections ytd-guide-section-renderer:nth-child(2):not(:has(#guide-section-title[is-empty]))';
      const youtubeSubscriptionsCssOff = 'a[href="/feed/subscriptions"] { display: none !important; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(3) { display: none; } #sections ytd-guide-section-renderer:nth-child(2):not(:has(#guide-section-title[is-empty])) { display: none; }';
@@ -66,8 +52,8 @@
      const youtubeExploreCssOn = '#sections ytd-guide-section-renderer:has(a[href="/gaming"]) { display: block; }';
      const youtubeExploreCssOff = '#sections ytd-guide-section-renderer:has(a[href="/gaming"]) { display: none; }';
      
-     const youtubeMoreCssOn = '#sections ytd-guide-section-renderer:has(a[href="/premium"]) { display: block; }';
-     const youtubeMoreCssOff = '#sections ytd-guide-section-renderer:has(a[href="/premium"]) { display: none; }';
+     const youtubeMoreCssOn = '#sections ytd-guide-section-renderer:has(a[href="https://studio.youtube.com/"]) { display: block; }';
+     const youtubeMoreCssOff = '#sections ytd-guide-section-renderer:has(a[href="https://studio.youtube.com/"]) { display: none; }';
     
      const youtubeRelatedCssOn = '#related { visibility: visible; display: block; } #app ytm-item-section-renderer[section-identifier="related-items"] { display: block; }';
      const youtubeRelatedCssOff = '#related { visibility: hidden; display: none; } #app ytm-item-section-renderer[section-identifier="related-items"] { display: none; } ytm-single-column-watch-next-results-renderer .related-chips-slot-wrapper { transform: none !important; }';
@@ -91,60 +77,86 @@
      const youtubeSubscribersCssOff = '#owner-sub-count, #subscriber-count { display: none !important; } /* m.youtube.com */ .slim-owner-icon-and-title .subhead .yt-core-attributed-string { display: none; }';
      
      
+     // Used for telling the application that the CSS modified is within a shadow-dom.
+     // If a variable is declared in this dict, the style is appended in the given CSS selector
+     const shadowSelectors = {
+         
+     }
+     
+     
      // function to create style element with the specified CSS content
      function createStyleElement(some_style_id, some_css){
-         if(!document.getElementById(some_style_id)){
+         const elementToHide = some_style_id.replace("Style", "");
+         const dom = (elementToHide in shadowSelectors) ? document.querySelector(shadowSelectors[elementToHide]).shadowRoot : document.head;
+         //const dom = document;
+         if(!dom.querySelector("#" + some_style_id)){
              var styleElement = document.createElement("style");
              styleElement.id = some_style_id;
-             document.head.appendChild(styleElement).innerHTML = some_css;
+             dom.appendChild(styleElement).innerHTML = some_css;
          } else {
-             document.getElementById(some_style_id).innerHTML = some_css;
+             dom.querySelector("#" + some_style_id).innerHTML = some_css;
          };
      };
      
-     // loop over the elements and create HTML style element for each
-     // If an element's key in storage is set to 'false', show the
-     // element, otherwise hide it
-     elementsThatCanBeHidden.forEach(function (item) {
-         var styleName = item + "Style";
-         var key = item + "Status";
-         
-         
-         
-         if (item === "youtubeThumbnails" || item === "youtubeNotifications") {
+     // loop over the platforms. If the platform for the current URL is 'on' (or we haven't saved a status for it), create its style elements
+     platformsWeTarget.forEach(function (platform) {
+         if (window.location.hostname.includes(platform)){
+             var filteredElements = elementsThatCanBeHidden.filter(element =>
+               element.includes(platform)
+             );
+             
+             var key = platform + "Status";
              
              browser.storage.sync.get(key, function(result) {
                  
-                 console.log(result[key]);
-                 
-                 if (result[key] == undefined || result[key] === false){
-                     createStyleElement(styleName, eval(item + "CssOn"));
-                 } else {
-                     createStyleElement(styleName, eval(item + "Css" + result[key]));
-                 };
+                 let platformIsOn = result[key];
+                   // loop over the elements and create HTML style element for each
+                   // If an element's key in storage is set to 'false', show the
+                   // element, otherwise hide it
+                   filteredElements.forEach(function (item) {
+                       var styleName = item + "Style";
+                       var key = item + "Status";
+                       
+                       if (item === "youtubeThumbnails" || item === "youtubeNotifications") {
+                           
+                           browser.storage.sync.get(key, function(result) {
+                               
+                               console.log(result[key]);
+                               
+                               if (result[key] == undefined || result[key] === false){
+                                   createStyleElement(styleName, eval(item + "CssOn"));
+                               } else {
+                                   createStyleElement(styleName, eval(item + "Css" + result[key]));
+                               };
+                           });
+                       } else {
+                           browser.storage.sync.get(key, function(result) {
+                               if (result[key] == true){
+                                   createStyleElement(styleName, eval(item + "CssOff"));
+                               } else {
+                                   createStyleElement(styleName, eval(item + "CssOn"));
+                               };
+                           });
+                       }
+                   });
+               
              });
-         } else {
-             browser.storage.sync.get(key, function(result) {
-                 if (result[key] == true){
-                     createStyleElement(styleName, eval(item + "CssOff"));
-                 } else {
-                     createStyleElement(styleName, eval(item + "CssOn"));
-                 };
-             });
-         }
-
+         };
      });
      
      // let the popup ask for the current view status of the elements (so it can set the checkboxes accordingly)
      chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
          if(message.method === "check"){
              var currentStyle = document.getElementById(message.element + "Style");
-             
+     
              // only check the blur element for elements that have it
              if(message.element == "youtubeThumbnails" || message.element == "youtubeNotifications"){
                  if (currentStyle.innerHTML === eval(message.element + 'CssBlur')){
                      sendResponse({text: "blur"});
+                 } else if (currentStyle.innerHTML === eval(message.element + 'CssBlack')){
+                     sendResponse({text: "black"});
                  }
+                 
              }
              
             // do the other checks for all
@@ -162,7 +174,9 @@
      
      // let the content script toggle elements when the popup asks for it
      browser.runtime.onMessage.addListener((message) => {
-         var currentStyle = document.getElementById(message.element + "Style");
+         const dom = (message.element in shadowSelectors) ? document.querySelector(shadowSelectors[message.element]).shadowRoot : document.head;
+         //const dom = document;
+         var currentStyle = dom.querySelector("#" + message.element + "Style");
          
          if(message.method === "change"){
              if (currentStyle == undefined){
@@ -172,9 +186,18 @@
              } else {
                  currentStyle.innerHTML = eval(message.element + 'CssOn')
              };
+         } else if(message.method === "hideAll"){
+             currentStyle.innerHTML = eval(message.element + 'CssOff')
+         } else if(message.method === "showAll"){
+             if (window.location.hostname.includes("google")){
+                 currentStyle.innerHTML = googleAdsCssSwitchOff;
+             } else {
+                 currentStyle.innerHTML = eval(message.element + 'CssOn')
+             }
          };
          
-         if(message.method === "changeHideBlur"){
+         // handle blur events
+         if(message.method === "changeMultiToggle"){
              if (currentStyle == undefined){
                  console.log("not on active tab");
              } else {

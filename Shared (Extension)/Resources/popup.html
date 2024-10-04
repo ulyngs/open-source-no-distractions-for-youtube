@@ -19,123 +19,136 @@
         <p class="delay-time-wrapper"><span id="delay-time"></span></p>
     </div>
     <div id="popup-content" style="display: none;">
-        <div class="content-toggles">
-            <div class="toggle-group hide-checkboxes">
-              <h2>Menu bar</h2>
-              <div class="a-toggle">
-                  <input type="checkbox" id="youtubeShortsToggle" name="youtubeShortsToggle">
-                  <label for="youtubeShortsToggle">Shorts</label>
-              </div>
-              <div class="a-toggle">
-                  <input type="checkbox" id="youtubeSubscriptionsToggle" name="youtubeSubscriptionsToggle">
-                  <label for="youtubeSubscriptionsToggle">Subscriptions</label>
-              </div>
-              <div class="a-toggle">
-                  <input type="checkbox" id="youtubeLibraryToggle" name="youtubeLibraryToggle">
-                  <label for="youtubeLibraryToggle">Library</label>
-              </div>
-              <div class="a-toggle platform-ipad-mac">
-                  <input type="checkbox" id="youtubeHistoryToggle" name="youtubeHistoryToggle">
-                  <label for="youtubeHistoryToggle">History</label>
-              </div>
-              <div class="a-toggle platform-ipad-mac">
-                  <input type="checkbox" id="youtubeExploreToggle" name="youtubeExploreToggle">
-                  <label for="youtubeExploreToggle">Explore</label>
-              </div>
-              <div class="a-toggle platform-ipad-mac">
-                  <input type="checkbox" id="youtubeMoreToggle" name="youtubeMoreToggle">
-                  <label for="youtubeMoreToggle">More from YouTube</label>
-              </div>
+        <div class="toggle-wrapper">
+            <div id="website-toggles">
+                <div id="toggle-youtube" class="website-toggle" style="display: none !important;">
+                    <p class="website-label">YouTube</p>
+                    <label class="switch">
+                        <input type="checkbox" id="youtubeSwitch" checked name="youtubeSwitch">
+                            <span class="slider round"></span>
+                    </label>
+                </div>
+                
             </div>
-            <div class="toggle-group hide-checkboxes">
-              <h2>Home page</h2>
-              <div class="a-toggle platform-iphone" id="hide-previews">
-                  <div id="how-to-arrow-right" style="display: inline-block;">
-                      <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
-                       <path d="m360 1170-90-91.199 478.8-478.8-478.8-478.8 90-91.199 570 570z"/>
-                      </svg>
+            
+            <div class="dropdown youtube">
+                <div class="toggle-group hide-checkboxes">
+                  <h2>Menu bar</h2>
+                  <div class="a-toggle">
+                      <input type="checkbox" id="youtubeShortsToggle" name="youtubeShortsToggle">
+                      <label for="youtubeShortsToggle">Shorts</label>
                   </div>
-                  <div id="how-to-arrow-down" style="display: none;">
-                      <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
-                       <path d="m652.1 915.27 526.35-524.55c28.742-30.539 28.742-77.246 0-105.99-28.742-28.742-77.246-28.742-105.99 0l-472.46 472.46-472.46-472.46c-30.539-28.742-77.246-28.742-105.99 0-28.742 28.742-28.742 75.449 0 105.99l524.55 524.55c30.539 28.742 77.246 28.742 105.99 0z" fill-rule="evenodd"/>
-                      </svg>
+                  <div class="a-toggle">
+                      <input type="checkbox" id="youtubeSubscriptionsToggle" name="youtubeSubscriptionsToggle">
+                      <label for="youtubeSubscriptionsToggle">Subscriptions</label>
                   </div>
-                  <p class="previews-text">Auto-playing previews</p>
-                  <p id="how-to-description" style="display: none;">Tap your account image > Settings > Account > untick 'Video previews'</p>
-              </div>
-              <div class="a-toggle platform-ipad-mac" id="hide-previews-not-mobile">
-                  <div id="how-to-arrow-right-not-mobile" style="display: inline-block;">
-                      <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
-                       <path d="m360 1170-90-91.199 478.8-478.8-478.8-478.8 90-91.199 570 570z"/>
-                      </svg>
+                  <div class="a-toggle">
+                      <input type="checkbox" id="youtubeLibraryToggle" name="youtubeLibraryToggle">
+                      <label for="youtubeLibraryToggle">Library</label>
                   </div>
-                  <div id="how-to-arrow-down-not-mobile" style="display: none;">
-                      <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
-                       <path d="m652.1 915.27 526.35-524.55c28.742-30.539 28.742-77.246 0-105.99-28.742-28.742-77.246-28.742-105.99 0l-472.46 472.46-472.46-472.46c-30.539-28.742-77.246-28.742-105.99 0-28.742 28.742-28.742 75.449 0 105.99l524.55 524.55c30.539 28.742 77.246 28.742 105.99 0z" fill-rule="evenodd"/>
-                      </svg>
+                  <div class="a-toggle platform-ipad-mac">
+                      <input type="checkbox" id="youtubeHistoryToggle" name="youtubeHistoryToggle">
+                      <label for="youtubeHistoryToggle">History</label>
                   </div>
-                  <p class="previews-text">Previews on hover</p>
-                  <p id="how-to-description-not-mobile" class="how-to-description" style="display: none;">Tap your account image > Settings > Playback and performance > toggle off 'Inline playback'</p>
-              </div>
-              <div class="a-toggle">
-                  <input type="checkbox" id="youtubeRecVidsToggle" name="youtubeRecVidsToggle">
-                  <label for="youtubeRecVidsToggle">Recommended videos</label>
-              </div>
+                  <div class="a-toggle platform-ipad-mac">
+                      <input type="checkbox" id="youtubeExploreToggle" name="youtubeExploreToggle">
+                      <label for="youtubeExploreToggle">Explore</label>
+                  </div>
+                  <div class="a-toggle platform-ipad-mac">
+                      <input type="checkbox" id="youtubeMoreToggle" name="youtubeMoreToggle">
+                      <label for="youtubeMoreToggle">More from YouTube</label>
+                  </div>
+                </div>
+                <div class="toggle-group hide-checkboxes">
+                  <h2>Home page</h2>
+                  <div class="a-toggle platform-iphone" id="hide-previews">
+                      <div id="how-to-arrow-right" style="display: inline-block;">
+                          <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+                           <path d="m360 1170-90-91.199 478.8-478.8-478.8-478.8 90-91.199 570 570z"/>
+                          </svg>
+                      </div>
+                      <div id="how-to-arrow-down" style="display: none;">
+                          <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+                           <path d="m652.1 915.27 526.35-524.55c28.742-30.539 28.742-77.246 0-105.99-28.742-28.742-77.246-28.742-105.99 0l-472.46 472.46-472.46-472.46c-30.539-28.742-77.246-28.742-105.99 0-28.742 28.742-28.742 75.449 0 105.99l524.55 524.55c30.539 28.742 77.246 28.742 105.99 0z" fill-rule="evenodd"/>
+                          </svg>
+                      </div>
+                      <p class="previews-text">Auto-playing previews</p>
+                      <p id="how-to-description" style="display: none;">Tap your account image > Settings > Account > untick 'Video previews'</p>
+                  </div>
+                  <div class="a-toggle platform-ipad-mac" id="hide-previews-not-mobile">
+                      <div id="how-to-arrow-right-not-mobile" style="display: inline-block;">
+                          <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+                           <path d="m360 1170-90-91.199 478.8-478.8-478.8-478.8 90-91.199 570 570z"/>
+                          </svg>
+                      </div>
+                      <div id="how-to-arrow-down-not-mobile" style="display: none;">
+                          <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+                           <path d="m652.1 915.27 526.35-524.55c28.742-30.539 28.742-77.246 0-105.99-28.742-28.742-77.246-28.742-105.99 0l-472.46 472.46-472.46-472.46c-30.539-28.742-77.246-28.742-105.99 0-28.742 28.742-28.742 75.449 0 105.99l524.55 524.55c30.539 28.742 77.246 28.742 105.99 0z" fill-rule="evenodd"/>
+                          </svg>
+                      </div>
+                      <p class="previews-text">Previews on hover</p>
+                      <p id="how-to-description-not-mobile" class="how-to-description" style="display: none;">Tap your account image > Settings > Playback and performance > toggle off 'Inline playback'</p>
+                  </div>
+                  <div class="a-toggle">
+                      <input type="checkbox" id="youtubeRecVidsToggle" name="youtubeRecVidsToggle">
+                      <label for="youtubeRecVidsToggle">Recommended videos</label>
+                  </div>
+                </div>
+                <div class="toggle-group hide-checkboxes">
+                    <h2>Watch page</h2>
+                    <div class="a-toggle">
+                        <input type="checkbox" id="youtubeRelatedToggle" name="youtubeRelatedToggle">
+                        <label for="youtubeRelatedToggle">Related/Up next videos</label>
+                    </div>
+                    <div class="a-toggle hide-checkboxes platform-ipad-mac">
+                        <input type="checkbox" id="youtubeSidebarToggle" name="youtubeSidebarToggle">
+                            <label for="youtubeSidebarToggle">Entire right sidebar</label>
+                    </div>
+                    <div class="a-toggle">
+                        <input type="checkbox" id="youtubeCommentsToggle" name="youtubeCommentsToggle">
+                        <label for="youtubeCommentsToggle">Comments</label>
+                    </div>
+                    <div class="a-toggle">
+                        <input class="hide-checkbox" type="checkbox" id="youtubeLikesToggle" name="youtubeLikesToggle">
+                            <label for="youtubeLikesToggle">Like numbers</label>
+                    </div>
+                </div>
+                <div class="toggle-group hide-checkboxes">
+                    <h2>General</h2>
+                    <div class="a-toggle">
+                        <input class="hide-checkbox" type="checkbox" id="youtubeAdsToggle" name="youtubeAdsToggle">
+                            <label for="youtubeAdsToggle">Ads</label>
+                    </div>
+                    <div class="a-toggle platform-ipad-mac">
+                        <button class="multi-state-checkbox" id="youtubeNotificationsToggle" data-state="On"></button>
+                        <label class="multi-state-label" for="youtubeNotificationsToggle">Notifications</label>
+                    </div>
+                    <div class="a-toggle">
+                        <button class="multi-state-checkbox" id="youtubeThumbnailsToggle" data-state="On"></button>
+                        <label class="multi-state-label" for="youtubeThumbnailsToggle">Video thumbnails</label>
+                    </div>
+                    <div class="a-toggle">
+                        <input class="hide-checkbox" type="checkbox" id="youtubeProfileImgToggle" name="youtubeProfileImgToggle">
+                            <label for="youtubeProfileImgToggle">Account images</label>
+                    </div>
+                    <div class="a-toggle">
+                        <input class="hide-checkbox" type="checkbox" id="youtubeViewsToggle" name="youtubeViewsToggle">
+                            <label for="youtubeViewsToggle">View numbers</label>
+                    </div>
+                    <div class="a-toggle">
+                        <input class="hide-checkbox" type="checkbox" id="youtubeSubscribersToggle" name="youtubeSubscribersToggle">
+                            <label for="youtubeSubscribersToggle">Subscriber numbers</label>
+                    </div>
+                    <div class="a-toggle">
+                        <input type="checkbox" id="youtubeSearchToggle" name="youtubeSearchToggle">
+                            <label for="youtubeSearchToggle">Search box</label>
+                    </div>
+                    <div class="a-toggle platform-ipad-mac">
+                        <input type="checkbox" id="youtubeSearchPredictToggle" name="youtubeSearchPredictToggle">
+                            <label for="youtubeSearchPredictToggle">Search predictions</label>
+                    </div>
+                 </div>
             </div>
-            <div class="toggle-group hide-checkboxes">
-                <h2>Watch page</h2>
-                <div class="a-toggle">
-                    <input type="checkbox" id="youtubeRelatedToggle" name="youtubeRelatedToggle">
-                    <label for="youtubeRelatedToggle">Related/Up next videos</label>
-                </div>
-                <div class="a-toggle hide-checkboxes platform-ipad-mac">
-                    <input type="checkbox" id="youtubeSidebarToggle" name="youtubeSidebarToggle">
-                        <label for="youtubeSidebarToggle">Entire right sidebar</label>
-                </div>
-                <div class="a-toggle">
-                    <input type="checkbox" id="youtubeCommentsToggle" name="youtubeCommentsToggle">
-                    <label for="youtubeCommentsToggle">Comments</label>
-                </div>
-                <div class="a-toggle">
-                    <input class="hide-checkbox" type="checkbox" id="youtubeLikesToggle" name="youtubeLikesToggle">
-                        <label for="youtubeLikesToggle">Like numbers</label>
-                </div>
-            </div>
-            <div class="toggle-group hide-checkboxes">
-                <h2>General</h2>
-                <div class="a-toggle">
-                    <input class="hide-checkbox" type="checkbox" id="youtubeAdsToggle" name="youtubeAdsToggle">
-                        <label for="youtubeAdsToggle">Ads</label>
-                </div>
-                <div class="a-toggle platform-ipad-mac">
-                    <button class="tri-state-checkbox" id="youtubeNotificationsToggle" data-state="On"></button>
-                    <label class="tri-state-label" for="youtubeNotificationsToggle">Notifications</label>
-                </div>
-                <div class="a-toggle">
-                    <button class="tri-state-checkbox" id="youtubeThumbnailsToggle" data-state="On"></button>
-                    <label class="tri-state-label" for="youtubeThumbnailsToggle">Video thumbnails</label>
-                </div>
-                <div class="a-toggle">
-                    <input class="hide-checkbox" type="checkbox" id="youtubeProfileImgToggle" name="youtubeProfileImgToggle">
-                        <label for="youtubeProfileImgToggle">Account images</label>
-                </div>
-                <div class="a-toggle">
-                    <input class="hide-checkbox" type="checkbox" id="youtubeViewsToggle" name="youtubeViewsToggle">
-                        <label for="youtubeViewsToggle">View numbers</label>
-                </div>
-                <div class="a-toggle">
-                    <input class="hide-checkbox" type="checkbox" id="youtubeSubscribersToggle" name="youtubeSubscribersToggle">
-                        <label for="youtubeSubscribersToggle">Subscriber numbers</label>
-                </div>
-                <div class="a-toggle">
-                    <input type="checkbox" id="youtubeSearchToggle" name="youtubeSearchToggle">
-                        <label for="youtubeSearchToggle">Search box</label>
-                </div>
-                <div class="a-toggle platform-ipad-mac">
-                    <input type="checkbox" id="youtubeSearchPredictToggle" name="youtubeSearchPredictToggle">
-                        <label for="youtubeSearchPredictToggle">Search predictions</label>
-                </div>
-             </div>
         </div>
         <footer>
             <div class="footer-settings">
@@ -172,7 +185,7 @@
                 </div>
             </div>
             <div class="suggestions-link">
-                <a href="https://github.com/ulyngs/open-source-no-distractions-for-youtube" target="_blank">Suggest improvements</a>
+                <a href="https://github.com/ulyngs/open-source-no-distractions-for-youtube/issues" target="_blank">Suggest improvements</a>
             </div>
         </footer>
     </div>
