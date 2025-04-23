@@ -1,4 +1,4 @@
-# Important: I am deprecating this app in favour of the general solution 'MindShield'
+# Important: I am deprecating this app in favour of my general solution 'MindShield'
 *MindShield* includes everything "No Distractions" for YouTube does, but it works on ANY website. As I am really pressured for time, I will be sunsetting "No Distractions" for YouTube and only update MindShield going forward.
 
 MindShield's is on the App Store here: https://apps.apple.com/gb/app/mindshield/id1660218371
