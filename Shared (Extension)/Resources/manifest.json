@@ -4,7 +4,7 @@
 
     "name": "'No Distractions' for YouTube",
     "description": "Hide distractions. Show hidden elements when you need them. Store your personal preferences.",
-    "version": "4.4",
+    "version": "4.5",
 
     "icons": {
         "48":  "images/icon-resized-48.png",
@@ -16,7 +16,7 @@
 
     "content_scripts": [{
         "css": [ "style.css" ],
-        "js": [ "content.js" ],
+        "js": [ "shared_data.js", "selectors.js", "content.js" ],
         "matches": [ "*://www.youtube.com/*", "*://m.youtube.com/*" ]
     }],
 

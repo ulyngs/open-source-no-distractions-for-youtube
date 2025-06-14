@@ -4,7 +4,7 @@
 
 body {
     width: 200px;
-    padding: 10px 10px 100px 10px;
+    padding: 5px 10px 100px 10px;
     font-family: system-ui;
     text-align: center;
     background-color: #F5F5F5;
@@ -519,7 +519,7 @@ footer .toggle-group {
     a, a:visited {
         color: gray;
     }
-    #sites-arrow指示: #sites-arrow path {
+    #sites-arrow path {
         fill: rgb(194, 194, 194);
     }
     #sites-arrow-right path, #sites-arrow-down path,
@@ -535,6 +535,31 @@ footer .toggle-group {
     button[id$="AddElementButton"]:hover {
         background-color: #2980B9;
     }
+    
+    #faq-dropdown {
+        background-color: #09090b;
+        border-color: #27272a;
+        color: #fafafa;
+    }
+    #faq-dropdown h3 {
+        color: #a1a1aa;
+    }
+    .faq-item {
+        border-bottom-color: #27272a;
+    }
+    .faq-trigger {
+        color: #fafafa;
+    }
+    .faq-trigger:hover {
+        background-color: #27272a;
+    }
+    .faq-chevron {
+        stroke: #a1a1aa;
+    }
+    .faq-content p {
+        color: #a1a1aa;
+    }
+
 }
 
 p.previews-text {
@@ -735,35 +760,56 @@ button[id$="AddElementButton"].active {
     text-overflow: ellipsis;
     white-space: nowrap;
     margin-right: 10px;
+    margin-left: 3px;
 }
 
-/* Style for remove symbol */
-.remove-symbol {
-    background: none;
-    border: none;
-    padding: 0px;
-    margin: 0 4px;
-    cursor: pointer;
-    display: flex;
+/* --- Base Icon Button Style (shadcn-secondary inspired) --- */
+.icon-btn {
+    display: inline-flex; /* Use inline-flex for better alignment */
     align-items: center;
     justify-content: center;
-    border-radius: 3px;
+    border-radius: 6px; /* A bit more rounded */
+    padding: 6px;       /* Increased padding for a better touch target */
+    margin: 0 3px;
+    cursor: pointer;
+
+    /* Subtle border and transparent background */
+    border: 1px solid #e4e4e7; /* hsl(240 5.9% 90%) */
+    background-color: transparent;
+
+    /* Smooth transitions for all properties */
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
+/* --- SVG Icon Styling --- */
+.icon-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: #71717a; /* A softer, medium gray - hsl(240 3.8% 46.1%) */
+    stroke-width: 2; /* Slightly thinner for a cleaner look */
+    transition: stroke 0.2s ease-in-out;
+}
+
+/* --- Standard Hover State (for peek-symbol) --- */
+.peek-symbol:hover {
+    background-color: #f4f4f5; /* A very light gray hover - hsl(240 4.8% 95.9%) */
+}
+
+/* --- Destructive Hover State (for remove-symbol) --- */
 .remove-symbol:hover {
-    background: red;
+    background-color: #ef4444; /* A modern, less harsh red */
+    border-color: #dc2626;     /* A darker red for the border on hover */
 }
 
-.remove-symbol svg {
-    stroke: #666;
-    transition: stroke 0.2s;
-    width: 18px;
-    height: 18px;
-    stroke-width: 3;
+/* Change icon stroke to white on destructive hover */
+.remove-symbol:hover svg {
+    stroke: white; /* No !important needed due to higher specificity */
 }
 
-.remove-symbol:hover svg path {
-    stroke: white !important;
+/* --- Accessibility: Focus State --- */
+.icon-btn:focus-visible {
+    outline: 2px solid #3b82f6; /* A clear blue outline */
+    outline-offset: 2px;
 }
 
 #generic-site-options {
@@ -844,4 +890,112 @@ footer .friction-customisation {
 
 #currentSiteInfo p {
     margin-top: 0;
+}
+
+
+#faq-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
+    z-index: 99; /* Below the help container (100) but above everything else */
+}
+
+#help-container {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 100;
+}
+
+#help-icon-btn {
+    padding: 4px;
+}
+
+#help-icon-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+#faq-dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    width: 200px;
+    background-color: #ffffff;
+    border: 1px solid #e4e4e7;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px 8px 0px 8px;
+    text-align: left;
+    color: #18181b;
+}
+
+#faq-dropdown h3 {
+    margin: 0;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #71717a;
+    padding-left: 4px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e4e4e7;
+}
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-trigger {
+    background: none;
+    border: none;
+    padding: 10px 4px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: system-ui;
+    color: #18181b;
+}
+
+.faq-trigger:hover {
+    background-color: #f4f4f5;
+    border-radius: 4px;
+}
+
+.faq-chevron {
+    width: 16px;
+    height: 16px;
+    stroke: #71717a;
+    transition: transform 0.2s ease-in-out;
+    flex-shrink: 0;
+    margin-left: 8px;
+}
+
+.faq-item[data-state="open"] .faq-chevron {
+    transform: rotate(180deg);
+}
+
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease-out, padding 0.25s ease-out;
+    padding: 0 4px;
+}
+
+.faq-item[data-state="open"] .faq-content {
+    max-height: 100px;
+    padding: 0 4px 12px 4px;
+}
+
+.faq-content p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #71717a;
+    line-height: 1.5;
 }
