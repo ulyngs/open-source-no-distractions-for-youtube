@@ -16,7 +16,7 @@
 
     "content_scripts": [{
         "css": [ "style.css" ],
-        "js": [ "shared_data.js", "selectors.js", "content.js" ],
+        "js": [ "content.js" ],
         "matches": [ "*://www.youtube.com/*", "*://m.youtube.com/*" ]
     }],
 
