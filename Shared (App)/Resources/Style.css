@@ -1,27 +1,55 @@
 * {
     -webkit-user-select: none;
+    user-select: none;
     -webkit-user-drag: none;
     cursor: default;
 }
 
 :root {
-    color-scheme: light dark;
+    color-scheme: light;
 
     --spacing: 20px;
+    --header-bg: #E0F2FE;
+    --primary-blue: #1E40AF;
+    --light-blue: #DBEAFE;
+    --callout-bg: #FEE2E2;
+    --callout-text: #991B1B;
+    --optional-badge: #10B981;
+    --text-dark: #111827;
+    --text-light: #6B7280;
+    --white: #FFFFFF;
+}
+
+h1 {
+    text-align: left;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.scrollable-content {
+    max-height: 100vh;
+    overflow-y: auto;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: transparent;
 }
 
 body {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-
-    gap: var(--spacing);
-    margin: 0 calc(var(--spacing) * 2);
+    gap: 0;
+    margin: 0;
     height: 100%;
-
     font: -apple-system-short-body;
-    text-align: center;
+    text-align: left;
+    background-color: transparent;
 }
 
 body:not(.platform-mac, .platform-ios) :is(.platform-mac, .platform-ios) {
@@ -37,6 +65,15 @@ body.platform-mac .platform-ios {
 }
 
 body.platform-ios .platform-mac {
+    display: none;
+}
+
+/* iPad/iPhone specific image display */
+body.platform-ipad .platform-iphone.step-image {
+    display: none;
+}
+
+body.platform-iphone .platform-ipad.step-image {
     display: none;
 }
 
@@ -56,80 +93,598 @@ button {
     font-size: 1em;
 }
 
-.ios-illustration-image {
-    margin-top: 10px;
-    max-width: 80vw;
+/* Platform-specific display rules */
+body.platform-ios button.platform-mac {
+    display: none !important;
 }
 
-
-.app-icon {
-    height: 150px;
+body.platform-mac button.platform-ios {
+    display: none !important;
 }
 
-.app-icon.platform-mac {
-    height: 50px;
+/* ============================================
+   iPhone Redesign Styles
+   ============================================ */
+
+/* Header Section */
+.app-header.platform-ios.platform-iphone {
+    background-color: var(--header-bg);
+    padding: 12px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 0;
+    position: relative;
 }
 
-p {
-    font-size: 1.1em;
-    margin-bottom: 0;
+.app-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.app-header-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.app-header .app-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--text-dark);
+    margin: 0 0 2px 0;
     padding: 0;
 }
 
-.column {
-  float: left;
-  width: 48%;
+.app-header .app-description {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
 }
 
-/* Clearfix (clear floats) */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
+.get-started-badge {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 2px;
 }
 
-/* iPhone */
+/* Steps Container */
+.steps-container.platform-ios.platform-iphone {
+    padding: 12px 16px;
+    background-color: transparent;
+}
+
+.step {
+    margin-bottom: 20px;
+}
+
+/* Two-column layout for steps 1 and 2 */
+.step-two-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.step-columns {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.step-content {
+    flex: 0 0 33.33%;
+    min-width: 0;
+}
+/* Step Visuals */
+.step-visuals {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex: 0 0 66.67%;
+    min-width: 0;
+}
+
+.step-badge {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.step-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+}
+
+.step-instruction {
+    font-size: 13px;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+}
+
+.step-image {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+    box-shadow: none;
+    background: transparent;
+}
+
+.arrow-down {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1;
+}
+
+.toggle-off {
+    width: 44px;
+    height: 26px;
+    background-color: #D1D5DB;
+    border-radius: 13px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.toggle-off::after {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: var(--white);
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: left 0.2s;
+}
+
+.warning-icon {
+    font-size: 18px;
+    color: #F59E0B;
+}
+
+.permission-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 320px;
+}
+
+.permission-btn {
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.permission-btn.allow-one-day {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+.permission-btn.always-allow,
+.permission-btn.cancel {
+    background-color: #F3F4F6;
+    color: var(--text-dark);
+}
+
+/* Callout Box */
+.callout-box {
+    background-color: var(--callout-bg);
+    border-radius: 6px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    width: calc(100% - 16px);
+}
+
+.callout-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--callout-text);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    font-style: normal;
+    flex-shrink: 0;
+}
+
+.callout-box p {
+    font-size: 11px;
+    color: var(--callout-text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Open Safari Button */
+.open-safari-btn.platform-ios.platform-iphone {
+    width: auto;
+    min-width: 280px;
+    margin: 8px auto 24px auto;
+    padding: 10px 24px;
+    background-color: #0F172A;
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: block;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.open-safari-btn.platform-ios.platform-iphone:hover {
+    background-color: #1E293B;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.open-safari-btn.platform-ios.platform-iphone:active {
+    background-color: #0F172A;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    transform: translateY(1px);
+}
+
+.open-safari-btn.platform-ios.platform-iphone:focus {
+    outline: 2px solid #0F172A;
+    outline-offset: 2px;
+}
+
+/* ============================================
+   macOS Styles
+   ============================================ */
+
+.scrollable-content.platform-mac {
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header.platform-mac {
+    background-color: var(--header-bg);
+    padding: 20px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border-radius: 0;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.app-header.platform-mac .app-logo {
+    width: 51px;
+    height: 51px;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.app-header.platform-mac .app-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--text-dark);
+    margin: 0 0 2px 0;
+    padding: 0;
+}
+
+.app-header.platform-mac .app-description {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+.app-header.platform-mac .get-started-badge {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 2px;
+}
+
+.steps-container.platform-mac {
+    padding: 24px;
+    background-color: transparent;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.steps-container.platform-mac .step {
+    margin-bottom: 32px;
+}
+
+.steps-container.platform-mac .step-two-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.steps-container.platform-mac .step-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.steps-container.platform-mac .step-columns {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.steps-container.platform-mac .step-content {
+    flex: 0 0 66.67%;
+    min-width: 0;
+}
+
+.steps-container.platform-mac .step-visuals {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 33.33%;
+    min-width: 0;
+}
+
+.steps-container.platform-mac .step-badge {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.steps-container.platform-mac .step-title {
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+}
+
+.steps-container.platform-mac .step-instruction {
+    font-size: 14px;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+}
+
+.steps-container.platform-mac .step-image {
+    width: 100%;
+    height: auto;
+
+    display: block;
+    box-shadow: none;
+    background: transparent;
+}
+
+.steps-container.platform-mac .arrow-down {
+    font-size: 15px;
+    color: var(--text-light);
+    line-height: 1;
+}
+
+button.platform-mac.open-safari-btn {
+    width: auto;
+    min-width: 280px;
+    margin: 8px auto 24px auto;
+    padding: 10px 24px;
+    background-color: #0F172A;
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    display: block;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+button.platform-mac.open-safari-btn:hover {
+    background-color: #1E293B;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+button.platform-mac.open-safari-btn:active {
+    background-color: #0F172A;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    transform: translateY(1px);
+}
+
+button.platform-mac.open-safari-btn:focus {
+    outline: 2px solid #0F172A;
+    outline-offset: 2px;
+}
+
+/* ============================================
+   iPhone Media Query Adjustments
+   ============================================ */
+
 @media only screen and (max-device-width: 428px) {
-    .platform-ipad {
-        display: none;
-    }
-    
-    p {
-        font-size: 1.6em;
-        margin-bottom: 3vw;
+    .scrollable-content {
         padding: 0;
     }
-    
-    * {
-      box-sizing: border-box;
-    }
-    
-    .column img {
-        width: 45vw;
-        padding: 20px;
-    }
-
 }
 
+/* ============================================
+   iPad Media Query Adjustments
+   ============================================ */
 
-
-@media only screen and (min-device-width: 429px) and (max-device-width: 1024px) {
-    .platform-iphone {
-        display: none;
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .step-content {
+        flex: 0 0 50%;
     }
     
-    .column img {
-        width: 43vw;
-        padding: 20px;
+    .step-visuals {
+        flex: 0 0 50%;
     }
     
-    p {
-        font-size: 1.3em;
-        margin-bottom: 0.5vw;
+    body {
+        justify-content: flex-start;
+    }
+    
+    .scrollable-content {
         padding: 0;
+        margin: 0;
     }
     
-    .app-icon {
-        height: 50px;
+    .app-header.platform-ios.platform-iphone {
+        margin-top: 0;
+    }
+    
+    .steps-container.platform-ios.platform-iphone {
+        padding: 32px;
+    }
+    
+    /* Font size increases (31% larger) */
+    .app-header .app-title {
+        font-size: 26px;
+    }
+    
+    .app-header .app-description {
+        font-size: 17px;
+    }
+    
+    .get-started-badge {
+        font-size: 16px;
+        padding: 5px 13px;
+    }
+    
+    .step-badge {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+    }
+    
+    .step-title {
+        font-size: 21px;
+    }
+    
+    .step-instruction {
+        font-size: 17px;
+    }
+    
+    .arrow-down {
+        font-size: 18px;
+    }
+    
+    .callout-icon {
+        width: 21px;
+        height: 21px;
+        font-size: 13px;
+    }
+    
+    .callout-box p {
+        font-size: 14px;
+    }
+    
+    .open-safari-btn.platform-ios.platform-iphone {
+        font-size: 21px;
+        padding: 16px;
+    }
+    
+    .optional-badge {
+        font-size: 16px;
+        padding: 5px 13px;
+    }
+    
+    .optional-title {
+        font-size: 24px;
+    }
+    
+    .chevron-icon {
+        font-size: 26px;
+    }
+    
+    .optional-description {
+        font-size: 18px;
+    }
+    
+    .example-title {
+        font-size: 21px;
+    }
+    
+    .shortcuts-list {
+        font-size: 18px;
+    }
+    
+    .shortcuts-list li::before {
+        width: 26px;
+        height: 26px;
+        font-size: 16px;
+    }
+}
+
+/* iPad Landscape Orientation */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    .step-content {
+        flex: 0 0 66.67%;
+    }
+    
+    .step-visuals {
+        flex: 0 0 33.33%;
     }
 }

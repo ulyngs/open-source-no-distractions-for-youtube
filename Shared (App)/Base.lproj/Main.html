@@ -4,49 +4,148 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
 
-    <meta name="viewport" content="width=device-width, initial-scale=0.5, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
     <link rel="stylesheet" href="../Style.css">
     <script src="../Script.js" defer></script>
 </head>
 <body>
-    <img class="platform-mac app-icon" src="../Icon.png" alt='"No Distractions" for YouTube Icon'>
+  <div class="scrollable-content platform-ios">
     
-    <p>This Safari extension lets you hide distractions on YouTube (for <i>any</i> website, use <a href="https://apps.apple.com/gb/app/mindshield/id1660218371">MindShield</a>). <br/>The extension is open source and collects zero data - you can find the source code on <a href="https://github.com/ulyngs/open-source-no-distractions-for-youtube"> GitHub</a>. </p>
-    <p class="platform-ios platform-iphone">To turn it on, open Safari and go to youtube.com. Then:<br>
-    1) In the toolbar tap 'Aa' -> 'Manage Extensions', and toggle the extension on.<br>
-    2) Tap the extension and allow it to access youtube.com
-    </p>
-    <div class="row platform-ios platform-iphone">
-      <div class="column">
-        <p>Step 1:</p>
-        <img src="../iphone_manage_extensions.jpg" style="width:100%">
+    <!-- Header Section -->
+    <header class="app-header platform-ios platform-iphone">
+      <img class="app-logo" src="../Icon.png" alt="No Distractions for YouTube Icon">
+      <div class="app-header-text">
+        <h1 class="app-title">No Distractions for YouTube</h1>
+        <p class="app-description">Hide distractions on YouTube</p>
       </div>
-      <div class="column">
-        <p>Step 2:</p>
-        <img src="../iphone_allow_access.jpg" style="width:100%">
+      <span class="get-started-badge">How-to Guide</span>
+    </header>
+
+    <!-- Steps Container -->
+    <div class="steps-container platform-ios platform-iphone">
+      
+      <!-- Step 1: Turn on extension -->
+      <div class="step step-two-column">
+        <div class="step-header">
+          <div class="step-badge">1</div>
+          <h3 class="step-title">Turn on extension</h3>
+        </div>
+        
+        <div class="step-columns">
+          <div class="step-content">
+            <p class="step-instruction">Open Safari, go to youtube.com, and enable No Distractions for YouTube.</p>
+          </div>
+          
+          <!-- Visual aids for step 1 -->
+          <div class="step-visuals">
+            <img src="../ios-1.png" alt="Safari address bar showing youtube.com" class="step-image platform-iphone">
+            <img src="../ios-1-ipad.png" alt="Safari address bar showing youtube.com" class="step-image platform-ipad">
+            <div class="arrow-down">↓</div>
+            <img src="../ios-2.png" alt="Manage Extensions menu" class="step-image">
+            <div class="arrow-down">↓</div>
+            <img src="../ios-3.png" alt="No Distractions for YouTube extension toggle" class="step-image">
+          </div>
+        </div>
+        
+        <!-- Callout box -->
+        <div class="callout-box">
+          <span class="callout-icon">i</span>
+          <p>Can't turn it on? You likely have Screen Time restrictions running. Turn them off in Settings → Screen Time and try again.</p>
+        </div>
       </div>
+
+      <!-- Step 2: Grant permissions -->
+      <div class="step step-two-column">
+        <div class="step-header">
+          <div class="step-badge">2</div>
+          <h3 class="step-title">Grant permissions</h3>
+        </div>
+        
+        <div class="step-columns">
+          <div class="step-content">
+            <p class="step-instruction">Allow No Distractions for YouTube to modify youtube.com.</p>
+          </div>
+          
+          <!-- Visual aids for step 2 -->
+          <div class="step-visuals">
+            <img src="../ios-4.png" alt="Manage Extensions screen" class="step-image">
+            <div class="arrow-down">↓</div>
+            <img src="../ios-5.png" alt="Permission dialog for No Distractions for YouTube" class="step-image">
+          </div>
+        </div>
+      </div>
+
     </div>
+
+    <!-- Open Safari Button -->
+    <button class="open-safari-btn platform-ios platform-iphone">Open Safari to get started</button>
+
+  </div>
+
+  <!-- macOS version -->
+  <div class="scrollable-content platform-mac">
     
-    <p class="platform-ios platform-ipad">To turn it on, first open Safari and go to youtube.com. Then:<br>
-    1) In the browser address bar, tap the puzzle icon -> 'Manage Extensions', and toggle the extension on.<br>
-    2) Tap the extension and allow it to access youtube.com
-    </p>
-    <div class="row platform-ios platform-ipad">
-      <div class="column">
-        <p>Step 1:</p>
-        <img src="../ipad_manage_extensions.png" style="width:100%">
+    <!-- Header Section -->
+    <header class="app-header platform-mac">
+      <img class="app-logo" src="../Icon.png" alt="No Distractions for YouTube Icon">
+      <div class="app-header-text">
+        <h1 class="app-title">No Distractions for YouTube</h1>
+        <p class="app-description">Hide distractions on YouTube</p>
       </div>
-      <div class="column">
-        <p>Step 2:</p>
-        <img src="../ipad_allow_access.png" style="width:100%">
+      <span class="get-started-badge">How-to Guide</span>
+    </header>
+
+    <!-- Steps Container -->
+    <div class="steps-container platform-mac">
+      
+      <!-- Step 1: Turn on extension -->
+      <div class="step step-two-column">
+        <div class="step-header">
+          <div class="step-badge">1</div>
+          <h3 class="step-title">Turn on extension</h3>
+        </div>
+        
+        <div class="step-columns">
+          <div class="step-content">
+            <p class="step-instruction">Open Safari Extensions preferences and enable No Distractions for YouTube.</p>
+          </div>
+          
+          <!-- Visual aids for step 1 -->
+          <div class="step-visuals">
+            <img src="../mac-1-settings.png" alt="Safari Extensions preferences" class="step-image">
+            <div class="arrow-down">↓</div>
+            <img src="../mac-2-check.png" alt="No Distractions for YouTube extension enabled" class="step-image">
+          </div>
+        </div>
       </div>
+
+      <!-- Step 2: Grant permissions -->
+      <div class="step step-two-column">
+        <div class="step-header">
+          <div class="step-badge">2</div>
+          <h3 class="step-title">Grant permissions</h3>
+        </div>
+        
+        <div class="step-columns">
+          <div class="step-content">
+            <p class="step-instruction">Go to youtube.com, click the No Distractions for YouTube icon in the toolbar, and allow access.</p>
+          </div>
+          
+          <!-- Visual aids for step 2 -->
+          <div class="step-visuals">
+            <img src="../mac-3-warning.png" alt="Extension permission warning" class="step-image">
+            <div class="arrow-down">↓</div>
+            <img src="../mac-4-allow.png" alt="Allow extension access" class="step-image">
+          </div>
+        </div>
+      </div>
+
     </div>
-    
-    <p class="platform-mac state-unknown">To turn it on, first toggle it on in Safari Extensions preferences. Then go to YouTube, click the extension icon in the toolbar, and allow access.
-    </p>
-    <p class="platform-mac state-on">The '"No Distractions" for on YouTube' extension is currently on. You can turn it off in Safari Extensions preferences.</p>
-    <p class="platform-mac state-off">The '"No Distractions" for YouTube' extension is currently off. You can turn it on in Safari Extensions preferences.</p>
-    <button class="platform-mac open-preferences">Quit and Open Safari Extensions Preferences…</button>
+
+    <!-- Open Safari Extensions Preferences Button -->
+    <button class="open-safari-btn platform-mac open-preferences">Open Safari Extensions Preferences...</button>
+
+  </div>
 </body>
 </html>

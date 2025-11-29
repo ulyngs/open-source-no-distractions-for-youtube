@@ -28,7 +28,7 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
         self.webView.navigationDelegate = self
 
 #if os(iOS)
-        self.webView.scrollView.isScrollEnabled = false
+        self.webView.scrollView.isScrollEnabled = true
 #endif
 
         self.webView.configuration.userContentController.add(self, name: "controller")
@@ -56,8 +56,16 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-#if os(macOS)
-        if (message.body as! String != "open-preferences") {
+        let messageBody = message.body as! String
+        
+#if os(iOS)
+        if messageBody == "open-safari" {
+            if let url = URL(string: "https://youtube.com") {
+                UIApplication.shared.open(url)
+            }
+        }
+#elseif os(macOS)
+        if messageBody != "open-preferences" {
             return;
         }
 
