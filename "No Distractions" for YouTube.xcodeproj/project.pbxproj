@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D72A7969279054C100FF7E23 /* ipad_manage_extensions.png in Resources */ = {isa = PBXBuildFile; fileRef = D72A7968279054C100FF7E23 /* ipad_manage_extensions.png */; };
-		D72A796B279054C500FF7E23 /* ipad_allow_access.png in Resources */ = {isa = PBXBuildFile; fileRef = D72A796A279054C500FF7E23 /* ipad_allow_access.png */; };
-		D756776629E3F99800C66C6A /* iphone_allow_access.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D756776429E3F99800C66C6A /* iphone_allow_access.jpg */; };
-		D756776729E3F99800C66C6A /* iphone_manage_extensions.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D756776529E3F99800C66C6A /* iphone_manage_extensions.jpg */; };
 		D7607A1D276792B100FB0E82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D76921C92756452E00EB4CEA /* Main.storyboard */; };
 		D76921B72756452E00EB4CEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76921B62756452E00EB4CEA /* AppDelegate.swift */; };
 		D76921B92756452E00EB4CEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76921B82756452E00EB4CEA /* SceneDelegate.swift */; };
@@ -49,6 +45,16 @@
 		D7692212275645D800EB4CEA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D7692210275645D800EB4CEA /* Icon.png */; };
 		D769221727564D8F00EB4CEA /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = D769221627564D8F00EB4CEA /* style.css */; };
 		D769221827564D8F00EB4CEA /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = D769221627564D8F00EB4CEA /* style.css */; };
+		D7878EF02EDAEF7E00708DC1 /* ios-1-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D7878EEB2EDAEF7E00708DC1 /* ios-1-ipad.png */; };
+		D7878EF12EDAEF7E00708DC1 /* ios-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D7878EEC2EDAEF7E00708DC1 /* ios-2.png */; };
+		D7878EF22EDAEF7E00708DC1 /* ios-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D7878EEA2EDAEF7E00708DC1 /* ios-1.png */; };
+		D7878EF32EDAEF7E00708DC1 /* ios-4.png in Resources */ = {isa = PBXBuildFile; fileRef = D7878EEE2EDAEF7E00708DC1 /* ios-4.png */; };
+		D7878EF42EDAEF7E00708DC1 /* ios-5.png in Resources */ = {isa = PBXBuildFile; fileRef = D7878EEF2EDAEF7E00708DC1 /* ios-5.png */; };
+		D7878EF52EDAEF7E00708DC1 /* ios-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D7878EED2EDAEF7E00708DC1 /* ios-3.png */; };
+		D7878EFA2EDAF04700708DC1 /* mac-1-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D7878EF62EDAF04700708DC1 /* mac-1-settings.png */; };
+		D7878EFB2EDAF04700708DC1 /* mac-3-warning.png in Resources */ = {isa = PBXBuildFile; fileRef = D7878EF82EDAF04700708DC1 /* mac-3-warning.png */; };
+		D7878EFC2EDAF04700708DC1 /* mac-4-allow.png in Resources */ = {isa = PBXBuildFile; fileRef = D7878EF92EDAF04700708DC1 /* mac-4-allow.png */; };
+		D7878EFD2EDAF04700708DC1 /* mac-2-check.png in Resources */ = {isa = PBXBuildFile; fileRef = D7878EF72EDAF04700708DC1 /* mac-2-check.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,10 +100,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D72A7968279054C100FF7E23 /* ipad_manage_extensions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad_manage_extensions.png; sourceTree = "<group>"; };
-		D72A796A279054C500FF7E23 /* ipad_allow_access.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad_allow_access.png; sourceTree = "<group>"; };
-		D756776429E3F99800C66C6A /* iphone_allow_access.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iphone_allow_access.jpg; sourceTree = "<group>"; };
-		D756776529E3F99800C66C6A /* iphone_manage_extensions.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iphone_manage_extensions.jpg; sourceTree = "<group>"; };
 		D769219E2756452C00EB4CEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
 		D76921A02756452C00EB4CEA /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
 		D76921A12756452C00EB4CEA /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
@@ -128,6 +130,16 @@
 		D76921E12756452E00EB4CEA /* No Distractions for YouTube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "No Distractions for YouTube.entitlements"; sourceTree = "<group>"; };
 		D7692210275645D800EB4CEA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		D769221627564D8F00EB4CEA /* style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		D7878EEA2EDAEF7E00708DC1 /* ios-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-1.png"; sourceTree = "<group>"; };
+		D7878EEB2EDAEF7E00708DC1 /* ios-1-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-1-ipad.png"; sourceTree = "<group>"; };
+		D7878EEC2EDAEF7E00708DC1 /* ios-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-2.png"; sourceTree = "<group>"; };
+		D7878EED2EDAEF7E00708DC1 /* ios-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-3.png"; sourceTree = "<group>"; };
+		D7878EEE2EDAEF7E00708DC1 /* ios-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-4.png"; sourceTree = "<group>"; };
+		D7878EEF2EDAEF7E00708DC1 /* ios-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-5.png"; sourceTree = "<group>"; };
+		D7878EF62EDAF04700708DC1 /* mac-1-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-1-settings.png"; sourceTree = "<group>"; };
+		D7878EF72EDAF04700708DC1 /* mac-2-check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-2-check.png"; sourceTree = "<group>"; };
+		D7878EF82EDAF04700708DC1 /* mac-3-warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-3-warning.png"; sourceTree = "<group>"; };
+		D7878EF92EDAF04700708DC1 /* mac-4-allow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-4-allow.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,10 +246,12 @@
 		D76921B52756452E00EB4CEA /* iOS (App) */ = {
 			isa = PBXGroup;
 			children = (
-				D756776429E3F99800C66C6A /* iphone_allow_access.jpg */,
-				D756776529E3F99800C66C6A /* iphone_manage_extensions.jpg */,
-				D72A7968279054C100FF7E23 /* ipad_manage_extensions.png */,
-				D72A796A279054C500FF7E23 /* ipad_allow_access.png */,
+				D7878EEA2EDAEF7E00708DC1 /* ios-1.png */,
+				D7878EEB2EDAEF7E00708DC1 /* ios-1-ipad.png */,
+				D7878EEC2EDAEF7E00708DC1 /* ios-2.png */,
+				D7878EED2EDAEF7E00708DC1 /* ios-3.png */,
+				D7878EEE2EDAEF7E00708DC1 /* ios-4.png */,
+				D7878EEF2EDAEF7E00708DC1 /* ios-5.png */,
 				D76921B62756452E00EB4CEA /* AppDelegate.swift */,
 				D76921B82756452E00EB4CEA /* SceneDelegate.swift */,
 				D76921BA2756452E00EB4CEA /* LaunchScreen.storyboard */,
@@ -250,6 +264,10 @@
 		D76921C62756452E00EB4CEA /* macOS (App) */ = {
 			isa = PBXGroup;
 			children = (
+				D7878EF62EDAF04700708DC1 /* mac-1-settings.png */,
+				D7878EF72EDAF04700708DC1 /* mac-2-check.png */,
+				D7878EF82EDAF04700708DC1 /* mac-3-warning.png */,
+				D7878EF92EDAF04700708DC1 /* mac-4-allow.png */,
 				D76921C72756452E00EB4CEA /* AppDelegate.swift */,
 				D76921C92756452E00EB4CEA /* Main.storyboard */,
 				D76921CC2756452E00EB4CEA /* No Distractions for YouTube.entitlements */,
@@ -399,16 +417,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D756776629E3F99800C66C6A /* iphone_allow_access.jpg in Resources */,
-				D72A796B279054C500FF7E23 /* ipad_allow_access.png in Resources */,
-				D72A7969279054C100FF7E23 /* ipad_manage_extensions.png in Resources */,
+				D7878EF02EDAEF7E00708DC1 /* ios-1-ipad.png in Resources */,
+				D7878EF12EDAEF7E00708DC1 /* ios-2.png in Resources */,
+				D7878EF22EDAEF7E00708DC1 /* ios-1.png in Resources */,
+				D7878EF32EDAEF7E00708DC1 /* ios-4.png in Resources */,
+				D7878EF42EDAEF7E00708DC1 /* ios-5.png in Resources */,
+				D7878EF52EDAEF7E00708DC1 /* ios-3.png in Resources */,
 				D76921BC2756452E00EB4CEA /* LaunchScreen.storyboard in Resources */,
 				D76921E22756452E00EB4CEA /* Main.html in Resources */,
 				D76921E82756452E00EB4CEA /* Script.js in Resources */,
 				D76921EC2756452E00EB4CEA /* Assets.xcassets in Resources */,
 				D76921BF2756452E00EB4CEA /* Main.storyboard in Resources */,
 				D7692211275645D800EB4CEA /* Icon.png in Resources */,
-				D756776729E3F99800C66C6A /* iphone_manage_extensions.jpg in Resources */,
 				D76921E62756452E00EB4CEA /* Style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +439,10 @@
 			files = (
 				D7692212275645D800EB4CEA /* Icon.png in Resources */,
 				D76921E72756452E00EB4CEA /* Style.css in Resources */,
+				D7878EFA2EDAF04700708DC1 /* mac-1-settings.png in Resources */,
+				D7878EFB2EDAF04700708DC1 /* mac-3-warning.png in Resources */,
+				D7878EFC2EDAF04700708DC1 /* mac-4-allow.png in Resources */,
+				D7878EFD2EDAF04700708DC1 /* mac-2-check.png in Resources */,
 				D76921E92756452E00EB4CEA /* Script.js in Resources */,
 				D7607A1D276792B100FB0E82 /* Main.storyboard in Resources */,
 				D76921ED2756452E00EB4CEA /* Assets.xcassets in Resources */,
@@ -662,7 +686,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 56;
+				CURRENT_PROJECT_VERSION = 62;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
@@ -674,7 +698,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 4.4;
+				MARKETING_VERSION = 4.7;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -693,7 +717,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 56;
+				CURRENT_PROJECT_VERSION = 62;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
@@ -705,7 +729,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 4.4;
+				MARKETING_VERSION = 4.7;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -728,7 +752,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 56;
+				CURRENT_PROJECT_VERSION = 62;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
@@ -744,7 +768,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.4;
+				MARKETING_VERSION = 4.7;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -767,7 +791,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 56;
+				CURRENT_PROJECT_VERSION = 62;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
@@ -783,7 +807,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.4;
+				MARKETING_VERSION = 4.7;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -807,7 +831,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 66;
+				CURRENT_PROJECT_VERSION = 71;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -821,7 +845,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 4.4;
+				MARKETING_VERSION = 4.7;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -842,7 +866,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 66;
+				CURRENT_PROJECT_VERSION = 71;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -856,7 +880,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 4.4;
+				MARKETING_VERSION = 4.7;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -880,7 +904,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 66;
+				CURRENT_PROJECT_VERSION = 71;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -894,7 +918,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 4.4;
+				MARKETING_VERSION = 4.7;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -919,7 +943,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 66;
+				CURRENT_PROJECT_VERSION = 71;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7YEYWQKK25;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -933,7 +957,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 4.4;
+				MARKETING_VERSION = 4.7;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
