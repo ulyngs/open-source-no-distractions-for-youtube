@@ -6,7 +6,7 @@
 
     const platformsWeTarget = ["youtube"];
     const elementsThatCanBeHidden = ["youtubeSearch", "youtubeSearchPredict", "youtubeRecVids", "youtubeThumbnails", "youtubeNotifications", "youtubeProfileImg",
-        "youtubeShorts", "youtubeSubscriptions", "youtubeLibrary", "youtubeHistory", "youtubeExplore", "youtubeMore",
+        "youtubeShorts", "youtubeSubscriptions", "youtubeYou", "youtubeHistory", "youtubeExplore", "youtubeMore",
         "youtubeRelated", "youtubeComments", "youtubeAds", "youtubeViews", "youtubeLikes", "youtubeSubscribers"];
 
     // This object holds all CSS selector strings, making them easy to manage and access.
@@ -32,6 +32,8 @@
         youtubeShortsCssOff: 'ytd-mini-guide-entry-renderer:has(a[href="/shorts/"]), #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Shorts"],ytd-mini-guide-entry-renderer[aria-label="Shorts"], ytd-reel-shelf-renderer, ytd-rich-shelf-renderer[is-shorts], ytm-rich-section-renderer:has(ytm-shorts-lockup-view-model) { display: none; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(2), ytm-reel-shelf-renderer, ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]), ytm-video-with-context-renderer:has(ytm-thumbnail-overlay-time-status-renderer[data-style="SHORTS"]), grid-shelf-view-model:has(ytm-shorts-lockup-view-model) { display: none !important; }',
         youtubeSubscriptionsCssOn: 'ytd-guide-section-renderer:has(a[href="/feed/channels"]), ytd-guide-section-renderer:has(a[href="/feed/subscriptions"]) { display: block !important; } ytd-mini-guide-entry-renderer:has(a[href="/feed/subscriptions"]) { display: flex !important; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(3) { display: flex !important; }',
         youtubeSubscriptionsCssOff: 'ytd-guide-section-renderer:has(a[href="/feed/channels"]), ytd-guide-section-renderer:has(a[href="/feed/subscriptions"]) { display: none !important; } ytd-mini-guide-entry-renderer:has(a[href="/feed/subscriptions"]) { display: none !important; } ytm-pivot-bar-renderer[role="tablist"] ytm-pivot-bar-item-renderer:nth-child(3) { display: none !important; }',
+        youtubeYouCssOn: 'ytd-guide-section-renderer:has(a[href="/feed/you"]) { display: block !important; } ytd-mini-guide-entry-renderer:has(a[href="/feed/you"]) { display: flex !important; } ytm-pivot-bar-item-renderer:has(.pivot-you) { display: flex !important; }',
+        youtubeYouCssOff: 'ytd-guide-section-renderer:has(a[href="/feed/you"]) { display: none !important; } ytd-mini-guide-entry-renderer:has(a[href="/feed/you"]) { display: none !important; } ytm-pivot-bar-item-renderer:has(.pivot-you) { display: none !important; }',
         youtubeHistoryCssOn: '#endpoint[href="/feed/history"] { display: flex !important; }',
         youtubeHistoryCssOff: '#endpoint[href="/feed/history"] { display: none !important; }',
         youtubeExploreCssOn: '#sections ytd-guide-section-renderer:has(a[href="/gaming"]) { display: block !important; }',
