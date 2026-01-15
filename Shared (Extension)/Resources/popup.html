@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="popup.css">
     <script type="module" src="popup.js"></script>
 </head>
+
 <body>
     <div id="reviewPrompt" style="display: none;">
         <div class="review-prompt-content">
             <p>Enjoying the extension? Take a moment to rate or review us!</p>
-            <a href="https://apps.apple.com/gb/app/no-distractions-for-youtube/id1482507016" target="_blank" class="review-link">Leave a Review</a>
+            <a href="https://apps.apple.com/gb/app/no-distractions-for-youtube/id1482507016" target="_blank"
+                class="review-link">Leave a Review</a>
             <button id="noThanksButton">No, thanks / I already did!</button>
         </div>
     </div>
     <div id="delay-content" style="display: none;">
         <p id="delay-message"></p>
-        <img src="/images/calm.svg" class="breathing"/>
+        <img src="/images/calm.svg" class="breathing" />
         <p class="delay-time-wrapper"><span id="delay-time"></span></p>
     </div>
     <div id="popup-content" style="display: none;">
@@ -67,31 +70,41 @@
                     <h2>Home page</h2>
                     <div class="a-toggle platform-iphone" id="hide-previews">
                         <div id="how-to-arrow-right" style="display: inline-block;">
-                            <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
-                                <path d="m360 1170-90-91.199 478.8-478.8-478.8-478.8 90-91.199 570 570z"/>
+                            <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="m360 1170-90-91.199 478.8-478.8-478.8-478.8 90-91.199 570 570z" />
                             </svg>
                         </div>
                         <div id="how-to-arrow-down" style="display: none;">
-                            <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
-                                <path d="m652.1 915.27 526.35-524.55c28.742-30.539 28.742-77.246 0-105.99-28.742-28.742-77.246-28.742-105.99 0l-472.46 472.46-472.46-472.46c-30.539-28.742-77.246-28.742-105.99 0-28.742 28.742-28.742 75.449 0 105.99l524.55 524.55c30.539 28.742 77.246 28.742 105.99 0z" fill-rule="evenodd"/>
+                            <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="m652.1 915.27 526.35-524.55c28.742-30.539 28.742-77.246 0-105.99-28.742-28.742-77.246-28.742-105.99 0l-472.46 472.46-472.46-472.46c-30.539-28.742-77.246-28.742-105.99 0-28.742 28.742-28.742 75.449 0 105.99l524.55 524.55c30.539 28.742 77.246 28.742 105.99 0z"
+                                    fill-rule="evenodd" />
                             </svg>
                         </div>
                         <p class="previews-text">Auto-playing previews</p>
-                        <p id="how-to-description" style="display: none;">Tap your account image > Settings > Account > untick 'Video previews'</p>
+                        <p id="how-to-description" style="display: none;">Tap your account image > Settings > Account >
+                            untick 'Video previews'</p>
                     </div>
                     <div class="a-toggle platform-ipad-mac" id="hide-previews-not-mobile">
                         <div id="how-to-arrow-right-not-mobile" style="display: inline-block;">
-                            <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
-                                <path d="m360 1170-90-91.199 478.8-478.8-478.8-478.8 90-91.199 570 570z"/>
+                            <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="m360 1170-90-91.199 478.8-478.8-478.8-478.8 90-91.199 570 570z" />
                             </svg>
                         </div>
                         <div id="how-to-arrow-down-not-mobile" style="display: none;">
-                            <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
-                                <path d="m652.1 915.27 526.35-524.55c28.742-30.539 28.742-77.246 0-105.99-28.742-28.742-77.246-28.742-105.99 0l-472.46 472.46-472.46-472.46c-30.539-28.742-77.246-28.742-105.99 0-28.742 28.742-28.742 75.449 0 105.99l524.55 524.55c30.539 28.742 77.246 28.742 105.99 0z" fill-rule="evenodd"/>
+                            <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="m652.1 915.27 526.35-524.55c28.742-30.539 28.742-77.246 0-105.99-28.742-28.742-77.246-28.742-105.99 0l-472.46 472.46-472.46-472.46c-30.539-28.742-77.246-28.742-105.99 0-28.742 28.742-28.742 75.449 0 105.99l524.55 524.55c30.539 28.742 77.246 28.742 105.99 0z"
+                                    fill-rule="evenodd" />
                             </svg>
                         </div>
                         <p class="previews-text">Previews on hover</p>
-                        <p id="how-to-description-not-mobile" class="how-to-description" style="display: none;">Tap your account image > Settings > Playback and performance > toggle off 'Inline playback'</p>
+                        <p id="how-to-description-not-mobile" class="how-to-description" style="display: none;">Tap your
+                            account image > Settings > Playback and performance > toggle off 'Inline playback'</p>
                     </div>
                     <div class="a-toggle">
                         <input type="checkbox" id="youtubeRecVidsToggle" name="youtubeRecVidsToggle">
@@ -103,10 +116,6 @@
                     <div class="a-toggle">
                         <input type="checkbox" id="youtubeRelatedToggle" name="youtubeRelatedToggle">
                         <label for="youtubeRelatedToggle">Related/Up next videos</label>
-                    </div>
-                    <div class="a-toggle hide-checkboxes platform-ipad-mac">
-                        <input type="checkbox" id="youtubeSidebarToggle" name="youtubeSidebarToggle">
-                        <label for="youtubeSidebarToggle">Entire right sidebar</label>
                     </div>
                     <div class="a-toggle">
                         <input type="checkbox" id="youtubeCommentsToggle" name="youtubeCommentsToggle">
@@ -132,7 +141,8 @@
                         <label class="multi-state-label" for="youtubeThumbnailsToggle">Video thumbnails</label>
                     </div>
                     <div class="a-toggle">
-                        <input class="hide-checkbox" type="checkbox" id="youtubeProfileImgToggle" name="youtubeProfileImgToggle">
+                        <input class="hide-checkbox" type="checkbox" id="youtubeProfileImgToggle"
+                            name="youtubeProfileImgToggle">
                         <label for="youtubeProfileImgToggle">Account images</label>
                     </div>
                     <div class="a-toggle">
@@ -140,7 +150,8 @@
                         <label for="youtubeViewsToggle">View numbers</label>
                     </div>
                     <div class="a-toggle">
-                        <input class="hide-checkbox" type="checkbox" id="youtubeSubscribersToggle" name="youtubeSubscribersToggle">
+                        <input class="hide-checkbox" type="checkbox" id="youtubeSubscribersToggle"
+                            name="youtubeSubscribersToggle">
                         <label for="youtubeSubscribersToggle">Subscriber numbers</label>
                     </div>
                     <div class="a-toggle">
@@ -164,13 +175,18 @@
                     <label for="frictionToggle">Delay to open settings</label>
                     <div id="frictionCustomisationArrow">
                         <div id="frictionCustomisationArrowRight" style="display: inline;">
-                            <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
-                                <path d="m360 1170-90-91.199 478.8-478.8-478.8-478.8 90-91.199 570 570z" fill="#808080" />
+                            <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="m360 1170-90-91.199 478.8-478.8-478.8-478.8 90-91.199 570 570z"
+                                    fill="#808080" />
                             </svg>
                         </div>
                         <div id="frictionCustomisationArrowDown" style="display: none;">
-                            <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
-                                <path d="m652.1 915.27 526.35-524.55c28.742-30.539 28.742-77.246 0-105.99-28.742-28.742-77.246-28.742-105.99 0l-472.46 472.46-472.46-472.46c-30.539-28.742-77.246-28.742-105.99 0-28.742 28.742-28.742 75.449 0 105.99l524.55 524.55c30.539 28.742 77.246 28.742 105.99 0z" fill="#808080" fill-rule="evenodd"/>
+                            <svg width="12px" height="12px" version="1.1" viewBox="0 0 1200 1200"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="m652.1 915.27 526.35-524.55c28.742-30.539 28.742-77.246 0-105.99-28.742-28.742-77.246-28.742-105.99 0l-472.46 472.46-472.46-472.46c-30.539-28.742-77.246-28.742-105.99 0-28.742 28.742-28.742 75.449 0 105.99l524.55 524.55c30.539 28.742 77.246 28.742 105.99 0z"
+                                    fill="#808080" fill-rule="evenodd" />
                             </svg>
                         </div>
                         <p id="friction-customisation-prompt">Customise</p>
@@ -189,9 +205,11 @@
                 </div>
             </div>
             <div class="suggestions-link">
-                <a href="https://github.com/ulyngs/open-source-no-distractions-for-youtube/issues" target="_blank">Suggest improvements</a>
+                <a href="https://github.com/ulyngs/open-source-no-distractions-for-youtube/issues"
+                    target="_blank">Suggest improvements</a>
             </div>
         </footer>
     </div>
 </body>
+
 </html>

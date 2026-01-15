@@ -1,4 +1,4 @@
-(function() {
+(function () {
     if (window.hasRun) {
         return;
     }
@@ -6,9 +6,9 @@
 
     const platformsWeTarget = ["youtube"];
     const elementsThatCanBeHidden = ["youtubeSearch", "youtubeSearchPredict", "youtubeRecVids", "youtubeThumbnails", "youtubeNotifications", "youtubeProfileImg",
-                                     "youtubeShorts", "youtubeSubscriptions", "youtubeLibrary", "youtubeHistory", "youtubeExplore", "youtubeMore",
-                                     "youtubeRelated", "youtubeSidebar", "youtubeComments", "youtubeAds", "youtubeViews", "youtubeLikes", "youtubeSubscribers"];
-    
+        "youtubeShorts", "youtubeSubscriptions", "youtubeLibrary", "youtubeHistory", "youtubeExplore", "youtubeMore",
+        "youtubeRelated", "youtubeComments", "youtubeAds", "youtubeViews", "youtubeLikes", "youtubeSubscribers"];
+
     // This object holds all CSS selector strings, making them easy to manage and access.
     const cssSelectors = {
         // YouTube
@@ -40,8 +40,6 @@
         youtubeMoreCssOff: '#sections ytd-guide-section-renderer:has(a[href="https://studio.youtube.com/"]) { display: none !important; }',
         youtubeRelatedCssOn: '#related { visibility: visible !important; display: block !important; } #app ytm-item-section-renderer[section-identifier="related-items"] { display: block !important; } ytm-single-column-watch-next-results-renderer .related-chips-slot-wrapper { transform: translateY(0) !important; }',
         youtubeRelatedCssOff: '#related { visibility: hidden !important; display: none !important; } #app ytm-item-section-renderer[section-identifier="related-items"] { display: none !important; } ytm-single-column-watch-next-results-renderer .related-chips-slot-wrapper { transform: none !important; }',
-        youtubeSidebarCssOn: '',
-        youtubeSidebarCssOff: '#secondary { display: none !important; } video.html5-main-video { width: 100% !important; height: auto !important; }',
         youtubeCommentsCssOn: '',
         youtubeCommentsCssOff: '#comments { visibility: hidden !important; } #app ytm-comments-entry-point-header-renderer, ytm-item-section-renderer:has([aria-label="Comments"]) { display: none !important; }',
         youtubeAdsCssOn: '',
@@ -160,7 +158,7 @@
             const idSelector = `#${CSS.escape(el.id)}`;
             try {
                 if (document.querySelectorAll(idSelector).length === 1) return idSelector;
-            } catch (e) {}
+            } catch (e) { }
         }
         let path = [];
         let currentEl = el;
@@ -361,12 +359,12 @@
     function handleUndo() {
         if (sessionHiddenSelectors.length === 0) return;
         const customStorageKey = `${currentSiteIdentifier}CustomHiddenElements`;
-        browser.storage.sync.get(customStorageKey, function(result) {
+        browser.storage.sync.get(customStorageKey, function (result) {
             let customSelectors = result[customStorageKey] || [];
             if (!Array.isArray(customSelectors)) customSelectors = [];
             const selectorToRemove = sessionHiddenSelectors.pop();
             customSelectors = customSelectors.filter(s => s !== selectorToRemove);
-            browser.storage.sync.set({ [customStorageKey]: customSelectors }, function() {
+            browser.storage.sync.set({ [customStorageKey]: customSelectors }, function () {
                 applyCustomElementStyles(customSelectors);
                 if (sessionHiddenSelectors.length > 0) {
                     updateFeedbackMessage('Element hidden', true);
@@ -482,13 +480,13 @@
             return;
         }
         const storageKey = `${currentSiteIdentifier}CustomHiddenElements`;
-        browser.storage.sync.get(storageKey, function(result) {
+        browser.storage.sync.get(storageKey, function (result) {
             let customSelectors = result[storageKey] || [];
             if (!Array.isArray(customSelectors)) customSelectors = [];
             if (!customSelectors.includes(selector)) {
                 customSelectors.push(selector);
                 sessionHiddenSelectors.push(selector);
-                browser.storage.sync.set({ [storageKey]: customSelectors }, function() {
+                browser.storage.sync.set({ [storageKey]: customSelectors }, function () {
                     applyCustomElementStyles(customSelectors);
                     browser.runtime.sendMessage({ method: "elementSelected", selector: selector });
                     updateFeedbackMessage('Element hidden', true);
@@ -505,17 +503,17 @@
         createStyleElement(styleId, css);
     }
 
-    platformsWeTarget.forEach(function(platform) {
+    platformsWeTarget.forEach(function (platform) {
         if (window.location.hostname.includes(platform)) {
             var filteredElements = elementsThatCanBeHidden.filter(element => element.includes(platform));
             var key = platform + "Status";
-            browser.storage.sync.get(key, function(result) {
+            browser.storage.sync.get(key, function (result) {
                 let platformIsOn = result[key];
-                filteredElements.forEach(function(item) {
+                filteredElements.forEach(function (item) {
                     var styleName = item + "Style";
                     var key = item + "Status";
                     if (item === "youtubeThumbnails" || item === "youtubeNotifications") {
-                        browser.storage.sync.get(key, function(result) {
+                        browser.storage.sync.get(key, function (result) {
                             if (result[key] == undefined || result[key] === false) {
                                 createStyleElement(styleName, cssSelectors[item + "CssOn"]);
                             } else {
@@ -523,7 +521,7 @@
                             }
                         });
                     } else {
-                        browser.storage.sync.get(key, function(result) {
+                        browser.storage.sync.get(key, function (result) {
                             if (result[key] == true) {
                                 createStyleElement(styleName, cssSelectors[item + "CssOff"]);
                             } else {
@@ -534,7 +532,7 @@
                 });
             });
             const customStorageKey = `${platform}CustomHiddenElements`;
-            browser.storage.sync.get(customStorageKey, function(result) {
+            browser.storage.sync.get(customStorageKey, function (result) {
                 let customSelectors = result[customStorageKey] || [];
                 if (!Array.isArray(customSelectors)) customSelectors = [];
                 applyCustomElementStyles(customSelectors);
@@ -542,28 +540,28 @@
         }
     });
 
-    chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+    chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
         if (message.method === "check") {
             var currentStyle = document.getElementById(message.element + "Style");
             if (message.element == "youtubeThumbnails" || message.element == "youtubeNotifications") {
                 if (currentStyle && currentStyle.innerHTML === cssSelectors[message.element + 'CssBlur']) {
-                    sendResponse({text: "blur"});
+                    sendResponse({ text: "blur" });
                 } else if (currentStyle && currentStyle.innerHTML === cssSelectors[message.element + 'CssBlack']) {
-                    sendResponse({text: "black"});
+                    sendResponse({ text: "black" });
                 } else if (currentStyle && currentStyle.innerHTML === cssSelectors[message.element + 'CssOn']) {
-                    sendResponse({text: "visible"});
+                    sendResponse({ text: "visible" });
                 } else if (currentStyle && currentStyle.innerHTML === cssSelectors[message.element + 'CssOff']) {
-                    sendResponse({text: "hidden"});
+                    sendResponse({ text: "hidden" });
                 } else {
-                    sendResponse({text: "style element is undefined"});
+                    sendResponse({ text: "style element is undefined" });
                 }
             } else {
                 if (currentStyle == undefined) {
-                    sendResponse({text: "style element is undefined"});
+                    sendResponse({ text: "style element is undefined" });
                 } else if (currentStyle.innerHTML === cssSelectors[message.element + 'CssOn']) {
-                    sendResponse({text: "visible"});
+                    sendResponse({ text: "visible" });
                 } else if (currentStyle.innerHTML === cssSelectors[message.element + 'CssOff']) {
-                    sendResponse({text: "hidden"});
+                    sendResponse({ text: "hidden" });
                 }
             }
         } else if (message.method === "checkCustom" && message.selector) {
@@ -576,7 +574,7 @@
             sendResponse({ visible: isVisible });
         } else if (message.method === "toggleCustomVisibility" && message.selector) {
             const customStorageKey = `${currentSiteIdentifier}CustomHiddenElements`;
-            browser.storage.sync.get(customStorageKey, function(result) {
+            browser.storage.sync.get(customStorageKey, function (result) {
                 let customSelectors = result[customStorageKey] || [];
                 if (!Array.isArray(customSelectors)) customSelectors = [];
                 const css = customSelectors
@@ -621,11 +619,11 @@
             stopSelecting(message.cancelled);
         } else if (message.method === "removeCustomElement" && message.selector) {
             const customStorageKey = `${currentSiteIdentifier}CustomHiddenElements`;
-            browser.storage.sync.get(customStorageKey, function(result) {
+            browser.storage.sync.get(customStorageKey, function (result) {
                 let customSelectors = result[customStorageKey] || [];
                 if (!Array.isArray(customSelectors)) customSelectors = [];
                 customSelectors = customSelectors.filter(s => s !== message.selector);
-                browser.storage.sync.set({ [customStorageKey]: customSelectors }, function() {
+                browser.storage.sync.set({ [customStorageKey]: customSelectors }, function () {
                     applyCustomElementStyles(customSelectors);
                 });
             });
