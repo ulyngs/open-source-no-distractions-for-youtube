@@ -4,3 +4,4 @@ bug fixes and improvements:
 2. hiding subscriptions now also hides list of subscribed-to channels
 3. "Library" has been renamed to "You" and now hides the entire "You" section on desktop and the "You" tab on mobile
 4. fix the "Explore" hiding functionality
+5. make "View numbers" hide view count on all pages
