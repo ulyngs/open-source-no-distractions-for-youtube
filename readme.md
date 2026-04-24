@@ -6,7 +6,7 @@ The extension enables people to hide any distracting element on YouTube they wis
 To run this locally, install XCode, clone or download the repository to your computer, then click the Play button.
 
 > [!TIP]
-> For a general solution, see 'MindShield', which works on *any* website.
+> For a general solution, see 'ReDD Focus', which works on *any* website.
 > - [App Store](https://apps.apple.com/gb/app/mindshield/id1660218371)
 > - [Source Code](https://github.com/ulyngs/mindshield-open-source)
 
