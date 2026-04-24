@@ -12,6 +12,3 @@ To run this locally, install XCode, clone or download the repository to your com
 
 # Donate
 To support development of this extension, please click the 'Sponsor' button, or sign up for a Reduce Digital Distraction Workshop at [redd-project.org](https://redd-project.org)
-
-# Terms of use
-This code is licensed under the [CC BY-NC-ND 3.0](https://creativecommons.org/licenses/by-nc-nd/3.0/) License.
