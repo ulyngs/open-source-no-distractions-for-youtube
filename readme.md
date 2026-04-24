@@ -11,4 +11,4 @@ To run this locally, install XCode, clone or download the repository to your com
 > - [Source Code](https://github.com/ulyngs/mindshield-open-source)
 
 # Donate
-To support development of this extension, please click the 'Sponsor' button, or sign up for a Reduce Digital Distraction Workshop at [redd-project.org](https://redd-project.org)
+To support development of this extension, please click the 'Sponsor' button.
