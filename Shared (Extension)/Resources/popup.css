@@ -2,13 +2,24 @@
     color-scheme: light dark;
 }
 
+html {
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
 body {
     width: 200px;
+    max-width: 100%;
     padding: 5px 10px 100px 10px;
     font-family: system-ui;
     text-align: center;
     background-color: #F5F5F5;
     color: #333333;
+    overflow-x: hidden;
 }
 
 .website-toggle {
@@ -495,7 +506,15 @@ footer .toggle-group {
     margin-top: 2px;
 }
 
+#sunsetBanner {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .sunset-banner {
+    width: 100%;
+    max-width: 100%;
     margin-bottom: 1em;
     text-align: center;
 }
@@ -505,18 +524,25 @@ footer .toggle-group {
     font-weight: 500;
     line-height: 1.35;
     margin: 0 0 0.45em;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 .sunset-banner-actions {
     display: flex;
     flex-direction: column;
     gap: 0.35em;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .sunset-banner-btn {
     display: block;
-    box-sizing: border-box;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     padding: 6px 12px;
     font-size: 0.85em;
     font-weight: 500;
@@ -527,6 +553,8 @@ footer .toggle-group {
     cursor: pointer;
     text-align: center;
     text-decoration: none;
+    white-space: normal;
+    overflow-wrap: break-word;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -667,7 +695,9 @@ p.how-to-description {
     }
 
     body {
-        width: 100%
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
     }
     #delay-content {
         margin: auto;
