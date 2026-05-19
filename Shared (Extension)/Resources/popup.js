@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const platformsWeTarget = ["youtube"];
     const elementsThatCanBeHidden = ["youtubeSearch", "youtubeSearchPredict", "youtubeRecVids", "youtubeThumbnails", "youtubeNotifications", "youtubeProfileImg",
-                                     "youtubeShorts", "youtubeSubscriptions", "youtubeLibrary", "youtubeHistory", "youtubeExplore", "youtubeMore",
-                                     "youtubeRelated", "youtubeSidebar", "youtubeComments", "youtubeAds", "youtubeViews", "youtubeLikes", "youtubeSubscribers"];
+                                     "youtubeShorts", "youtubeSubscriptions", "youtubeYou", "youtubeHistory", "youtubeExplore", "youtubeMore",
+                                     "youtubeRelated", "youtubeComments", "youtubeViews", "youtubeLikes", "youtubeSubscribers"];
     
     let isSelectionModeActive = false;
     const currentSiteIdentifier = "youtube";
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     elementsThatCanBeHidden.forEach(function(item) {
-        if (item === "youtubeThumbnails" || item === "youtubeNotifications") {
+        if (item === "youtubeThumbnails") {
             setButtonStateFour(item, item + "Toggle");
             toggleViewStatusMultiToggle(item, item + "Toggle");
         } else {

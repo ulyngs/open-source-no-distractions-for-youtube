@@ -46,9 +46,9 @@
                         <input type="checkbox" id="youtubeSubscriptionsToggle" name="youtubeSubscriptionsToggle">
                         <label for="youtubeSubscriptionsToggle">Subscriptions</label>
                     </div>
-                    <div class="a-toggle">
-                        <input type="checkbox" id="youtubeLibraryToggle" name="youtubeLibraryToggle">
-                        <label for="youtubeLibraryToggle">Library</label>
+                    <div class="a-toggle platform-ipad-mac">
+                        <input type="checkbox" id="youtubeYouToggle" name="youtubeYouToggle">
+                        <label for="youtubeYouToggle">You</label>
                     </div>
                     <div class="a-toggle platform-ipad-mac">
                         <input type="checkbox" id="youtubeHistoryToggle" name="youtubeHistoryToggle">
@@ -104,10 +104,12 @@
                         <input type="checkbox" id="youtubeRelatedToggle" name="youtubeRelatedToggle">
                         <label for="youtubeRelatedToggle">Related/Up next videos</label>
                     </div>
+                    <!-- Sidebar option disabled due to layout issues
                     <div class="a-toggle hide-checkboxes platform-ipad-mac">
                         <input type="checkbox" id="youtubeSidebarToggle" name="youtubeSidebarToggle">
                         <label for="youtubeSidebarToggle">Entire right sidebar</label>
                     </div>
+                    -->
                     <div class="a-toggle">
                         <input type="checkbox" id="youtubeCommentsToggle" name="youtubeCommentsToggle">
                         <label for="youtubeCommentsToggle">Comments</label>
@@ -119,13 +121,9 @@
                 </div>
                 <div class="toggle-group hide-checkboxes">
                     <h2>General</h2>
-                    <div class="a-toggle">
-                        <input class="hide-checkbox" type="checkbox" id="youtubeAdsToggle" name="youtubeAdsToggle">
-                        <label for="youtubeAdsToggle">Ads</label>
-                    </div>
                     <div class="a-toggle platform-ipad-mac">
-                        <button class="multi-state-checkbox" id="youtubeNotificationsToggle" data-state="On"></button>
-                        <label class="multi-state-label" for="youtubeNotificationsToggle">Notifications</label>
+                        <input class="hide-checkbox" type="checkbox" id="youtubeNotificationsToggle" name="youtubeNotificationsToggle">
+                        <label for="youtubeNotificationsToggle">Notifications</label>
                     </div>
                     <div class="a-toggle">
                         <button class="multi-state-checkbox" id="youtubeThumbnailsToggle" data-state="On"></button>
