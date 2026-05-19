@@ -7,7 +7,7 @@ The extension enables people to hide any distracting element on YouTube they wis
 
 All selectors have been updated for YouTube’s current layout, with some new additions.
 
-**"No Distractions" for YouTube will no longer be maintained.** For hiding distractions on YouTube and other sites, use **ReDD Focus**:
+**"No Distractions" for YouTube will no longer be maintained.** For hiding distractions on YouTube and any other site, use **ReDD Focus**:
 
 - [App Store](https://apps.apple.com/gb/app/mindshield/id1660218371)
 - [Chrome](https://chromewebstore.google.com/detail/redd-focus-hide-distracti/hhblkhfdjijdinijakbmcpkmdfhoadcd) · [Firefox](https://addons.mozilla.org/en-GB/firefox/addon/reddfocus/)
