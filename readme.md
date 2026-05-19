@@ -3,12 +3,21 @@ Source code for the Safari extension "No Distractions" for YouTube, available fo
 
 The extension enables people to hide any distracting element on YouTube they wish.
 
-To run this locally, install XCode, clone or download the repository to your computer, then click the Play button.
+## Final update — 20 May 2026
 
-> [!TIP]
-> For a general solution, see 'ReDD Focus', which works on *any* website.
-> - [App Store](https://apps.apple.com/gb/app/mindshield/id1660218371)
-> - [Source Code](https://github.com/ulyngs/mindshield-open-source)
+All selectors have been updated for YouTube’s current layout, with some new additions.
+
+**"No Distractions" for YouTube will no longer be maintained.** For hiding distractions on YouTube and other sites, use **ReDD Focus**:
+
+- [App Store](https://apps.apple.com/gb/app/mindshield/id1660218371)
+- [Chrome](https://chromewebstore.google.com/detail/redd-focus-hide-distracti/hhblkhfdjijdinijakbmcpkmdfhoadcd) · [Firefox](https://addons.mozilla.org/en-GB/firefox/addon/reddfocus/)
+- [Source code](https://github.com/ulyngs/reddfocus-open-source)
+
+Thank you to everyone who used and supported this extension over the years.
+
+---
+
+To run this locally, install XCode, clone or download the repository to your computer, then click the Play button.
 
 # Donate
 To support development of this extension, please click the 'Sponsor' button.
