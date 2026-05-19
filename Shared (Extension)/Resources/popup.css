@@ -495,14 +495,58 @@ footer .toggle-group {
     margin-top: 2px;
 }
 
-.review-prompt-content {
-    margin-bottom: 1.5em;
+.sunset-banner {
+    margin-bottom: 1em;
+    text-align: center;
 }
 
+.sunset-banner p {
+    font-size: 0.85em;
+    font-weight: 500;
+    line-height: 1.35;
+    margin: 0 0 0.45em;
+}
 
+.sunset-banner-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35em;
+}
 
-#noThanksButton {
-    margin-top: 1.5em;
+.sunset-banner-btn {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 0.85em;
+    font-weight: 500;
+    font-family: inherit;
+    line-height: 1.25;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sunset-banner-btn-primary {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.sunset-banner-btn-primary:hover {
+    background-color: #2d2d2d;
+    color: #ffffff;
+}
+
+#sunsetDismissButton.sunset-banner-btn {
+    background-color: rgb(228, 228, 231);
+    color: rgb(24, 24, 27);
+}
+
+#sunsetDismissButton.sunset-banner-btn:hover {
+    background-color: rgb(212, 212, 216);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -518,6 +562,20 @@ footer .toggle-group {
 
     a, a:visited {
         color: gray;
+    }
+
+    .sunset-banner-btn-primary,
+    .sunset-banner-btn-primary:hover {
+        color: #ffffff;
+    }
+
+    #sunsetDismissButton.sunset-banner-btn {
+        background-color: rgb(63, 63, 70);
+        color: rgb(250, 250, 250);
+    }
+
+    #sunsetDismissButton.sunset-banner-btn:hover {
+        background-color: rgb(82, 82, 91);
     }
     #sites-arrow path {
         fill: rgb(194, 194, 194);

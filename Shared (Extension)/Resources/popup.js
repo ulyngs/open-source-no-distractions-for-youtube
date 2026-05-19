@@ -7,21 +7,49 @@ document.addEventListener('DOMContentLoaded', function() {
     let isSelectionModeActive = false;
     const currentSiteIdentifier = "youtube";
 
+    const SUNSET_OPENS_INTERVAL = 10;
+    const SUNSET_OPENS_AFTER_DISMISS = 25;
+
     let opensCount = localStorage.getItem('opensCount');
     opensCount = opensCount ? parseInt(opensCount, 10) + 1 : 1;
-    localStorage.setItem('opensCount', opensCount);
-    let noThanksClicked = localStorage.getItem('noThanksClicked') === 'true';
-    if (opensCount % 10 === 0 && !noThanksClicked) {
-        var reviewPrompt = document.getElementById('reviewPrompt');
-        if (reviewPrompt) {
-            reviewPrompt.style.display = 'block';
+    localStorage.setItem('opensCount', String(opensCount));
+
+    function shouldShowSunsetBanner() {
+        const version = browser.runtime.getManifest().version;
+        const lastVersion = localStorage.getItem('sunsetBannerVersion');
+        if (lastVersion !== version) {
+            return true;
         }
+        const dismissRaw = localStorage.getItem('sunsetDismissedAtOpen');
+        const dismissedAt = dismissRaw ? parseInt(dismissRaw, 10) : null;
+        if (dismissedAt === null) {
+            return opensCount === 1 || opensCount % SUNSET_OPENS_INTERVAL === 0;
+        }
+        const sinceDismiss = opensCount - dismissedAt;
+        return sinceDismiss >= SUNSET_OPENS_AFTER_DISMISS && sinceDismiss % SUNSET_OPENS_AFTER_DISMISS === 0;
     }
-    document.getElementById('noThanksButton').addEventListener('click', function() {
-        localStorage.setItem('noThanksClicked', 'true');
-        var reviewPrompt = document.getElementById('reviewPrompt');
-        if (reviewPrompt) {
-            reviewPrompt.style.display = 'none';
+
+    function showSunsetBanner() {
+        const banner = document.getElementById('sunsetBanner');
+        if (!banner) return;
+        const version = browser.runtime.getManifest().version;
+        const lastVersion = localStorage.getItem('sunsetBannerVersion');
+        if (lastVersion !== version) {
+            localStorage.setItem('sunsetBannerVersion', version);
+            localStorage.removeItem('sunsetDismissedAtOpen');
+        }
+        banner.style.display = 'block';
+    }
+
+    if (shouldShowSunsetBanner()) {
+        showSunsetBanner();
+    }
+
+    document.getElementById('sunsetDismissButton').addEventListener('click', function() {
+        localStorage.setItem('sunsetDismissedAtOpen', String(opensCount));
+        const banner = document.getElementById('sunsetBanner');
+        if (banner) {
+            banner.style.display = 'none';
         }
     });
 
